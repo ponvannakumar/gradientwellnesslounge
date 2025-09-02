@@ -16,9 +16,9 @@ const Footer = () => {
           {/* Logo and Description */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <Activity className="w-6 h-6 text-pink-400" />
+              <img src="/favicon.png" alt="Gradient Holistic Wellness Lounge" className="w-6 h-6 object-contain" />
               <span className="text-lg font-bold gradient-text">
-                Gradient Wellness Lounge
+                Gradient Holistic Wellness Lounge
               </span>
             </div>
             <p className="text-gray-400 leading-relaxed">
@@ -66,7 +66,7 @@ const Footer = () => {
             ))}
           </div>
           <p className="text-gray-500 text-sm">
-            © 2025 Gradient Wellness Lounge | All Rights Reserved.
+            © 2025 Gradient Holistic Wellness Lounge | All Rights Reserved.
           </p>
         </div>
       </div>
