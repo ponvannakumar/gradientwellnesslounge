@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from 'lucide-react';
 import FadeInSection from '../components/FadeInSection';
-import ParallaxBackground from '../components/ParallaxBackground';
+ 
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -62,7 +62,7 @@ const Contact = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <ParallaxBackground imageUrl="https://images.pexels.com/photos/3768005/pexels-photo-3768005.jpeg" />
+      
       
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center text-center section-padding">
@@ -71,7 +71,7 @@ const Contact = () => {
             <h1 className="text-5xl md:text-6xl font-bold gradient-text mb-8">
               Get In Touch
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
+            <p className="subtitle mb-12 max-w-4xl mx-auto leading-relaxed">
               Ready to start your wellness journey? Contact our expert team today 
               for a complimentary consultation and discover how we can help you 
               achieve your health goals.
@@ -88,7 +88,7 @@ const Contact = () => {
               <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
                 Contact Information
               </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              <p className="subtitle max-w-3xl mx-auto">
                 Multiple ways to connect with our wellness experts. 
                 Choose what works best for you.
               </p>
@@ -100,7 +100,7 @@ const Contact = () => {
               <FadeInSection key={index} delay={index * 100}>
                 <div className="service-card text-center">
                   <div className="flex justify-center mb-4">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center">
+                    <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(90deg, #b91c1c 0%, #8a1111 88%, #111111 100%)' }}>
                       <info.icon size={32} className="text-white" />
                     </div>
                   </div>
@@ -111,7 +111,8 @@ const Contact = () => {
                         {info.link && detailIndex === 0 ? (
                           <a 
                             href={info.link} 
-                            className="text-pink-400 hover:text-pink-300 transition-colors"
+                            className="transition-colors"
+                            style={{ color: '#8b0000' }}
                             target={info.link.startsWith('http') ? '_blank' : undefined}
                             rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
                           >
@@ -140,7 +141,7 @@ const Contact = () => {
                 <h2 className="text-4xl font-bold gradient-text mb-6">
                   Send Us a Message
                 </h2>
-                <p className="text-lg text-gray-300 mb-8">
+                <p className="subtitle mb-8">
                   Fill out the form below and we'll get back to you within 24 hours 
                   to discuss your wellness goals and schedule your consultation.
                 </p>
@@ -236,7 +237,7 @@ const Contact = () => {
                 <h2 className="text-4xl font-bold gradient-text mb-6">
                   Visit Our Location
                 </h2>
-                <p className="text-lg text-gray-300 mb-8">
+                <p className="subtitle mb-8">
                   Located in the heart of Health City, our premium facility 
                   is easily accessible with ample parking and public transportation options.
                 </p>
@@ -292,7 +293,7 @@ const Contact = () => {
               <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
                 Ready to Transform Your Life?
               </h2>
-              <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+              <p className="subtitle mb-8 max-w-2xl mx-auto">
                 Don't wait to start your wellness journey. Our team is ready to help 
                 you achieve your health and fitness goals with personalized care and expert guidance.
               </p>

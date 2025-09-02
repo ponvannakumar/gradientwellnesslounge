@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
 import FadeInSection from '../components/FadeInSection';
-import ParallaxBackground from '../components/ParallaxBackground';
+ 
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -71,7 +71,7 @@ const Testimonials = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <ParallaxBackground imageUrl="https://images.pexels.com/photos/3768911/pexels-photo-3768911.jpeg" />
+      
       
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center text-center section-padding">
@@ -80,7 +80,7 @@ const Testimonials = () => {
             <h1 className="text-5xl md:text-6xl font-bold gradient-text mb-8">
               Client Success Stories
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
+            <p className="subtitle mb-12 max-w-4xl mx-auto leading-relaxed">
               Discover how our comprehensive wellness programs have transformed 
               the lives of our clients. Real people, real results, real transformation.
             </p>
@@ -97,7 +97,8 @@ const Testimonials = () => {
                 {/* Navigation Buttons */}
                 <button
                   onClick={prevTestimonial}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 w-12 h-12 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center text-white hover:scale-110 transition-transform z-10"
+                  className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 w-12 h-12 rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform z-10"
+                  style={{ background: 'linear-gradient(90deg, #b91c1c 0%, #8a1111 88%, #111111 100%)' }}
                   aria-label="Previous testimonial"
                 >
                   <ChevronLeft size={24} />
@@ -105,7 +106,8 @@ const Testimonials = () => {
                 
                 <button
                   onClick={nextTestimonial}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 w-12 h-12 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center text-white hover:scale-110 transition-transform z-10"
+                  className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 w-12 h-12 rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform z-10"
+                  style={{ background: 'linear-gradient(90deg, #b91c1c 0%, #8a1111 88%, #111111 100%)' }}
                   aria-label="Next testimonial"
                 >
                   <ChevronRight size={24} />
@@ -127,19 +129,19 @@ const Testimonials = () => {
                   {/* Rating */}
                   <div className="flex justify-center mb-6">
                     {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                      <Star key={i} size={24} className="text-yellow-400 fill-current" />
+                      <Star key={i} size={24} className="text-[#8b0000] fill-current" />
                     ))}
                   </div>
                   
                   {/* Quote */}
-                  <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-8 italic">
+                  <p className="subtitle leading-relaxed mb-8 italic">
                     "{testimonials[currentIndex].quote}"
                   </p>
                   
                   {/* Result */}
-                  <div className="bg-gradient-to-r from-pink-500/10 to-purple-600/10 rounded-lg p-6 mb-8 border border-pink-500/20">
+                  <div className="bg-gradient-to-r from-[#8b0000]/10 to-[#111111]/10 rounded-lg p-6 mb-8 border border-[#8b0000]/20">
                     <h4 className="text-pink-400 font-semibold mb-2">Results Achieved:</h4>
-                    <p className="text-gray-300">{testimonials[currentIndex].result}</p>
+                    <p className="text-gray-700">{testimonials[currentIndex].result}</p>
                   </div>
                   
                   {/* Client Info */}
@@ -147,7 +149,7 @@ const Testimonials = () => {
                     <h3 className="text-2xl font-bold gradient-text mb-2">
                       {testimonials[currentIndex].name}
                     </h3>
-                    <p className="text-pink-400 font-medium">
+                    <p className="font-medium" style={{ color: '#8b0000' }}>
                       {testimonials[currentIndex].program}
                     </p>
                   </div>
@@ -161,9 +163,10 @@ const Testimonials = () => {
                       onClick={() => goToTestimonial(index)}
                       className={`w-3 h-3 rounded-full transition-all duration-300 ${
                         index === currentIndex
-                          ? 'bg-gradient-to-r from-pink-500 to-purple-600 scale-125'
+                          ? 'scale-125'
                           : 'bg-gray-600 hover:bg-gray-500'
                       }`}
+                      style={index === currentIndex ? { background: 'linear-gradient(90deg, #b91c1c 0%, #8a1111 88%, #111111 100%)' } : undefined}
                       aria-label={`Go to testimonial ${index + 1}`}
                     />
                   ))}
@@ -216,7 +219,7 @@ const Testimonials = () => {
               <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
                 Our Impact in Numbers
               </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              <p className="subtitle max-w-3xl mx-auto">
                 These numbers represent real transformations and successful wellness journeys.
               </p>
             </div>
@@ -262,7 +265,7 @@ const Testimonials = () => {
               <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
                 Ready to Write Your Success Story?
               </h2>
-              <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+              <p className="subtitle mb-12 max-w-2xl mx-auto">
                 Join hundreds of satisfied clients who have transformed their lives 
                 with our comprehensive wellness programs.
               </p>

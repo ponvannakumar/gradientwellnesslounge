@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles, Trophy } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FadeInSection from '../components/FadeInSection';
-import ParallaxBackground from '../components/ParallaxBackground';
+ 
 
 const Menu = () => {
   const programs = [
@@ -64,7 +64,7 @@ const Menu = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <ParallaxBackground imageUrl="https://images.pexels.com/photos/3768593/pexels-photo-3768593.jpeg" />
+      
       
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center text-center section-padding">
@@ -73,7 +73,7 @@ const Menu = () => {
             <h1 className="text-5xl md:text-6xl font-bold gradient-text mb-8">
               Wellness Programs
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
+            <p className="subtitle mb-12 max-w-4xl mx-auto leading-relaxed">
               Choose from our carefully crafted wellness programs designed to meet your 
               unique goals and lifestyle. Each program combines multiple disciplines for 
               comprehensive transformation.
@@ -91,26 +91,26 @@ const Menu = () => {
                 <div className="service-card">
                   <div className="text-center mb-12">
                     <div className="flex justify-center mb-6">
-                      <div className="w-20 h-20 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center">
+                      <div className="w-20 h-20 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(90deg, #b91c1c 0%, #8a1111 88%, #111111 100%)' }}>
                         <program.icon size={40} className="text-white" />
                       </div>
                     </div>
                     <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
                       {program.title}
                     </h2>
-                    <p className="text-xl text-pink-400 font-medium mb-6">
+                    <p className="text-xl font-medium mb-6" style={{ color: '#8b0000' }}>
                       {program.subtitle}
                     </p>
-                    <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                    <p className="subtitle max-w-3xl mx-auto leading-relaxed">
                       {program.description}
                     </p>
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-8">
                     {program.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="bg-black bg-opacity-40 rounded-xl p-6 border border-pink-500/20">
+                      <div key={featureIndex} className="bg-gradient-to-r from-[#8b0000]/10 to-[#111111]/10 rounded-xl p-6 border border-[#8b0000]/20">
                         <h3 className="text-xl font-bold text-white mb-3">{feature.name}</h3>
-                        <p className="text-gray-300 leading-relaxed">{feature.description}</p>
+                        <p className="subtitle leading-relaxed">{feature.description}</p>
                       </div>
                     ))}
                   </div>
@@ -136,7 +136,7 @@ const Menu = () => {
               <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
                 Additional Wellness Services
               </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              <p className="subtitle max-w-3xl mx-auto">
                 Enhance your wellness journey with our specialized services 
                 designed to complement your core program.
               </p>
@@ -194,7 +194,7 @@ const Menu = () => {
               <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
                 Start Your Transformation Today
               </h2>
-              <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+              <p className="subtitle mb-12 max-w-2xl mx-auto">
                 Ready to commit to your wellness journey? Contact us to discuss 
                 which program is the perfect fit for your goals and lifestyle.
               </p>

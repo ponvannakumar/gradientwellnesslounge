@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Activity } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,9 +32,9 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <Activity className="w-8 h-8 text-pink-400" />
+            <img src="/logo.png" alt="Gradient Holistic Wellness Lounge" className="w-10 h-10 object-contain" />
             <span className="text-xl font-bold gradient-text">
-              Gradient Wellness Lounge
+              Gradient Holistic Wellness Lounge
             </span>
           </Link>
 

@@ -51,7 +51,7 @@ const PersonalTraining = () => {
         <div className="container">
           <FadeInSection>
             <div className="flex justify-center mb-8">
-              <div className="w-24 h-24 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center">
+              <div className="w-24 h-24 rounded-full bg-gradient-to-r from-[#b91c1c] via-[#8a1111] to-[#111111] flex items-center justify-center">
                 <Activity size={48} className="text-white" />
               </div>
             </div>
@@ -98,7 +98,7 @@ const PersonalTraining = () => {
                       <div className="space-y-3">
                         {program.benefits.map((benefit, benefitIndex) => (
                           <div key={benefitIndex} className="flex items-center gap-3">
-                            <CheckCircle size={20} className="text-pink-400 flex-shrink-0" />
+                            <CheckCircle size={20} className="text-[#b91c1c] flex-shrink-0" />
                             <span className="text-gray-300">{benefit}</span>
                           </div>
                         ))}
@@ -106,8 +106,8 @@ const PersonalTraining = () => {
                     </div>
                   </div>
                   <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                    <div className="aspect-square rounded-3xl bg-gradient-to-br from-pink-500/20 to-purple-600/20 flex items-center justify-center border border-pink-500/20">
-                      <Activity size={120} className="text-pink-400 opacity-50" />
+                    <div className="aspect-square rounded-3xl bg-gradient-to-br from-[#b91c1c]/20 via-[#8a1111]/20 to-[#111111]/20 flex items-center justify-center border border-[#b91c1c]/20">
+                      <Activity size={120} className="text-[#b91c1c] opacity-50" />
                     </div>
                   </div>
                 </div>

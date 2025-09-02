@@ -1,176 +1,251 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Award, Users, MapPin, Heart } from 'lucide-react';
+import React, { useMemo, useRef, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import FadeInSection from '../components/FadeInSection';
 import ParallaxBackground from '../components/ParallaxBackground';
 
-const About = () => {
-  const team = [
-    {
-      name: 'Dr. Sarah Mitchell',
-      role: 'Lead Physiotherapist',
-      credentials: 'DPT, MS Sports Medicine',
-      description: 'Over 10 years of experience in rehabilitation and sports injury prevention.',
-    },
-    {
-      name: 'Marcus Thompson',
-      role: 'Head Personal Trainer',
-      credentials: 'NASM-CPT, CSCS',
-      description: 'Certified strength and conditioning specialist with expertise in functional training.',
-    },
-    {
-      name: 'Dr. Elena Rodriguez',
-      role: 'Nutrition Specialist',
-      credentials: 'PhD Nutrition Science, RD',
-      description: 'Registered dietitian specializing in performance nutrition and metabolic health.',
-    },
-    {
-      name: 'James Wilson',
-      role: 'Wellness Coach',
-      credentials: 'NCHC, Mindfulness Instructor',
-      description: 'Certified health coach focusing on stress management and lifestyle optimization.',
-    },
-  ];
+interface PersonProfile {
+  name: string;
+  title: string;
+  bio: string[];
+  image: string;
+  heroHeadline: string;
+  gallery: string[];
+}
 
-  const stats = [
-    { icon: Users, value: '500+', label: 'Happy Clients' },
-    { icon: Award, value: '8+', label: 'Years Experience' },
-    { icon: MapPin, value: '1', label: 'Premium Location' },
-    { icon: Heart, value: '100%', label: 'Satisfaction Rate' },
-  ];
+const peopleSeed: PersonProfile[] = [
+  {
+    name: 'Sarah Mitchell',
+    title: 'Lead Physiotherapist',
+    bio: [
+      'Dedicated to holistic recovery and performance optimization.',
+      'Specializes in injury rehabilitation and movement restoration.',
+    ],
+    image: 'https://images.pexels.com/photos/5328034/pexels-photo-5328034.jpeg',
+    heroHeadline: 'Awaken Your Mind, Body & Spirit with Us',
+    gallery: [
+      'https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg',
+      'https://images.pexels.com/photos/1218483/pexels-photo-1218483.jpeg',
+      'https://images.pexels.com/photos/1552249/pexels-photo-1552249.jpeg',
+      'https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg',
+      'https://images.pexels.com/photos/374703/pexels-photo-374703.jpeg',
+      'https://images.pexels.com/photos/247005/pexels-photo-247005.jpeg'
+    ],
+  },
+  {
+    name: 'Marcus Thompson',
+    title: 'Head Personal Trainer',
+    bio: [
+      'Coaches high-impact, sustainable training programs.',
+      'Believes in data-driven progress and form-first technique.',
+    ],
+    image: 'https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg',
+    heroHeadline: 'We Don’t Just Heal. We Empower.',
+    gallery: [
+      'https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg',
+      'https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg',
+      'https://images.pexels.com/photos/1218483/pexels-photo-1218483.jpeg',
+      'https://images.pexels.com/photos/374703/pexels-photo-374703.jpeg',
+      'https://images.pexels.com/photos/1552249/pexels-photo-1552249.jpeg',
+      'https://images.pexels.com/photos/247005/pexels-photo-247005.jpeg'
+    ],
+  },
+];
+
+const pageVariants = {
+  initial: { opacity: 0, y: 24 },
+  enter: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  exit: { opacity: 0, y: -24, transition: { duration: 0.5 } },
+};
+
+// Reusable components
+const HeroSection: React.FC<{ person: PersonProfile }> = ({ person }) => {
+  return (
+    <section className="section-padding">
+      <div className="container">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left: Text */}
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+            <div className="flex items-center gap-2 mb-4">
+              <span className="text-sm font-medium" style={{ color: '#8b0000' }}>{`I’m ${person.name}`}</span>
+              <span className="text-sm">→</span>
+            </div>
+            <h1 className="text-5xl md:text-6xl font-extrabold gradient-text mb-6">{person.heroHeadline}</h1>
+            <p className="subtitle mb-8 max-w-xl">
+              Reflections, practices, and stories about presence, compassion, and joyful living. I write to help you slow down, notice, and reconnect with what matters most.
+            </p>
+            <button className="gradient-button inline-flex items-center gap-2">
+              Let’s talk
+            </button>
+          </motion.div>
+
+          {/* Right: Image with play overlay */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7 }}
+            className="relative"
+          >
+            <div className="rounded-3xl overflow-hidden shadow-lg border" style={{ borderColor: 'rgba(185,28,28,0.25)' }}>
+              <img src={person.image} alt={person.name} className="w-full h-full object-cover" />
+            </div>
+            <button
+              className="absolute inset-0 m-auto w-16 h-16 rounded-full flex items-center justify-center text-white shadow-lg"
+              style={{ background: 'linear-gradient(90deg, #b91c1c 0%, #8a1111 88%, #111111 100%)' }}
+              aria-label="Play"
+            >
+              ▶
+            </button>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const MasonryGrid: React.FC<{ person: PersonProfile }> = ({ person }) => {
+  // Split images into three columns for a Pinterest-style layout
+  const colA: string[] = [];
+  const colB: string[] = [];
+  const colC: string[] = [];
+  person.gallery.forEach((src, i) => {
+    if (i % 3 === 0) colA.push(src);
+    else if (i % 3 === 1) colB.push(src);
+    else colC.push(src);
+  });
+
+  const columnStyles = {
+    card: {
+      borderColor: 'rgba(185,28,28,0.15)'
+    } as React.CSSProperties,
+  };
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <ParallaxBackground imageUrl="https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg" />
-      
-      {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center text-center section-padding">
-        <div className="container">
-          <FadeInSection>
-            <h1 className="text-5xl md:text-6xl font-bold gradient-text mb-8">
-              About Gradient Wellness
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
-              We're dedicated to transforming lives through comprehensive wellness solutions 
-              that address your physical, mental, and nutritional needs in a luxury environment.
-            </p>
-          </FadeInSection>
-        </div>
-      </section>
-
-      {/* Mission Section */}
-      <section className="section-padding bg-black bg-opacity-20">
-        <div className="container">
-          <FadeInSection>
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-8">
-                Our Mission
-              </h2>
-              <p className="text-lg text-gray-300 leading-relaxed mb-8">
-                At Gradient Wellness Lounge, we believe that true wellness is achieved through 
-                a holistic approach that integrates physical fitness, mental wellbeing, and 
-                nutritional balance. Our mission is to provide you with the tools, knowledge, 
-                and support needed to achieve your optimal health.
-              </p>
-              <p className="text-lg text-gray-300 leading-relaxed">
-                We combine cutting-edge techniques with personalized care to create 
-                transformation programs that are sustainable, effective, and tailored 
-                to your unique lifestyle and goals.
-              </p>
-            </div>
-          </FadeInSection>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="section-padding">
-        <div className="container">
-          <FadeInSection>
-            <div className="grid md:grid-cols-4 gap-8 text-center">
-              {stats.map((stat, index) => (
-                <div key={index} className="service-card">
-                  <div className="flex justify-center mb-4">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center">
-                      <stat.icon size={32} className="text-white" />
-                    </div>
-                  </div>
-                  <h3 className="text-3xl font-bold gradient-text mb-2">{stat.value}</h3>
-                  <p className="text-gray-300">{stat.label}</p>
+    <section className="section-padding" style={{ background: '#efe9dc' }}>
+      <div className="container">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
+          {/* Column 1 - faster up/down */}
+          <motion.div initial={{ y: 0 }} animate={{ y: [-110, 110] }} transition={{ duration: 4.2, repeat: Infinity, repeatType: 'mirror', ease: 'linear' }} style={{ willChange: 'transform' }}>
+            {colA.map((src, i) => (
+              <motion.div key={`a-${i}`} className="mb-4 rounded-2xl overflow-hidden border bg-white max-w-[450px] mx-auto shadow-sm" style={columnStyles.card as any} whileHover={{ scale: 1.03 }} transition={{ type: 'spring', stiffness: 160, damping: 18 }}>
+                <div className="w-full aspect-[3/4]">
+                  <img src={src} alt="gallery" className="w-full h-full object-cover" />
                 </div>
-              ))}
-            </div>
-          </FadeInSection>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="section-padding bg-black bg-opacity-20">
-        <div className="container">
-          <FadeInSection>
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
-                Meet Our Expert Team
-              </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                Our certified professionals bring together decades of experience 
-                in fitness, nutrition, physiotherapy, and wellness coaching.
-              </p>
-            </div>
-          </FadeInSection>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, index) => (
-              <FadeInSection key={index} delay={index * 200}>
-                <div className="service-card text-center">
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 mx-auto mb-6 flex items-center justify-center">
-                    <Users size={40} className="text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold gradient-text mb-2">{member.name}</h3>
-                  <p className="text-pink-400 font-medium mb-2">{member.role}</p>
-                  <p className="text-sm text-gray-400 mb-4">{member.credentials}</p>
-                  <p className="text-gray-300 text-sm leading-relaxed">{member.description}</p>
-                </div>
-              </FadeInSection>
+              </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
+          </motion.div>
 
-      {/* Facility Section */}
-      <section className="section-padding">
+          {/* Column 2 - opposite direction, slightly different speed */}
+          <motion.div initial={{ y: 0 }} animate={{ y: [110, -110] }} transition={{ duration: 4.0, repeat: Infinity, repeatType: 'mirror', ease: 'linear' }} style={{ willChange: 'transform' }}>
+            {colB.map((src, i) => (
+              <motion.div key={`b-${i}`} className="mb-4 rounded-2xl overflow-hidden border bg-white max-w-[450px] mx-auto shadow-sm" style={columnStyles.card as any} whileHover={{ scale: 1.03 }} transition={{ type: 'spring', stiffness: 160, damping: 18 }}>
+                <div className="w-full aspect-[3/4]">
+                  <img src={src} alt="gallery" className="w-full h-full object-cover" />
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Column 3 - slight offset, different speed */}
+          <motion.div initial={{ y: 0 }} animate={{ y: [-110, 110] }} transition={{ duration: 4.6, repeat: Infinity, repeatType: 'mirror', ease: 'linear' }} style={{ willChange: 'transform' }}>
+            {colC.map((src, i) => (
+              <motion.div key={`c-${i}`} className="mb-4 rounded-2xl overflow-hidden border bg-white max-w-[450px] mx-auto shadow-sm" style={columnStyles.card as any} whileHover={{ scale: 1.03 }} transition={{ type: 'spring', stiffness: 160, damping: 18 }}>
+                <div className="w-full aspect-[3/4]">
+                  <img src={src} alt="gallery" className="w-full h-full object-cover" />
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const About = () => {
+  const people = useMemo(() => peopleSeed, []);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+
+  const current = people[currentIndex];
+
+  const goPrev = () => setCurrentIndex((i) => (i - 1 + people.length) % people.length);
+  const goNext = () => setCurrentIndex((i) => (i + 1) % people.length);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.changedTouches[0].clientX;
+  };
+
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current == null) return;
+    const delta = e.changedTouches[0].clientX - touchStartX.current;
+    const threshold = 40; // swipe threshold
+    if (delta > threshold) {
+      goPrev();
+    } else if (delta < -threshold) {
+      goNext();
+    }
+    touchStartX.current = null;
+  };
+
+  return (
+    <motion.div initial="initial" animate="enter" exit="exit" variants={pageVariants}>
+      <ParallaxBackground imageUrl="https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg" />
+      <HeroSection person={current} />
+      <MasonryGrid person={current} />
+
+      {/* Profile Switcher */}
+      <section className="section-padding" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
         <div className="container">
-          <FadeInSection>
-            <div className="text-center">
-              <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-8">
-                State-of-the-Art Facility
-              </h2>
-              <div className="max-w-4xl mx-auto">
-                <p className="text-lg text-gray-300 leading-relaxed mb-8">
-                  Our premium facility features cutting-edge equipment, serene wellness spaces, 
-                  and private consultation rooms designed to provide the ultimate wellness experience.
-                </p>
-                <div className="grid md:grid-cols-3 gap-8">
-                  <div className="service-card">
-                    <h3 className="gradient-text mb-4">Fitness Center</h3>
-                    <p className="text-gray-300">Advanced strength training and cardio equipment</p>
+          <AnimatePresence mode="wait">
+            <motion.div key={current.name} variants={pageVariants} initial="initial" animate="enter" exit="exit">
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
+                {/* Image */}
+                <div>
+                  <div className="rounded-3xl overflow-hidden border" style={{ borderColor: 'rgba(185,28,28,0.25)' }}>
+                    <div className="aspect-[4/5] w-full bg-gray-800" style={{ backgroundImage: `url(${current.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
                   </div>
-                  <div className="service-card">
-                    <h3 className="gradient-text mb-4">Therapy Rooms</h3>
-                    <p className="text-gray-300">Private spaces for physiotherapy and consultations</p>
+                </div>
+
+                {/* Content */}
+                <div>
+                  <div className="mb-4 w-16 h-16 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(90deg, #b91c1c 0%, #8a1111 88%, #111111 100%)' }}>
+                    <span className="text-white text-xl font-bold">GW</span>
                   </div>
-                  <div className="service-card">
-                    <h3 className="gradient-text mb-4">Wellness Studio</h3>
-                    <p className="text-gray-300">Dedicated space for yoga, meditation, and group sessions</p>
+                  <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-2">{current.name}</h2>
+                  <p className="text-[#8b0000] font-semibold mb-6">{current.title}</p>
+
+                  <div className="space-y-4">
+                    {current.bio.map((p, idx) => (
+                      <p key={idx} className="subtitle">{p}</p>
+                    ))}
+                  </div>
+
+                  {/* Accents like in reference: quote/card */}
+                  <div className="mt-8 bg-gradient-to-r from-[#b91c1c]/10 via-[#8a1111]/10 to-[#111111]/10 rounded-xl p-6 border" style={{ borderColor: 'rgba(185,28,28,0.2)' }}>
+                    <p className="text-gray-700 italic">“Replace this with your story, philosophy, or headline quote.”</p>
                   </div>
                 </div>
               </div>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Next / Prev */}
+          <div className="mt-12 flex items-center justify-between">
+            <button onClick={goPrev} className="gradient-button outline inline-flex items-center gap-2">
+              <ArrowLeft size={18} />
+              Previous
+            </button>
+            <div className="flex gap-2">
+              {people.map((_, i) => (
+                <span key={i} className={`w-2.5 h-2.5 rounded-full ${i === currentIndex ? '' : 'bg-gray-500'}`} style={i === currentIndex ? { background: 'linear-gradient(90deg, #b91c1c 0%, #8a1111 88%, #111111 100%)' } : undefined} />
+              ))}
             </div>
-          </FadeInSection>
+            <button onClick={goNext} className="gradient-button inline-flex items-center gap-2">
+              Next
+              <ArrowRight size={18} />
+            </button>
+          </div>
         </div>
       </section>
     </motion.div>

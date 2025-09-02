@@ -19,15 +19,15 @@ body {
 
 .App {
   min-height: 100vh;
-  background: #ffffff;
+  background: #fdf8f3 ;
   position: relative;
 }
 
-/* Gradient Text */
+/* Gradient Text - now split half red / half black for global headings */
 .gradient-text {
   font-family: 'Merriweather', serif;
   font-weight: 700;
-  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  background: linear-gradient(90deg, #b91c1c 0%, #b91c1c 50%, #111111 50%, #111111 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -40,10 +40,10 @@ body {
   100% { background-position: 100% 50%; }
 }
 
-/* Gradient Buttons */
+/* Buttons: revert to original style (white text, solid red gradient) */
 .gradient-button {
   background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
-  color: white;
+  color: #ffffff;
   font-weight: 600;
   border: none;
   border-radius: 30px;
@@ -64,6 +64,7 @@ body {
   transform: translateY(-2px) scale(1.05);
   box-shadow: 0 15px 40px rgba(220, 38, 38, 0.4);
   filter: brightness(1.1);
+  color: #ffffff;
 }
 
 .gradient-button.outline {
@@ -71,6 +72,7 @@ body {
   border: 2px solid transparent;
   background-clip: padding-box;
   position: relative;
+  color: inherit;
 }
 
 .gradient-button.outline::before {
@@ -90,6 +92,7 @@ body {
 
 .gradient-button.outline:hover {
   background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  color: #ffffff;
 }
 
 /* Service Cards */
@@ -152,6 +155,21 @@ h1, h2, h3, h4 {
 p {
   font-family: 'Open Sans', sans-serif;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Subtitle text: smooth near-black and heading font */
+.subtitle {
+  font-family: 'Merriweather', serif;
+  font-weight: 400;
+  color: #1f2937; /* smooth black */
+  font-size: 1.05rem; /* slightly smaller */
+  line-height: 1.65;
+}
+
+@media (min-width: 768px) {
+  .subtitle {
+    font-size: 1.25rem; /* smaller than previous 2xl */
+  }
 }
 
 /* Container */
@@ -296,25 +314,45 @@ p {
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-  margin-top: 48px;
+  gap: 0px;
+  margin-top: 24px;
 }
 
 .gallery-item {
   aspect-ratio: 4/3;
-  background: rgba(255, 255, 255, 0.9);
   border-radius: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #6b7280;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  background: #111;
 }
 
-.gallery-item:hover {
-  transform: scale(1.02);
-  border-color: rgba(220, 38, 38, 0.4);
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@keyframes float-up {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes float-down {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(15px); }
+}
+
+.gallery-grid .gallery-item:nth-child(3n+1) img {
+  animation: float-up 6s ease-in-out infinite;
+}
+
+.gallery-grid .gallery-item:nth-child(3n+2) img {
+  animation: float-down 6s ease-in-out infinite;
+}
+
+.gallery-grid .gallery-item:nth-child(3n+3) img {
+  animation: float-up 6s ease-in-out infinite;
 }
 
 /* Form Styles */
@@ -350,4 +388,26 @@ p {
 .form-textarea {
   resize: vertical;
   min-height: 120px;
+}
+
+/* Global subtitle override */
+.text-gray-300 {
+  color: #000000 !important;
+  font-weight: 700 !important;
+}
+
+/* Accent gradient text alias matching buttons */
+.accent-text {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Split half red / half black text for headings */
+.split-heading {
+  background: linear-gradient(90deg, #b91c1c 0%, #b91c1c 50%, #111111 50%, #111111 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

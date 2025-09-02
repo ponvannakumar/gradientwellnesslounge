@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Target, Heart, Utensils, Activity, Brain, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FadeInSection from '../components/FadeInSection';
-import ParallaxBackground from '../components/ParallaxBackground';
+ 
 
 const Services = () => {
   const services = [
@@ -86,7 +86,7 @@ const Services = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <ParallaxBackground imageUrl="https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg" />
+      
       
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center text-center section-padding">
@@ -95,7 +95,7 @@ const Services = () => {
             <h1 className="text-5xl md:text-6xl font-bold gradient-text mb-8">
               Our Premium Services
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
+            <p className="subtitle mb-12 max-w-4xl mx-auto leading-relaxed">
               Discover our comprehensive range of wellness services designed to transform 
               your health through expert guidance and personalized care.
             </p>
@@ -116,12 +116,12 @@ const Services = () => {
                   <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
                     <div className="service-card h-full">
                       <div className="flex items-center gap-4 mb-6">
-                        <div className="w-16 h-16 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center">
+                        <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(90deg, #b91c1c 0%, #8a1111 88%, #111111 100%)' }}>
                           <service.icon size={32} className="text-white" />
                         </div>
                         <h2 className="text-3xl font-bold gradient-text">{service.title}</h2>
                       </div>
-                      <p className="text-lg text-gray-300 mb-8 leading-relaxed">
+                      <p className="subtitle mb-8 leading-relaxed">
                         {service.description}
                       </p>
                       
@@ -137,9 +137,9 @@ const Services = () => {
                         </ul>
                       </div>
 
-                      <div className="bg-black bg-opacity-30 rounded-lg p-6">
-                        <p className="text-gray-300 italic mb-2">"{service.testimonial.split('" - ')[0]}"</p>
-                        <p className="text-pink-400 font-medium">- {service.testimonial.split('" - ')[1]}</p>
+                      <div className="bg-gradient-to-r from-[#8b0000]/10 to-[#111111]/10 rounded-lg p-6 border border-[#8b0000]/20">
+                        <p className="text-gray-700 italic mb-2">"{service.testimonial.split('" - ')[0]}"</p>
+                        <p className="font-medium" style={{ color: '#8b0000' }}>- {service.testimonial.split('" - ')[1]}</p>
                       </div>
                       
                       <div className="mt-8">
@@ -152,8 +152,8 @@ const Services = () => {
                   </div>
                   
                   <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                    <div className="aspect-square rounded-3xl bg-gradient-to-br from-pink-500/20 to-purple-600/20 flex items-center justify-center border border-pink-500/20">
-                      <service.icon size={120} className="text-pink-400 opacity-50" />
+                    <div className="aspect-square rounded-3xl bg-gradient-to-br from-[#8b0000]/20 to-[#111111]/20 flex items-center justify-center border border-[#8b0000]/20">
+                      <service.icon size={120} className="opacity-50" style={{ color: '#8b0000' }} />
                     </div>
                   </div>
                 </div>
@@ -171,7 +171,7 @@ const Services = () => {
               <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
                 Ready to Start Your Wellness Journey?
               </h2>
-              <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+              <p className="subtitle mb-12 max-w-2xl mx-auto">
                 Book a consultation today and let our expert team create a 
                 personalized wellness plan tailored to your unique goals.
               </p>

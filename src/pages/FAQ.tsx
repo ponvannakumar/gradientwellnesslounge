@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Plus, Minus, Image } from 'lucide-react';
 import FadeInSection from '../components/FadeInSection';
-import ParallaxBackground from '../components/ParallaxBackground';
+ 
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -56,7 +56,7 @@ const FAQ = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <ParallaxBackground imageUrl="https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg" />
+      
       
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center text-center section-padding">
@@ -65,7 +65,7 @@ const FAQ = () => {
             <h1 className="text-5xl md:text-6xl font-bold gradient-text mb-8">
               FAQ & Gallery
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
+            <p className="subtitle mb-12 max-w-4xl mx-auto leading-relaxed">
               Get answers to common questions and explore our state-of-the-art 
               wellness facility through our gallery.
             </p>
@@ -81,7 +81,7 @@ const FAQ = () => {
               <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
                 Frequently Asked Questions
               </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              <p className="subtitle max-w-3xl mx-auto">
                 Find answers to the most common questions about our services, 
                 programs, and approach to wellness.
               </p>
@@ -99,9 +99,9 @@ const FAQ = () => {
                     <span>{faq.question}</span>
                     <div className="flex-shrink-0 ml-4">
                       {openIndex === index ? (
-                        <Minus size={24} className="text-pink-400" />
+                        <Minus size={24} className="" style={{ color: '#8b0000' }} />
                       ) : (
-                        <Plus size={24} className="text-pink-400" />
+                        <Plus size={24} className="" style={{ color: '#8b0000' }} />
                       )}
                     </div>
                   </button>
@@ -134,7 +134,7 @@ const FAQ = () => {
               <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
                 Facility Gallery
               </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              <p className="subtitle max-w-3xl mx-auto">
                 Take a virtual tour of our premium wellness facility featuring 
                 state-of-the-art equipment and serene spaces designed for your transformation.
               </p>
@@ -146,7 +146,7 @@ const FAQ = () => {
               <FadeInSection key={index} delay={index * 100}>
                 <div className="gallery-item group">
                   <div className="text-center">
-                    <Image size={48} className="mx-auto mb-4 text-gray-500 group-hover:text-pink-400 transition-colors" />
+                    <Image size={48} className="mx-auto mb-4 text-gray-500 transition-colors" />
                     <p className="font-medium">{title}</p>
                     <p className="text-sm text-gray-500 mt-2">Coming Soon</p>
                   </div>
@@ -166,7 +166,7 @@ const FAQ = () => {
                 <h2 className="text-4xl font-bold gradient-text mb-6">
                   Still Have Questions?
                 </h2>
-                <p className="text-lg text-gray-300 leading-relaxed mb-8">
+                <p className="subtitle leading-relaxed mb-8">
                   Our team is here to help you understand how our comprehensive 
                   wellness approach can benefit your unique situation. We believe 
                   in transparency and want you to feel completely informed about 
