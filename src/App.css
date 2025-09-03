@@ -243,6 +243,28 @@ p {
   color: #e4e2d3;
 }
 
+/* Mobile Navigation Link */
+.nav-link-mobile {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 1.1rem;
+  border: 1px solid transparent;
+}
+
+.nav-link-mobile:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link-mobile.active {
+  background: #b91c1c;
+  color: #ffffff;
+  font-weight: 700;
+}
+
 /* Mobile Responsive - Enhanced for all breakpoints */
 
 /* Mobile: max-width 480px */

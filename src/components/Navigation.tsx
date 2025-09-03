@@ -53,7 +53,7 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-3 text-white rounded-lg hover:bg-white hover:bg-opacity-10 transition-all duration-300 min-h-[44px] min-w-[44px] flex items-center justify-center"
+            className="md:hidden p-3 text-gray-800 rounded-lg hover:bg-gray-200 transition-all duration-300 min-h-[44px] min-w-[44px] flex items-center justify-center"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
           >
@@ -70,8 +70,8 @@ const Navigation = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`nav-link mx-4 my-2 py-3 px-4 rounded-lg transition-all duration-300 min-h-[44px] flex items-center ${
-                  location.pathname === item.path ? 'active bg-red-600' : 'hover:bg-white hover:bg-opacity-10'
+                className={`nav-link-mobile ${
+                  location.pathname === item.path ? 'active' : ''
                 }`}
                 onClick={() => setIsMobileMenuOpen(false)}
                 style={{ animationDelay: `${index * 0.1}s` }}
