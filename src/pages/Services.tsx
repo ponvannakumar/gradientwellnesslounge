@@ -10,6 +10,7 @@ const Services = () => {
     {
       icon: Target,
       title: 'Fitness Assessment',
+      imageUrl: '/images/services/fitness-assessment.jpg',
       link: '/services/fitness-assessment',
       description: 'Comprehensive evaluation of your current fitness level, body composition, and movement patterns.',
       benefits: [
@@ -24,6 +25,7 @@ const Services = () => {
     {
       icon: Activity,
       title: 'Personal Training',
+      imageUrl: '/images/services/personal-training.jpg',
       link: '/services/personal-training',
       description: 'One-on-one training sessions with certified personal trainers tailored to your specific goals.',
       benefits: [
@@ -38,6 +40,7 @@ const Services = () => {
     {
       icon: Heart,
       title: 'Physiotherapy',
+      imageUrl: '/images/services/physiotherapy.jpg',
       link: '/services/physiotherapy',
       description: 'Professional rehabilitation services for injury recovery and prevention.',
       benefits: [
@@ -52,6 +55,7 @@ const Services = () => {
     {
       icon: Utensils,
       title: 'Nutrition & Diet',
+      imageUrl: '/images/services/nutrition.jpg',
       link: '/services/nutrition',
       description: 'Personalized nutrition plans and dietary guidance for optimal health and performance.',
       benefits: [
@@ -66,6 +70,7 @@ const Services = () => {
     {
       icon: Brain,
       title: 'Stress Management',
+      imageUrl: '/images/services/stress-management.jpg',
       link: '/services/stress-management',
       description: 'Comprehensive stress reduction techniques and mindfulness coaching.',
       benefits: [

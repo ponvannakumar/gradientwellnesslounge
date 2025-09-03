@@ -107,12 +107,7 @@ const Home = () => {
                   </div>
                   <h3 className="gradient-text mb-4">{service.title}</h3>
                   <p className="text-black font-bold leading-relaxed">{service.description}</p>
-                  <div className="mt-6">
-                    <Link to={service.link} className="text-[#8b0000] hover:text-[#a61b1b] font-medium inline-flex items-center gap-2 transition-colors">
-                      Learn More
-                      <ArrowRight size={16} />
-                    </Link>
-                  </div>
+                  {/* Removed Learn More button as per request */}
                 </div>
               </FadeInSection>
             ))}

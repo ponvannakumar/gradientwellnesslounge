@@ -85,30 +85,21 @@ const Physiotherapy = () => {
             </div>
           </FadeInSection>
 
-          <div className="space-y-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {therapyServices.map((service, index) => (
               <FadeInSection key={index} delay={index * 200}>
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
-                  <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                    <div className="service-card">
-                      <h3 className="text-3xl font-bold gradient-text mb-6">{service.title}</h3>
-                      <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                        {service.description}
-                      </p>
-                      <div className="space-y-3">
-                        {service.benefits.map((benefit, benefitIndex) => (
-                          <div key={benefitIndex} className="flex items-center gap-3">
-                            <CheckCircle size={20} className="text-[#b91c1c] flex-shrink-0" />
-                            <span className="text-gray-300">{benefit}</span>
-                          </div>
-                        ))}
+                <div className="service-card">
+                  <h3 className="text-3xl font-bold gradient-text mb-6">{service.title}</h3>
+                  <p className="text-lg text-gray-300 mb-8 leading-relaxed">
+                    {service.description}
+                  </p>
+                  <div className="space-y-3">
+                    {service.benefits.map((benefit, benefitIndex) => (
+                      <div key={benefitIndex} className="flex items-center gap-3">
+                        <CheckCircle size={20} className="text-[#b91c1c] flex-shrink-0" />
+                        <span className="text-gray-300">{benefit}</span>
                       </div>
-                    </div>
-                  </div>
-                  <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                    <div className="aspect-square rounded-3xl bg-gradient-to-br from-[#b91c1c]/20 via-[#8a1111]/20 to-[#111111]/20 flex items-center justify-center border border-[#b91c1c]/20">
-                      <Heart size={120} className="text-[#b91c1c] opacity-50" />
-                    </div>
+                    ))}
                   </div>
                 </div>
               </FadeInSection>
@@ -125,22 +116,30 @@ const Physiotherapy = () => {
               <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-8">
                 Our Treatment Process
               </h2>
-              <div className="grid md:grid-cols-4 gap-8">
-                <div className="service-card">
-                  <h3 className="text-xl font-bold gradient-text mb-4">1. Assessment</h3>
-                  <p className="text-gray-300">Comprehensive evaluation of your condition and movement patterns</p>
+              <div className="grid md:grid-cols-4 gap-8 text-center">
+                <div className="service-card p-6 flex flex-col items-center justify-center rounded-lg border border-red-200 shadow-lg">
+                  <h3 className="text-2xl font-bold gradient-text mb-4">1. Assessment</h3>
+                  <p className="text-gray-300 leading-relaxed max-w-xs">
+                    Comprehensive evaluation of your condition and movement patterns
+                  </p>
                 </div>
-                <div className="service-card">
-                  <h3 className="text-xl font-bold gradient-text mb-4">2. Diagnosis</h3>
-                  <p className="text-gray-300">Identify the root cause of your pain or dysfunction</p>
+                <div className="service-card p-6 flex flex-col items-center justify-center rounded-lg border border-red-200 shadow-lg">
+                  <h3 className="text-2xl font-bold gradient-text mb-4">2. Diagnosis</h3>
+                  <p className="text-gray-300 leading-relaxed max-w-xs">
+                    Identify the root cause of your pain or dysfunction
+                  </p>
                 </div>
-                <div className="service-card">
-                  <h3 className="text-xl font-bold gradient-text mb-4">3. Treatment</h3>
-                  <p className="text-gray-300">Personalized treatment plan with hands-on therapy</p>
+                <div className="service-card p-6 flex flex-col items-center justify-center rounded-lg border border-red-200 shadow-lg">
+                  <h3 className="text-2xl font-bold gradient-text mb-4">3. Treatment</h3>
+                  <p className="text-gray-300 leading-relaxed max-w-xs">
+                    Personalized treatment plan with hands-on therapy
+                  </p>
                 </div>
-                <div className="service-card">
-                  <h3 className="text-xl font-bold gradient-text mb-4">4. Recovery</h3>
-                  <p className="text-gray-300">Progressive rehabilitation and prevention strategies</p>
+                <div className="service-card p-6 flex flex-col items-center justify-center rounded-lg border border-red-200 shadow-lg">
+                  <h3 className="text-2xl font-bold gradient-text mb-4">4. Recovery</h3>
+                  <p className="text-gray-300 leading-relaxed max-w-xs">
+                    Progressive rehabilitation and prevention strategies
+                  </p>
                 </div>
               </div>
             </div>

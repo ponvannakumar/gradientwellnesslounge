@@ -85,30 +85,21 @@ const Nutrition = () => {
             </div>
           </FadeInSection>
 
-          <div className="space-y-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {nutritionServices.map((service, index) => (
               <FadeInSection key={index} delay={index * 200}>
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
-                  <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                    <div className="service-card">
-                      <h3 className="text-3xl font-bold gradient-text mb-6">{service.title}</h3>
-                      <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                        {service.description}
-                      </p>
-                      <div className="space-y-3">
-                        {service.benefits.map((benefit, benefitIndex) => (
-                          <div key={benefitIndex} className="flex items-center gap-3">
-                            <CheckCircle size={20} className="text-[#b91c1c] flex-shrink-0" />
-                            <span className="text-gray-300">{benefit}</span>
-                          </div>
-                        ))}
+                <div className="service-card">
+                  <h3 className="text-3xl font-bold gradient-text mb-6">{service.title}</h3>
+                  <p className="text-lg text-gray-300 mb-8 leading-relaxed">
+                    {service.description}
+                  </p>
+                  <div className="space-y-3">
+                    {service.benefits.map((benefit, benefitIndex) => (
+                      <div key={benefitIndex} className="flex items-center gap-3">
+                        <CheckCircle size={20} className="text-[#b91c1c] flex-shrink-0" />
+                        <span className="text-gray-300">{benefit}</span>
                       </div>
-                    </div>
-                  </div>
-                  <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                    <div className="aspect-square rounded-3xl bg-gradient-to-br from-[#b91c1c]/20 via-[#8a1111]/20 to-[#111111]/20 flex items-center justify-center border border-[#b91c1c]/20">
-                      <Utensils size={120} className="text-[#b91c1c] opacity-50" />
-                    </div>
+                    ))}
                   </div>
                 </div>
               </FadeInSection>

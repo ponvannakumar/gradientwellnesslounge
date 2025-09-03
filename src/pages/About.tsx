@@ -58,6 +58,158 @@ const pageVariants = {
   exit: { opacity: 0, y: -24, transition: { duration: 0.5 } },
 };
 
+interface Feedback {
+  quote: string;
+  rating: number; // 1 to 5
+  results: string;
+  reviewerName: string;
+  reviewerTitle: string;
+}
+
+// Sample feedback data per person (same for both for now)
+const feedbackSeed: Record<string, Feedback[]> = {
+  'Sarah Mitchell': [
+    {
+      quote: "Sarah's guidance transformed my recovery journey.",
+      rating: 5,
+      results: 'Reduced pain by 70%',
+      reviewerName: 'John D.',
+      reviewerTitle: 'Athlete',
+    },
+    {
+      quote: 'Professional and compassionate care throughout.',
+      rating: 4,
+      results: 'Improved mobility by 50%',
+      reviewerName: 'Emily R.',
+      reviewerTitle: 'Dancer',
+    },
+    {
+      quote: 'Helped me regain strength and confidence.',
+      rating: 5,
+      results: 'Increased strength by 60%',
+      reviewerName: 'Michael S.',
+      reviewerTitle: 'Runner',
+    },
+    {
+      quote: 'Highly recommend for injury rehabilitation.',
+      rating: 5,
+      results: 'Full recovery in 3 months',
+      reviewerName: 'Anna K.',
+      reviewerTitle: 'Yoga Instructor',
+    },
+  ],
+  'Marcus Thompson': [
+    {
+      quote: 'Marcus pushed me to new limits safely.',
+      rating: 5,
+      results: 'Gained 10 lbs muscle',
+      reviewerName: 'David L.',
+      reviewerTitle: 'Bodybuilder',
+    },
+    {
+      quote: 'Effective training plans tailored to me.',
+      rating: 4,
+      results: 'Lost 15 lbs fat',
+      reviewerName: 'Samantha W.',
+      reviewerTitle: 'Fitness Enthusiast',
+    },
+    {
+      quote: 'Motivating and knowledgeable coach.',
+      rating: 5,
+      results: 'Improved endurance by 40%',
+      reviewerName: 'Chris P.',
+      reviewerTitle: 'Cyclist',
+    },
+    {
+      quote: 'Helped me stay consistent and focused.',
+      rating: 5,
+      results: 'Completed first marathon',
+      reviewerName: 'Laura M.',
+      reviewerTitle: 'Runner',
+    },
+  ],
+};
+
+// FeedbackCard component
+const FeedbackCard: React.FC<{ feedback: Feedback }> = ({ feedback }) => {
+  const stars = Array.from({ length: 5 }, (_, i) => (
+    <svg
+      key={i}
+      className={`w-5 h-5 ${i < feedback.rating ? 'text-yellow-400' : 'text-gray-300'}`}
+      fill="currentColor"
+      viewBox="0 0 20 20"
+    >
+      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.974a1 1 0 00.95.69h4.18c.969 0 1.371 1.24.588 1.81l-3.39 2.462a1 1 0 00-.364 1.118l1.287 3.974c.3.922-.755 1.688-1.54 1.118l-3.39-2.462a1 1 0 00-1.175 0l-3.39 2.462c-.784.57-1.838-.196-1.54-1.118l1.287-3.974a1 1 0 00-.364-1.118L2.045 9.4c-.783-.57-.38-1.81.588-1.81h4.18a1 1 0 00.95-.69l1.286-3.974z" />
+    </svg>
+  ));
+
+  return (
+    <div className="bg-white rounded-lg shadow-lg p-6 max-w-md mx-auto transition-transform duration-300 ease-in-out hover:scale-[1.03]">
+      <p className="italic text-gray-700 mb-4 text-lg leading-relaxed">“{feedback.quote}”</p>
+      <div className="flex items-center mb-2">{stars}</div>
+      <p className="font-semibold text-red-700 mb-2 text-lg">{feedback.results}</p>
+      <p className="font-medium text-base">{feedback.reviewerName}</p>
+      <p className="text-sm text-gray-500">{feedback.reviewerTitle}</p>
+    </div>
+  );
+};
+
+// FeedbackCarousel component
+const FeedbackCarousel: React.FC<{ feedbacks: Feedback[] }> = ({ feedbacks }) => {
+  const [current, setCurrent] = useState(0);
+
+  const goPrev = () => setCurrent((c) => (c - 1 + feedbacks.length) % feedbacks.length);
+  const goNext = () => setCurrent((c) => (c + 1) % feedbacks.length);
+
+  return (
+    <div className="mt-8">
+      <div className="relative max-w-lg mx-auto px-8">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={current}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -50 }}
+            transition={{ duration: 0.4 }}
+          >
+            <FeedbackCard feedback={feedbacks[current]} />
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Left arrow */}
+        <button
+          onClick={goPrev}
+          aria-label="Previous feedback"
+          className="absolute top-1/2 left-0 -translate-x-1/2 transform -translate-y-1/2 bg-red-700 text-white rounded-full p-2 hover:bg-red-800 focus:outline-none"
+        >
+          <ArrowLeft size={20} />
+        </button>
+
+        {/* Right arrow */}
+        <button
+          onClick={goNext}
+          aria-label="Next feedback"
+          className="absolute top-1/2 right-0 translate-x-1/2 transform -translate-y-1/2 bg-red-700 text-white rounded-full p-2 hover:bg-red-800 focus:outline-none"
+        >
+          <ArrowRight size={20} />
+        </button>
+      </div>
+
+      {/* Dots navigation */}
+      <div className="flex justify-center mt-4 gap-2">
+        {feedbacks.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className={`w-3 h-3 rounded-full ${i === current ? 'bg-red-700' : 'bg-gray-300'}`}
+            aria-label={`Go to feedback ${i + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
 // Reusable components
 const HeroSection: React.FC<{ person: PersonProfile }> = ({ person }) => {
   return (
@@ -125,10 +277,10 @@ const MasonryGrid: React.FC<{ person: PersonProfile }> = ({ person }) => {
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
           {/* Column 1 - faster up/down */}
-          <motion.div initial={{ y: 0 }} animate={{ y: [-110, 110] }} transition={{ duration: 4.2, repeat: Infinity, repeatType: 'mirror', ease: 'linear' }} style={{ willChange: 'transform' }}>
+          <motion.div initial={{ y: 0 }} animate={{ y: [-130, 130] }} transition={{ duration: 3.0, repeat: Infinity, repeatType: 'mirror', ease: 'easeInOut' }} style={{ willChange: 'transform' }}>
             {colA.map((src, i) => (
               <motion.div key={`a-${i}`} className="mb-4 rounded-2xl overflow-hidden border bg-white max-w-[450px] mx-auto shadow-sm" style={columnStyles.card as any} whileHover={{ scale: 1.03 }} transition={{ type: 'spring', stiffness: 160, damping: 18 }}>
-                <div className="w-full aspect-[3/4]">
+                <div className="w-full aspect-[3/4] rounded-3xl overflow-hidden">
                   <img src={src} alt="gallery" className="w-full h-full object-cover" />
                 </div>
               </motion.div>
@@ -136,10 +288,10 @@ const MasonryGrid: React.FC<{ person: PersonProfile }> = ({ person }) => {
           </motion.div>
 
           {/* Column 2 - opposite direction, slightly different speed */}
-          <motion.div initial={{ y: 0 }} animate={{ y: [110, -110] }} transition={{ duration: 4.0, repeat: Infinity, repeatType: 'mirror', ease: 'linear' }} style={{ willChange: 'transform' }}>
+          <motion.div initial={{ y: 0 }} animate={{ y: [130, -130] }} transition={{ duration: 2.8, repeat: Infinity, repeatType: 'mirror', ease: 'easeInOut' }} style={{ willChange: 'transform' }}>
             {colB.map((src, i) => (
               <motion.div key={`b-${i}`} className="mb-4 rounded-2xl overflow-hidden border bg-white max-w-[450px] mx-auto shadow-sm" style={columnStyles.card as any} whileHover={{ scale: 1.03 }} transition={{ type: 'spring', stiffness: 160, damping: 18 }}>
-                <div className="w-full aspect-[3/4]">
+                <div className="w-full aspect-[3/4] rounded-3xl overflow-hidden">
                   <img src={src} alt="gallery" className="w-full h-full object-cover" />
                 </div>
               </motion.div>
@@ -147,10 +299,10 @@ const MasonryGrid: React.FC<{ person: PersonProfile }> = ({ person }) => {
           </motion.div>
 
           {/* Column 3 - slight offset, different speed */}
-          <motion.div initial={{ y: 0 }} animate={{ y: [-110, 110] }} transition={{ duration: 4.6, repeat: Infinity, repeatType: 'mirror', ease: 'linear' }} style={{ willChange: 'transform' }}>
+          <motion.div initial={{ y: 0 }} animate={{ y: [-130, 130] }} transition={{ duration: 3.2, repeat: Infinity, repeatType: 'mirror', ease: 'easeInOut' }} style={{ willChange: 'transform' }}>
             {colC.map((src, i) => (
               <motion.div key={`c-${i}`} className="mb-4 rounded-2xl overflow-hidden border bg-white max-w-[450px] mx-auto shadow-sm" style={columnStyles.card as any} whileHover={{ scale: 1.03 }} transition={{ type: 'spring', stiffness: 160, damping: 18 }}>
-                <div className="w-full aspect-[3/4]">
+                <div className="w-full aspect-[3/4] rounded-3xl overflow-hidden">
                   <img src={src} alt="gallery" className="w-full h-full object-cover" />
                 </div>
               </motion.div>
@@ -199,13 +351,7 @@ const About = () => {
         <div className="container">
           <AnimatePresence mode="wait">
             <motion.div key={current.name} variants={pageVariants} initial="initial" animate="enter" exit="exit">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
-                {/* Image */}
-                <div>
-                  <div className="rounded-3xl overflow-hidden border" style={{ borderColor: 'rgba(185,28,28,0.25)' }}>
-                    <div className="aspect-[4/5] w-full bg-gray-800" style={{ backgroundImage: `url(${current.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
-                  </div>
-                </div>
+              <div className="grid lg:grid-cols-1 gap-12 items-start">
 
                 {/* Content */}
                 <div>
@@ -225,6 +371,9 @@ const About = () => {
                   <div className="mt-8 bg-gradient-to-r from-[#b91c1c]/10 via-[#8a1111]/10 to-[#111111]/10 rounded-xl p-6 border" style={{ borderColor: 'rgba(185,28,28,0.2)' }}>
                     <p className="text-gray-700 italic">“Replace this with your story, philosophy, or headline quote.”</p>
                   </div>
+
+                  {/* Feedback Carousel */}
+                  <FeedbackCarousel feedbacks={feedbackSeed[current.name] || []} />
                 </div>
               </div>
             </motion.div>
