@@ -32,7 +32,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <img src="/logo.png" alt="Gradient Holistic Wellness Lounge" className="w-10 h-10 object-contain" />
+            <img src="/favicon.png" alt="Gradient Holistic Wellness Lounge" className="w-10 h-10 object-contain" />
             <span className="text-xl font-bold gradient-text">
               Gradient Holistic Wellness Lounge
             </span>
