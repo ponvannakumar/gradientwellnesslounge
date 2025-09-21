@@ -1,0 +1,37 @@
+/* Sodoscans Text Font Style - Premium description styling */
+.sodoscans-text {
+  font-family: 'Merriweather', serif;
+  font-weight: 400;
+  font-style: italic;
+  color: #4b5563;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.sodoscans-text::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.03) 0%, rgba(185, 28, 28, 0.03) 100%);
+  border-radius: 8px;
+  z-index: -1;
+}
+
+/* Responsive sodoscans text */
+@media (min-width: 768px) {
+  .sodoscans-text {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sodoscans-text {
+    font-size: 1.35rem;
+  }
+}
