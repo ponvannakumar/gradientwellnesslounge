@@ -153,7 +153,7 @@ const AnimatedServicesGrid: React.FC<AnimatedServicesGridProps> = ({ services })
                     {React.createElement(service.icon, { size: 32, className: 'text-white' })}
                   </div>
                 </div>
-                <h3 className="gradient-text mb-4" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, fontSize: '1.875rem', lineHeight: '2.25rem', color: '#b91c1c' }}>{service.title}</h3>
+                <h3 className="gradient-text mb-4" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, fontSize: '1.3rem', lineHeight: '1.75rem', color: '#b91c1c', whiteSpace: 'nowrap' }}>{service.title}</h3>
                 <p className="text-black leading-relaxed" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, fontSize: '1.375rem', lineHeight: '1.75rem', color: '#050505ff' }}>{service.description}</p>
               </div>
             </motion.div>

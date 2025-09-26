@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
-import { ArrowRight, Heart, Zap, Shield, Target } from 'lucide-react';
+import { ArrowRight, User, Zap, Target, Utensils, Dumbbell, Activity } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FadeInSection from '../components/FadeInSection';
 import AnimatedServicesGrid from '../components/AnimatedServicesGrid';
@@ -28,40 +28,42 @@ const Home = () => {
   const services = [
     {
       icon: Target,
-      title: 'Integrated Performance Care',
-      description: 'Not just another gym nor a physiotherapy clinic.',
+      title: 'NOT A USUAL GYM. NOT A CLINIC',
+      description: 'A Precision driven ecosystem for pain management and fitness.',
       link: '/services/personal-training',
     },
     {
-      icon: Heart,
-      title: 'Personalized One-to-One Training',
-      description: 'No noises, no crowd, no waiting for equipment. We purely provide 1-1 sessions.',
+      icon: User,
+      title: 'NO NOISES. NO CROWDS',
+
+      description: 'One-One session with undivided attention in a peaceful ambience.',
       link: '/services/stress-management',
     },
     {
       icon: Zap,
-      title: 'Evidence-Based Athletic Systems',
-      description: 'No random drills, no outdated training. Our science-backed systems build true athletic excellence and injury prevention.',
+      title: 'NO OUT-DATED TRAINING',
+      description: 'Backed by Science for Sports Performance & Athleticism.',
       link: '/services/nutrition',
     },
     {
-      icon: Shield,
-      title: 'Clinical-Grade Fat Loss Solutions',
-      description: 'No muscle sacrifice, no fads, no energy crashes. Only science-backed fat loss solutions.',
+      icon: Utensils,
+      title: 'NO MUSCLE SACRIFICE',
+
+      description: 'Fat-loss solutions that are Evidence based & Sustainable.',
       link: '/services/physiotherapy',
     },
     {
-      icon: ArrowRight,
-      title: 'Functional Longevity Programs',
-      description: 'No limitations. No dependency. Our programs restore strength and independence in aging.',
+      icon: Dumbbell,
+      title: 'NO RANDOM OR GUESSWORK.',
+      description: 'Every program is curated, based on assessment & clients goal.',
       link: '/services/stress-management',
     },
     {
-      icon: Heart,
-      title: 'Comprehensive Health Partnership',
-      description: 'No assumptions, no guesswork. Our expert professionals give you real solutions, who treat your health like their own.',
+      icon: Activity,
+      title: 'NO LIMITS. NO DEPENDENCY',
+      description: 'Programs that help you to restore strength & move without limits.',
       link: '/services/holistic-healing',
-    },
+    }
   ];
 
   return (
@@ -96,24 +98,26 @@ const Home = () => {
   GRADIENT HOLISTIC WELLNESS LOUNGE • GRADIENT HOLISTIC WELLNESS LOUNGE • GRADIENT HOLISTIC WELLNESS LOUNGE • GRADIENT HOLISTIC WELLNESS LOUNGE •
 </div> */}
 <motion.h1
-  className="text-4xl md:text-[3rem] font-bold gradient-text mb-8 leading-tight text-center relative z-20"
-  style={{ whiteSpace: 'pre-line', fontFamily: "'Cormorant Garamond', serif", fontWeight: '700' }}
+  className="text-2xl md:text-[3rem] font-bold gradient-text mb-8 leading-tight text-center relative z-20"
+  style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: '700' }}
   initial={{ y: 30, opacity: 0 }}
   animate={{ y: 0, opacity: 1 }}
   transition={{ duration: 0.8, delay: 0.2 }}
 >
-  Still struggling with pain?{'\n'}low energy or performance? failed gym results or health conditions?{'\n'}—Despite every doctor, trainer, diet, or treatment?
+  {/* Still struggling with pain? low energy or performance? failed gym results or health conditions? —Despite every doctor, trainer, diet, or treatment? */}
+  A NEW PARADIGM IN FITNESS AND PAIN MANAGEMENT 
 </motion.h1>
-              <motion.p 
-                className="text-2xl md:text-3xl subtitle mb-6 max-w-4xl mx-auto leading-relaxed relative z-20"
-                style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600 }}
-                initial={{ y: 30, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-              >
-                Experience comprehensive wellness solutions including fitness training, 
-                nutrition coaching, physiotherapy, and stress management in our premium facility.
-              </motion.p>
+<motion.p 
+  className="text-2xl md:text-3xl subtitle mb-6 max-w-4xl mx-auto leading-relaxed relative z-20"
+  style={{ /* fontFamily: "'Cormorant Garamond', serif", */ fontFamily: "'Georgia Pro SemiBold', serif", fontWeight: 600 }}
+  initial={{ y: 30, opacity: 0 }}
+  animate={{ y: 0, opacity: 1 }}
+  transition={{ duration: 0.8, delay: 0.4 }}
+>
+  {/* Experience comprehensive wellness solutions including fitness training, 
+  nutrition coaching, physiotherapy, and stress management in our premium facility. */}
+  G R A D I E N T - A Wellness Experience like <span style={{ color: '#b91c1c' }}>Never</span> Before!
+</motion.p>
               <motion.div 
                 className="flex flex-col sm:flex-row gap-6 justify-center items-center relative z-20"
                 initial={{ y: 30, opacity: 0 }}
@@ -135,10 +139,11 @@ const Home = () => {
           <FadeInSection>
             <div className="text-center mb-16">
               <h2 className="text-5xl md:text-6xl font-bold gradient-text mb-6" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-                GRADIENT DIFFERENCE
+                THE GRADIENT DIFFERENCE
               </h2>
-              <p className="text-3xl subtitle max-w-[1200px] mx-auto" style={{ fontFamily: "'Cormorant Garamond', serif", textAlign: 'justify', textAlignLast: 'center', fontWeight: 600, color: '#1a1919ff' }}>
-               At Gradient Holistic Wellness Lounge, we go beyond physiotherapy, gyms, and diets. We are a comprehensive human pain management, performance and lifestyle transformation lounge—designed for professionals, executives, individuals and athletes who demand long-term results, precision, and exclusivity.
+              <p className="text-xl md:text-2xl subtitle max-w-[1200px] mx-auto leading-tight" style={{ fontFamily: "'Cormorant Garamond', serif", textAlign: 'justify', textAlignLast: 'center', fontWeight: 600, color: '#1a1919ff', lineHeight: 1.1 }}>
+               {/* At Gradient Holistic Wellness Lounge, we go beyond physiotherapy, gyms, and diets. We are a <span className="gradient-text" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600 }}>comprehensive human pain management, performance and lifestyle transformation</span> lounge—designed for professionals, executives, individuals and athletes who demand long-term results, precision, and exclusivity. */}
+              An elite space offering a holistic blend of pain-free living, peak performance, and lasting lifestyle transformation — all under one roof. We seamlessly set ourselves apart through precision, personalization, and science.
               </p>
               
             </div>
@@ -153,12 +158,12 @@ const Home = () => {
         <div className="container">
           <FadeInSection>
             <div className="text-center">
-              <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
-                Ready to Transform Your Life?
+              <h2 className="text-4xl md:text-4xl font-bold gradient-text mb-6" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                Why Settle For Temporary Fixes? When You Can Get A Permanent Solution!
               </h2>
               <p className="text-xl subtitle mb-12 max-w-2xl mx-auto">
-                Join our community of wellness enthusiasts and start your journey 
-                towards optimal health and vitality today.
+                {/* Join our community of wellness enthusiasts and start your journey 
+                towards optimal health and vitality today. */}
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <Link to="/contact" className="gradient-button">

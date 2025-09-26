@@ -43,10 +43,11 @@ const Footer = () => {
           <div>
             <h3 className="text-white font-semibold mb-4">Contact</h3>
             <div className="space-y-2 text-gray-400">
-              <p>123 Wellness Street</p>
-              <p>Health City, HC 12345</p>
-              <p>Phone: (555) 123-4567</p>
-              <p>Email: info@gradientwellness.com</p>
+              <p>12th cross street, MIG 229</p>
+              <p> 100 Feet Rd, New ASTC Hudco</p>
+              <p> Hosur, Tamil Nadu 635109</p>
+              <p>Phone: (+91) 95000 59260 </p>
+              <p>Email: ceo@gradientlounge.com</p>
             </div>
           </div>
         </div>

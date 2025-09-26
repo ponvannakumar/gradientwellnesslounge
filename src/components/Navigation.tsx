@@ -33,7 +33,7 @@ const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
             <img src="/logo.png" alt="Gradient Holistic Wellness Lounge" className="w-10 h-10 object-contain" />
-            <span className="text-xl font-bold gradient-text">
+            <span className="text-1xl font-bold gradient-text" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 900, fontSize: '1.5rem' }}>
               Gradient Holistic Wellness Lounge
             </span>
           </Link>
