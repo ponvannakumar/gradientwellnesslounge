@@ -31,18 +31,20 @@ const Navigation = () => {
       <div className="container">
         <div className="flex items-center justify-between gap-3">
           {/* Logo + Brand */}
-          <Link to="/" className="flex items-center gap-2 min-w-0">
-            <img
-              src="/logo.png"
-              alt="Gradient Holistic Wellness Lounge"
-              className="w-10 h-10 md:w-12 md:h-12 object-contain"
-            />
+          <Link to="/" className="flex items-center gap-1.5 min-w-0 flex-1 pr-2">
+          <img
+          src="/logo.png"
+          alt="Gradient Holistic Wellness Lounge"
+          className="h-12 w-auto sm:h-14 md:h-16 object-contain"
+          />
+
             <span
-              className="hidden sm:inline text-1xl font-bold gradient-text"
+              className="inline block text-sm sm:text-base md:text-1xl font-bold gradient-text leading-tight overflow-visible break-words"
               style={{
                 fontFamily: "'Cormorant Garamond', serif",
                 fontWeight: 900,
                 fontSize: '1.25rem',
+                lineHeight: 1.2,
               }}
             >
               Gradient Holistic Wellness Lounge
@@ -51,12 +53,14 @@ const Navigation = () => {
 
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-3">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
+                className={`${location.pathname === item.path
+                  ? 'bg-red-600 text-white shadow-sm'
+                  : 'text-gray-800 hover:bg-gray-100'} px-3 py-2 rounded-full text-sm font-medium transition-colors`}
               >
                 {item.label}
               </Link>
@@ -65,7 +69,7 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-3 ml-auto text-gray-800 rounded-lg hover:bg-gray-200 transition-all duration-300 min-h-[44px] min-w-[44px] flex items-center justify-center"
+            className="md:hidden p-3 ml-auto shrink-0 text-gray-800 rounded-lg hover:bg-gray-200 transition-all duration-300 min-h-[44px] min-w-[44px] flex items-center justify-center"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
           >
@@ -82,8 +86,10 @@ const Navigation = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`nav-link-mobile ${
-                  location.pathname === item.path ? 'active' : ''
+                className={`px-4 py-3 rounded-lg text-base font-medium transition-colors ${
+                  location.pathname === item.path
+                    ? 'bg-red-600/90 text-white'
+                    : 'text-gray-100 hover:bg-white/10'
                 }`}
                 onClick={() => setIsMobileMenuOpen(false)}
                 style={{ animationDelay: `${index * 0.1}s` }}
