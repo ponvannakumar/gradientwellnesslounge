@@ -100,11 +100,24 @@ body {
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(220, 38, 38, 0.2);
   border-radius: 20px;
-  padding: 32px;
+  padding: 24px;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   backdrop-filter: blur(10px);
   position: relative;
   overflow: hidden;
+}
+
+/* Mobile responsive padding */
+@media (min-width: 640px) {
+  .service-card {
+    padding: 28px;
+  }
+}
+
+@media (min-width: 768px) {
+  .service-card {
+    padding: 32px;
+  }
 }
 
 .service-card::before {
@@ -131,11 +144,24 @@ body {
 
 .service-card h3 {
   font-family: 'Merriweather', serif;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 16px;
   position: relative;
   z-index: 2;
+}
+
+/* Responsive font sizes for service card titles */
+@media (min-width: 640px) {
+  .service-card h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .service-card h3 {
+    font-size: 1.5rem;
+  }
 }
 
 .service-card p {
@@ -143,6 +169,20 @@ body {
   margin-bottom: 20px;
   position: relative;
   z-index: 2;
+  font-size: 1rem;
+}
+
+/* Responsive font sizes for service card descriptions */
+@media (min-width: 640px) {
+  .service-card p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .service-card p {
+    font-size: 1.2rem;
+  }
 }
 
 /* Typography */

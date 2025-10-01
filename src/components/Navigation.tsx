@@ -29,14 +29,26 @@ const Navigation = () => {
   return (
     <nav className={`nav-sticky ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <img src="/logo.png" alt="Gradient Holistic Wellness Lounge" className="w-10 h-10 object-contain" />
-            <span className="text-1xl font-bold gradient-text" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 900, fontSize: '1.5rem' }}>
+        <div className="flex items-center justify-between gap-3">
+          {/* Logo + Brand */}
+          <Link to="/" className="flex items-center gap-2 min-w-0">
+            <img
+              src="/logo.png"
+              alt="Gradient Holistic Wellness Lounge"
+              className="w-10 h-10 md:w-12 md:h-12 object-contain"
+            />
+            <span
+              className="hidden sm:inline text-1xl font-bold gradient-text"
+              style={{
+                fontFamily: "'Cormorant Garamond', serif",
+                fontWeight: 900,
+                fontSize: '1.25rem',
+              }}
+            >
               Gradient Holistic Wellness Lounge
             </span>
           </Link>
+
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
@@ -53,7 +65,7 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-3 text-gray-800 rounded-lg hover:bg-gray-200 transition-all duration-300 min-h-[44px] min-w-[44px] flex items-center justify-center"
+            className="md:hidden p-3 ml-auto text-gray-800 rounded-lg hover:bg-gray-200 transition-all duration-300 min-h-[44px] min-w-[44px] flex items-center justify-center"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
           >

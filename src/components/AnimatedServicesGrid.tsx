@@ -120,7 +120,7 @@ const AnimatedServicesGrid: React.FC<AnimatedServicesGridProps> = ({ services })
   return (
     <>
       <RunningPersonBackground />
-      <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
+      <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 relative z-10">
         {services.map((service, idx) => {
           const isFirst3 = idx < 3;
           let animate = 'hidden';
@@ -139,7 +139,7 @@ const AnimatedServicesGrid: React.FC<AnimatedServicesGridProps> = ({ services })
               variants={isFirst3 ? cardVariants[0] : cardVariants[1]}
               style={{ perspective: 800, minHeight: 320, position: 'relative' }}
             >
-              <div className="service-card text-center h-full relative overflow-hidden">
+              <div className="service-card text-center h-full relative overflow-hidden w-full max-w-sm mx-auto md:max-w-none">
                 <BorderTrail
                   size={170}
                   style={{
@@ -153,8 +153,8 @@ const AnimatedServicesGrid: React.FC<AnimatedServicesGridProps> = ({ services })
                     {React.createElement(service.icon, { size: 32, className: 'text-white' })}
                   </div>
                 </div>
-                <h3 className="gradient-text mb-4" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, fontSize: '1.3rem', lineHeight: '1.75rem', color: '#b91c1c', whiteSpace: 'nowrap' }}>{service.title}</h3>
-                <p className="text-black leading-relaxed" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, fontSize: '1.375rem', lineHeight: '1.75rem', color: '#050505ff' }}>{service.description}</p>
+                <h3 className="gradient-text mb-4 px-2" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, fontSize: '1.1rem', lineHeight: '1.4rem', color: '#b91c1c', whiteSpace: 'normal', wordWrap: 'break-word' }}>{service.title}</h3>
+                <p className="text-black leading-relaxed px-2" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, fontSize: '1.1rem', lineHeight: '1.5rem', color: '#050505ff' }}>{service.description}</p>
               </div>
             </motion.div>
           );
