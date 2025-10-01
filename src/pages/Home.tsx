@@ -99,13 +99,13 @@ const Home = () => {
 </div> */}
 <motion.h1
   className="text-2xl md:text-[3rem] font-bold gradient-text mb-8 leading-tight text-center relative z-20"
-  style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: '700' }}
+  style={{ fontFamily: "'Georgia Pro SemiBold', serif", fontWeight: '700', lineHeight: 1.2 }}
   initial={{ y: 30, opacity: 0 }}
   animate={{ y: 0, opacity: 1 }}
   transition={{ duration: 0.8, delay: 0.2 }}
 >
-  {/* Still struggling with pain? low energy or performance? failed gym results or health conditions? —Despite every doctor, trainer, diet, or treatment? */}
-  A NEW PARADIGM IN FITNESS AND PAIN MANAGEMENT 
+  <span style={{ textTransform: 'uppercase', display: 'block' }}>A NEW PARADIGM IN</span>
+  <span style={{ fontStyle: 'italic', textTransform: 'uppercase', display: 'block' }}>FITNESS AND PAIN MANAGEMENT</span>
 </motion.h1>
 <motion.p 
   className="text-2xl md:text-3xl subtitle mb-6 max-w-4xl mx-auto leading-relaxed relative z-20"

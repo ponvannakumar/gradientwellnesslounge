@@ -3,9 +3,8 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles, Trophy } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FadeInSection from '../components/FadeInSection';
- 
 
-const Menu = () => {
+const Experts = () => {
   const programs = [
     {
       icon: Sparkles,
@@ -64,8 +63,6 @@ const Menu = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      
-      
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center text-center section-padding">
         <div className="container">
@@ -214,4 +211,4 @@ const Menu = () => {
   );
 };
 
-export default Menu;
+export default Experts;

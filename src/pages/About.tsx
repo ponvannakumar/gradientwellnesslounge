@@ -790,6 +790,7 @@ const About = () => {
               transition={{ duration: 0.8 }}
             >
               {/* Premium Brand Badge */}
+              {/*
               <motion.div
                 className="mb-8 w-20 h-20 rounded-full flex items-center justify-center relative overflow-hidden group mx-auto"
                 style={{
@@ -809,20 +810,60 @@ const About = () => {
                   className="w-12 h-12 object-contain relative z-10"
                 />
               </motion.div>
+              */}
 
               {/* Company Title */}
-              <motion.h1
-                className="text-5xl md:text-6xl font-bold gradient-text mb-8 leading-tight"
-                style={{
-                  fontFamily: "'Cormorant Garamond', serif",
-                  whiteSpace: 'nowrap'
-                }}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.8 }}
-              >
-                Gradient Holistic Wellness Lounge
-              </motion.h1>
+{/*
+<motion.h1
+  className="text-5xl md:text-6xl font-bold gradient-text mb-8 leading-tight text-center"
+  style={{
+    fontFamily: "'Cormorant Garamond', serif",
+    whiteSpace: 'normal',
+    lineHeight: 1.1,
+  }}
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.2, duration: 0.8 }}
+>
+  <span style={{ display: 'block', letterSpacing: '0.03em', fontFamily: "'Copperplate Gothic Bold', 'Copperplate Gothic Light', Copperplate, fantasy" }}>G R A D I E N T</span>
+  <span style={{ display: 'block', fontSize: '0.4em' }}>HOLISTIC WELLNESS LOUNGE</span>
+</motion.h1>
+*/}
+
+<motion.div
+  className="flex flex-col items-center mb-8"
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.2, duration: 0.8 }}
+>
+  <img
+    src="/logo.png"
+    alt="Gradient Holistic Wellness Lounge"
+    className="w-20 h-20 object-contain mb-2"
+  />
+  <h1
+    className="text-5xl md:text-6xl font-bold mb-2"
+    style={{
+      fontFamily: "'Copperplate Gothic Bold', 'Copperplate Gothic Light', Copperplate, fantasy",
+      color: '#000000',
+      letterSpacing: '0.2em',
+      whiteSpace: 'nowrap',
+    }}
+  >
+    G R A D I E N T
+  </h1>
+  <h2
+    className="text-xl tracking-widest"
+    style={{
+      fontFamily: "'Times New Roman', serif",
+      color: '#000000',
+      letterSpacing: '0.2em',
+      whiteSpace: 'nowrap',
+    }}
+  >
+    HOLISTIC WELLNESS LOUNGE
+  </h2>
+</motion.div>
 
               {/* Company Description */}
               <motion.div
@@ -832,13 +873,19 @@ const About = () => {
                 transition={{ delay: 0.4, duration: 0.8 }}
               >
                 <p className="text-xl leading-relaxed" style={{ color: '#4b5563' }}>
-                  Welcome to a sanctuary where wellness meets transformation. At Gradient Holistic Wellness Lounge,
-                  we believe in nurturing the complete spectrum of your being - body, mind, and spirit.
+                  At Gradient, we are setting a new benchmark in the way health, fitness, performance and pain management are experienced.
+
                 </p>
                 <p className="text-lg leading-relaxed" style={{ color: '#6b7280' }}>
-                  Our approach combines ancient wisdom with modern science, creating personalized wellness journeys
-                  that address your unique needs and aspirations. From therapeutic treatments to mindfulness practices,
-                  we're here to guide you toward optimal health and inner peace.
+                  
+                 No shortcuts, no one size fits-all routines. Gradient is built on science baked, evidence based and precision. 
+                 Every program here is personalised, every session is purpose driven, and every transformation is sustainable.
+
+                </p>
+                <p className="text-lg leading-relaxed" style={{ color: '#6b7280' }}>
+                  
+                 Whether you're recovering from chronic pain, an athlete chasing peak performance, or seeking a holistic approach to metabolic conditions, Gradient offers a one-stop solution: cutting-edge physiotherapy, strength & conditioning, and lifestyle coaching – all under one roof
+
                 </p>
               </motion.div>
 

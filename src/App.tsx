@@ -13,7 +13,7 @@ import PersonalTraining from './pages/services/PersonalTraining';
 import Physiotherapy from './pages/services/Physiotherapy';
 import Nutrition from './pages/services/Nutrition';
 import StressManagement from './pages/services/StressManagement';
-import Menu from './pages/Menu';
+import Experts from './pages/Experts';
 import Testimonials from './pages/Testimonials';
 import FAQ from './pages/FAQ';
 import Contact from './pages/Contact';
@@ -46,7 +46,7 @@ function App() {
             <Route path="/services/physiotherapy" element={<Physiotherapy />} />
             <Route path="/services/nutrition" element={<Nutrition />} />
             <Route path="/services/stress-management" element={<StressManagement />} />
-            <Route path="/menu" element={<Menu />} />
+            <Route path="/experts" element={<Experts />} />
             <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/contact" element={<Contact />} />

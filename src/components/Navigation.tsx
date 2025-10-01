@@ -20,7 +20,7 @@ const Navigation = () => {
     { path: '/', label: 'Home' },
     { path: '/about', label: 'About' },
     { path: '/services', label: 'Services' },
-    { path: '/menu', label: 'Menu' },
+    { path: '/menu', label: 'Experts' },
     { path: '/testimonials', label: 'Testimonials' },
     { path: '/faq', label: 'FAQ & Gallery' },
     { path: '/contact', label: 'Contact' },
