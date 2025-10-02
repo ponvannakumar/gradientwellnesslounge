@@ -1,6 +1,6 @@
 import React, { useMemo, useRef, useState, useEffect } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
-import { ArrowLeft, ArrowRight, Play, Star, Sparkles, Crown, Zap } from 'lucide-react';
+import { motion, AnimatePresence, useMotionValue, useScroll, useTransform } from 'framer-motion';
+import { Star, Sparkles, Crown, Zap, ArrowLeft, ArrowRight } from 'lucide-react';
 
 interface PersonProfile {
   name: string;
@@ -50,7 +50,7 @@ const peopleSeed: PersonProfile[] = [
   // },
 ];
 
-import { easeOut, easeIn, cubicBezier } from "framer-motion";
+import { easeOut, cubicBezier } from "framer-motion";
 
 // Premium animation variants
 const pageVariants = {
@@ -778,255 +778,282 @@ const About = () => {
       exit="exit"
       variants={pageVariants}
       className="min-h-screen"
-      style={{ background: '#fdf8f3' }}
+      style={{ background: '#f6e5cf' }}
     >
-      {/* Company Introduction Section */}
-      <section className="pt-24 md:pt-32 pb-16 relative overflow-hidden" style={{ background: '#fdf8f3' }}>
-        <div className="container relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              {/* Premium Brand Badge */}
-              {/*
+      <div>
+        {/* Company Introduction Section */}
+        <section className="pt-24 md:pt-32 pb-16 relative overflow-hidden" style={{ background: '#f6e5cf' }}>
+          <div className="container relative z-10">
+            <div className="max-w-4xl mx-auto text-center">
               <motion.div
-                className="mb-8 w-20 h-20 rounded-full flex items-center justify-center relative overflow-hidden group mx-auto"
-                style={{
-                  background: 'rgba(255, 255, 255, 0.9)',
-                  border: '1px solid rgba(220, 38, 38, 0.3)',
-                  boxShadow: '0 15px 40px rgba(220, 38, 38, 0.1)',
-                }}
-                whileHover={{
-                  scale: 1.1,
-                  rotate: 5,
-                  boxShadow: '0 20px 50px rgba(220, 38, 38, 0.2)'
-                }}
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
               >
-                <img
-                  src="/logo.png"
-                  alt="Gradient Holistic Wellness Lounge"
-                  className="w-12 h-12 object-contain relative z-10"
-                />
-              </motion.div>
-              */}
+                {/* Premium Brand Badge */}
+                {/*
+    <motion.div
+      className="mb-8 w-20 h-20 rounded-full flex items-center justify-center relative overflow-hidden group mx-auto"
+      style={{
+        background: 'rgba(255, 255, 255, 0.9)',
+        border: '1px solid rgba(220, 38, 38, 0.3)',
+        boxShadow: '0 15px 40px rgba(220, 38, 38, 0.1)',
+      }}
+      whileHover={{
+        scale: 1.1,
+        rotate: 5,
+        boxShadow: '0 20px 50px rgba(220, 38, 38, 0.2)'
+      }}
+    >
+      <img
+        src="/logo.png"
+        alt="Gradient Holistic Wellness Lounge"
+        className="w-12 h-12 object-contain relative z-10"
+      />
+    </motion.div>
+    */}
 
-              {/* Company Title */}
-{/*
-<motion.h1
-  className="text-5xl md:text-6xl font-bold gradient-text mb-8 leading-tight text-center"
-  style={{
-    fontFamily: "'Cormorant Garamond', serif",
-    whiteSpace: 'normal',
-    lineHeight: 1.1,
-  }}
-  initial={{ opacity: 0, y: 30 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: 0.2, duration: 0.8 }}
->
-  <span style={{ display: 'block', letterSpacing: '0.03em', fontFamily: "'Copperplate Gothic Bold', 'Copperplate Gothic Light', Copperplate, fantasy" }}>G R A D I E N T</span>
-  <span style={{ display: 'block', fontSize: '0.4em' }}>HOLISTIC WELLNESS LOUNGE</span>
-</motion.h1>
-*/}
+                {/* Company Title */}
+                {/*
+    <motion.h1
+      className="text-5xl md:text-6xl font-bold gradient-text mb-8 leading-tight text-center"
+      style={{
+        fontFamily: "'Cormorant Garamond', serif",
+        whiteSpace: 'normal',
+        lineHeight: 1.1,
+      }}
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.2, duration: 0.8 }}
+    >
+      <span style={{ display: 'block', letterSpacing: '0.03em', fontFamily: "'Copperplate Gothic Bold', 'Copperplate Gothic Light', Copperplate, fantasy" }}>G R A D I E N T</span>
+      <span style={{ display: 'block', fontSize: '0.4em' }}>HOLISTIC WELLNESS LOUNGE</span>
+    </motion.h1>
+    */}
 
-<motion.div
-  className="flex flex-col items-center mb-8"
-  initial={{ opacity: 0, y: 30 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: 0.2, duration: 0.8 }}
->
-  <img
-    src="/logo.png"
-    alt="Gradient Holistic Wellness Lounge"
-    className="w-20 h-20 object-contain mb-2"
-  />
-  <h1
-    className="text-5xl md:text-6xl font-bold mb-2"
-    style={{
-      fontFamily: "'Copperplate Gothic Bold', 'Copperplate Gothic Light', Copperplate, fantasy",
-      color: '#000000',
-      letterSpacing: '0.2em',
-      whiteSpace: 'nowrap',
-    }}
-  >
-    G R A D I E N T
-  </h1>
-  <h2
-    className="text-xl tracking-widest"
-    style={{
-      fontFamily: "'Times New Roman', serif",
-      color: '#000000',
-      letterSpacing: '0.2em',
-      whiteSpace: 'nowrap',
-    }}
-  >
-    HOLISTIC WELLNESS LOUNGE
-  </h2>
-</motion.div>
+                <motion.div
+                  className="flex flex-col items-center mb-8"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2, duration: 0.8 }}
+                >
+                  <img
+                    src="/logo.png"
+                    alt="Gradient Holistic Wellness Lounge"
+                    className="w-20 h-30 object-contain mb-2" />
+                  <h1
+                    className="text-5xl md:text-6xl font-bold mb-2"
+                    style={{
+                      fontFamily: "'Copperplate Gothic Bold', 'Copperplate Gothic Light', Copperplate, fantasy",
+                      color: '#000000',
+                      letterSpacing: '0.05em',
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    G R A D I E N T
+                  </h1>
+                  <h2
+                    className="text-xl tracking-widest"
+                    style={{
+                      fontFamily: "'Times New Roman', serif",
+                      color: '#000000',
+                      letterSpacing: '0.2em',
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    HOLISTIC WELLNESS LOUNGE
+                  </h2>
+                </motion.div>
 
-              {/* Company Description */}
-              <motion.div
-                className="space-y-6 mb-12"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4, duration: 0.8 }}
-              >
-                <p className="text-xl leading-relaxed" style={{ color: '#4b5563' }}>
-                  At Gradient, we are setting a new benchmark in the way health, fitness, performance and pain management are experienced.
-
-                </p>
-                <p className="text-lg leading-relaxed" style={{ color: '#6b7280' }}>
-                  
-                 No shortcuts, no one size fits-all routines. Gradient is built on science baked, evidence based and precision. 
-                 Every program here is personalised, every session is purpose driven, and every transformation is sustainable.
-
-                </p>
-                <p className="text-lg leading-relaxed" style={{ color: '#6b7280' }}>
-                  
-                 Whether you're recovering from chronic pain, an athlete chasing peak performance, or seeking a holistic approach to metabolic conditions, Gradient offers a one-stop solution: cutting-edge physiotherapy, strength & conditioning, and lifestyle coaching – all under one roof
-
-                </p>
+                {/* Company Introduction Section */}
+                <section>
+                  <div className="container mx-auto flex flex-col md:flex-row items-center gap-12">
+                    {/* Content side */}
+                    {/* <div className="md:w-1/2 text-center md:text-left">
+                      <h2 className="text-4xl font-bold mb-6 text-gray-900">OUR VISION</h2>
+                      <p className="text-lg text-gray-700 leading-relaxed max-w-lg mx-auto md:mx-0">
+                        At Gradient, we are setting a new benchmark in the way health, fitness, performance and pain management are experienced.
+                      </p>
+                      <p className="text-lg text-gray-700 leading-relaxed max-w-lg mx-auto md:mx-0 mt-4">
+                        No shortcuts, no one size fits-all routines. Gradient is built on science baked, evidence based and precision. Every program here is personalised, every session is purpose driven, and every transformation is sustainable.
+                      </p>
+                      <p className="text-lg text-gray-700 leading-relaxed max-w-lg mx-auto md:mx-0 mt-4">
+                        Whether you're recovering from chronic pain, an athlete chasing peak performance, or seeking a holistic approach to metabolic conditions, Gradient offers a one-stop solution: cutting-edge physiotherapy, strength & conditioning, and lifestyle coaching – all under one roof
+                      </p>
+                    </div> */}
+                    {/* Image side - Centered and Easily Customizable */}
+                    <div className="w-full flex justify-center items-center py-8">
+                    <motion.div
+                      className="relative rounded-lg overflow-hidden group"
+                      style={{ width: '200%', maxWidth: '1400px', maxHeight: '1400px', perspective: '1400px' }}
+                      whileHover={{
+                        rotateY: 5,
+                        rotateX: -5,
+                        scale: 1.02,
+                        transition: { duration: 0.4 }
+                      }}
+                    >
+                      <motion.img
+                        src="/aboutgrad.png"
+                        alt="Gradient Holistic Wellness Lounge"
+                        className="w-full h-auto object-contain bg-white"
+                        style={{ backgroundColor: '#fff' }}
+                        initial={{ scale: 1.05, rotate: -1 }}
+                        animate={{
+                          scale: [1.05, 1.08, 1.05],
+                          rotate: [-1, 1, -1],
+                          boxShadow: [
+                            '0 25px 60px rgba(220, 38, 38, 0.18)',
+                            '0 35px 80px rgba(220, 38, 38, 0.22)',
+                            '0 25px 60px rgba(220, 38, 38, 0.18)'
+                          ]
+                        }}
+                        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+                      />
+                    </motion.div>
+                    </div>
+                  </div>
+                </section>
               </motion.div>
 
               {/* Mission Statement */}
-              <motion.div
-                className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.6, duration: 0.8 }}
-              >
-                <h3
-                  className="text-2xl font-bold mb-4 gradient-text"
-                  style={{
-                    fontFamily: "'Cormorant Garamond', serif"
-                  }}
-                >
-                  Our Mission
-                </h3>
-                <p className="text-lg leading-relaxed" style={{ color: '#4b5563' }}>
-                  To empower individuals to achieve holistic wellness through comprehensive, personalized care
-                  that nurtures physical health, mental clarity, and spiritual growth. We are committed to
-                  creating a supportive community where transformation and healing flourish.
-                </p>
-              </motion.div>
-            </motion.div>
+              {/* <motion.div
+      className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100"
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ delay: 0.6, duration: 0.8 }}
+    >
+      <h3
+        className="text-2xl font-bold mb-4 gradient-text"
+        style={{
+          fontFamily: "'Cormorant Garamond', serif"
+        }}
+      >
+        Our Mission
+      </h3>
+      <p className="text-lg leading-relaxed" style={{ color: '#4b5563' }}>
+        To empower individuals to achieve holistic wellness through comprehensive, personalized care
+        that nurtures physical health, mental clarity, and spiritual growth. We are committed to
+        creating a supportive community where transformation and healing flourish.
+      </p>
+    </motion.div> */}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       <HeroSection person={current} />
 
       {/* Enhanced Profile Switcher */}
-      <section 
-        className="pt-16 pb-24 relative" 
-        onTouchStart={onTouchStart} 
-        onTouchEnd={onTouchEnd}
-      >
-        <div className="container">
-          <AnimatePresence mode="wait">
-            <motion.div 
-              key={current.name} 
-              variants={pageVariants} 
-              initial="initial" 
-              animate="enter" 
-              exit="exit"
+      <section
+    className="pt-16 pb-24 relative"
+    onTouchStart={onTouchStart}
+    onTouchEnd={onTouchEnd}
+  >
+    <div className="container">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={current.name}
+          variants={pageVariants}
+          initial="initial"
+          animate="enter"
+          exit="exit"
+        >
+          <div className="grid lg:grid-cols-1 gap-16 items-start">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="grid lg:grid-cols-1 gap-16 items-start">
+              {/* Premium Brand Badge - Updated colors */}
+              <motion.div
+                className="mb-8 w-20 h-20 rounded-full flex items-center justify-center relative overflow-hidden group"
+                style={{
+                  background: 'linear-gradient(135deg, #dc2626 0%, #b91c1c 100%)',
+                  boxShadow: '0 15px 40px rgba(220, 38, 38, 0.4)',
+                }}
+                whileHover={{
+                  scale: 1.1,
+                  rotate: 5,
+                  boxShadow: '0 20px 50px rgba(220, 38, 38, 0.5)'
+                }}
+              >
+                <span className="text-white text-2xl font-bold relative z-10">GW</span>
+              </motion.div>
+
+              {/* Split gradient heading */}
+              <motion.h2
+                className="text-5xl md:text-6xl font-black mb-4 leading-tight"
+                style={{
+                  fontFamily: 'Merriweather, serif',
+                  background: 'linear-gradient(90deg, #b91c1c 0%, #b91c1c 50%, #111111 50%, #111111 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.8 }}
+              >
+                {current.name}
+              </motion.h2>
+
+              <motion.p
+                className="font-bold text-xl mb-8"
+                style={{
+                  color: '#dc2626',
+                  fontFamily: 'Merriweather, serif'
+                }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
+              >
+                {current.title}
+              </motion.p>
+
+              <div className="space-y-6 mb-10">
+                {current.bio.map((p, idx) => (
+                  <motion.p
+                    key={idx}
+                    className="subtitle"
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.8 + idx * 0.2, duration: 0.8 }}
+                  >
+                    {p}
+                  </motion.p>
+                ))}
+              </div>
+
+              {/* Premium Quote Card - Updated styling */}
+              <GlassmorphismCard variant="luxury" className="p-8">
                 <motion.div
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="relative"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1.2, duration: 0.8 }}
                 >
-                  {/* Premium Brand Badge - Updated colors */}
                   <motion.div
-                    className="mb-8 w-20 h-20 rounded-full flex items-center justify-center relative overflow-hidden group"
+                    className="absolute -top-2 -left-2 w-8 h-8 rounded-full flex items-center justify-center"
                     style={{
                       background: 'linear-gradient(135deg, #dc2626 0%, #b91c1c 100%)',
-                      boxShadow: '0 15px 40px rgba(220, 38, 38, 0.4)',
                     }}
-                    whileHover={{ 
-                      scale: 1.1, 
-                      rotate: 5,
-                      boxShadow: '0 20px 50px rgba(220, 38, 38, 0.5)' 
-                    }}
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
                   >
-                    <span className="text-white text-2xl font-bold relative z-10">GW</span>
+                    <Crown className="w-4 h-4 text-white" />
                   </motion.div>
 
-                  {/* Split gradient heading */}
-                  <motion.h2 
-                    className="text-5xl md:text-6xl font-black mb-4 leading-tight"
-                    style={{
-                      fontFamily: 'Merriweather, serif',
-                      background: 'linear-gradient(90deg, #b91c1c 0%, #b91c1c 50%, #111111 50%, #111111 100%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                    }}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4, duration: 0.8 }}
-                  >
-                    {current.name}
-                  </motion.h2>
-
-                  <motion.p 
-                    className="font-bold text-xl mb-8"
-                    style={{ 
-                      color: '#dc2626',
-                      fontFamily: 'Merriweather, serif'
-                    }}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.6 }}
-                  >
-                    {current.title}
-                  </motion.p>
-
-                  <div className="space-y-6 mb-10">
-                    {current.bio.map((p, idx) => (
-                      <motion.p 
-                        key={idx} 
-                        className="subtitle"
-                        initial={{ opacity: 0, x: -30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.8 + idx * 0.2, duration: 0.8 }}
-                      >
-                        {p}
-                      </motion.p>
-                    ))}
-                  </div>
-
-                  {/* Premium Quote Card - Updated styling */}
-                  <GlassmorphismCard variant="luxury" className="p-8">
-                    <motion.div
-                      className="relative"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 1.2, duration: 0.8 }}
-                    >
-                      <motion.div
-                        className="absolute -top-2 -left-2 w-8 h-8 rounded-full flex items-center justify-center"
-                        style={{
-                          background: 'linear-gradient(135deg, #dc2626 0%, #b91c1c 100%)',
-                        }}
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                      >
-                        <Crown className="w-4 h-4 text-white" />
-                      </motion.div>
-
-                      <blockquote className="italic text-lg font-medium leading-relaxed pl-6" style={{ color: '#4b5563' }}>
-                        "Replace this with your story, philosophy, or headline quote."
-                      </blockquote>
-                    </motion.div>
-                  </GlassmorphismCard>
+                  <blockquote className="italic text-lg font-medium leading-relaxed pl-6" style={{ color: '#4b5563' }}>
+                    "Replace this with your story, philosophy, or headline quote."
+                  </blockquote>
                 </motion.div>
-              </div>
+              </GlassmorphismCard>
             </motion.div>
-          </AnimatePresence>
-        </div>
-      </section>
+          </div>
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  </section>
 
       <MasonryGrid person={current} />
 

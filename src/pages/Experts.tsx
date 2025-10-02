@@ -1,57 +1,58 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles, Trophy } from 'lucide-react';
+import { ArrowRight, Book, Sparkles, Trophy } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FadeInSection from '../components/FadeInSection';
+import ParallaxBackground from '../components/ParallaxBackground';
 
 const Experts = () => {
   const programs = [
     {
-      icon: Sparkles,
-      title: 'Lifestyle Transformation',
+      icon: Book,
+      title: 'EDUCATION',
       subtitle: 'Complete Wellness Program',
       description: 'A comprehensive approach to transforming your lifestyle through integrated wellness strategies.',
       features: [
         {
-          name: 'Mindset Coaching',
-          description: 'Transform limiting beliefs and develop a success-oriented mindset'
+          name: 'Master’s in Sports Management',
+          description: 'Comprehensive academic foundation in sports administration and performance optimization.'
         },
         {
-          name: 'Nutrition Optimization',
+          name: 'Advanced Internship in Strength & Conditioning, Pain Management, and Nutrition',
           description: 'Personalized meal plans and nutritional education for lasting results'
         },
         {
-          name: 'Recovery & Restoration',
-          description: 'Advanced recovery techniques including massage and stress management'
+          name: 'Australian Strength & Conditioning Level 1 Certification',
+          description: 'Accredited training in modern strength and conditioning principles.'
         },
         {
-          name: 'Fitness Integration',
-          description: 'Sustainable exercise routines that fit seamlessly into your lifestyle'
+          name: 'D-License in Football Coaching',
+          description: 'Professional coaching certification emphasizing tactical, technical, and physical development'
         }
       ]
     },
     {
       icon: Trophy,
-      title: 'Athlete & Performance Training',
+      title: 'ACHEIVEMENTS',
       subtitle: 'Elite Performance Program',
       description: 'Advanced training protocols designed for athletes and high-performers seeking peak physical condition.',
       features: [
         {
-          name: 'Strength & Conditioning',
-          description: 'Scientific approach to building functional strength and power'
+          name: 'Weightlifting',
+          description: 'Silver medalist at Junior Nationals; Bronze medalist at Interuniversity Championships.'
         },
         {
-          name: 'Recovery Therapies',
-          description: 'Advanced recovery modalities including physiotherapy and massage'
+          name: 'Asian Master’s Athletic Championships',
+          description: 'Silver medalist in 400m (55.16s); Bronze medalist in 200m (23.88s)'
         },
-        {
-          name: 'Performance Tracking',
-          description: 'Data-driven monitoring of progress with cutting-edge assessment tools'
-        },
-        {
-          name: 'Sport-Specific Training',
-          description: 'Customized programs tailored to your specific sport or performance goals'
-        }
+        // {
+        //   name: 'Performance Tracking',
+        //   description: 'Data-driven monitoring of progress with cutting-edge assessment tools'
+        // },
+        // {
+        //   name: 'Sport-Specific Training',
+        //   description: 'Customized programs tailored to your specific sport or performance goals'
+        // }
       ]
     }
   ];
@@ -64,20 +65,51 @@ const Experts = () => {
       transition={{ duration: 0.5 }}
     >
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center text-center section-padding">
-        <div className="container">
+      <section className="min-h-screen flex items-center justify-center text-center section-padding p-0 m-0 overflow-hidden">
+        <div className="container p-0 m-0 w-full h-full">
           <FadeInSection>
-            <h1 className="text-5xl md:text-6xl font-bold gradient-text mb-8">
-              Wellness Programs
-            </h1>
-            <p className="subtitle mb-12 max-w-4xl mx-auto leading-relaxed">
-              Choose from our carefully crafted wellness programs designed to meet your 
-              unique goals and lifestyle. Each program combines multiple disciplines for 
-              comprehensive transformation.
-            </p>
+            <img
+              src="/guru.png"
+              alt="Guru"
+              className="w-[200%] h-[170%] object-cover -translate-x-1 -translate-y-10"
+              style={{ minHeight: '800px' }}
+            />
           </FadeInSection>
         </div>
       </section>
+
+      {/* About Guru Parallax Section */}
+    {/* Image side - Centered and Easily Customizable */}
+                    <div className="w-full flex justify-center items-center py-8">
+                  <motion.div
+                    className="relative rounded-lg overflow-hidden group"
+                    style={{ width: '170%', maxWidth: '1200px', maxHeight: '1200px', perspective: '1200px' }}
+                    // whileHover={{
+                  
+                    //   scale: 1.02,
+                    //   transition: { duration: 0.4 }
+                    // }}
+                  >
+                      <motion.img
+                        src="/aboutguru.png"
+                        alt="Gradient Holistic Wellness Lounge"
+                        className="w-full h-auto object-contain bg-white"
+                        style={{ backgroundColor: '#fff' }}
+                        // initial={{ scale: 1.05, rotate: -1 }}
+                        // animate={{
+                        //   scale: [1.05, 1.08, 1.05],
+                        //   rotate: [-1, 1, -1],
+                        //   boxShadow: [
+                        //     '0 25px 60px rgba(220, 38, 38, 0.18)',
+                        //     '0 35px 80px rgba(220, 38, 38, 0.22)',
+                        //     '0 25px 60px rgba(220, 38, 38, 0.18)'
+                        //   ]
+                        // }}
+                        // transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+                      />
+                    </motion.div>
+                  </div>
+          
 
       {/* Programs Section */}
       <section className="section-padding bg-black bg-opacity-20">
@@ -114,7 +146,7 @@ const Experts = () => {
 
                   <div className="text-center mt-12">
                     <Link to="/services" className="gradient-button">
-                      Learn More About Our Services
+                      EDUCATION
                       <ArrowRight size={20} />
                     </Link>
                   </div>
@@ -131,7 +163,7 @@ const Experts = () => {
           <FadeInSection>
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
-                Additional Wellness Services
+                ACHEVIEMENTS
               </h2>
               <p className="subtitle max-w-3xl mx-auto">
                 Enhance your wellness journey with our specialized services 

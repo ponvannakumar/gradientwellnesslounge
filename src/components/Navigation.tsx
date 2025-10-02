@@ -20,14 +20,17 @@ const Navigation = () => {
     { path: '/', label: 'Home' },
     { path: '/about', label: 'About' },
     { path: '/services', label: 'Services' },
-    { path: '/menu', label: 'Experts' },
+    { path: '/experts', label: 'Experts' },
     { path: '/testimonials', label: 'Testimonials' },
     { path: '/faq', label: 'FAQ & Gallery' },
     { path: '/contact', label: 'Contact' },
   ];
 
+  // Determine navbar background color based on current path
+  const navbarBgColor = location.pathname === '/' ? 'white' : '#f6e5cf';
+
   return (
-    <nav className={`nav-sticky ${isScrolled ? 'scrolled' : ''}`}>
+    <nav className={`nav-sticky ${isScrolled ? 'scrolled' : ''}`} style={{ backgroundColor: navbarBgColor }}>
       <div className="container">
         <div className="flex items-center justify-between">
           {/* Logo */}
