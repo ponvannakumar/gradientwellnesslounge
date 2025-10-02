@@ -77,10 +77,57 @@ const Experts = () => {
           </FadeInSection>
         </div>
       </section>
+      {/* About Section */}
+      <section className="py-20" style={{ backgroundColor: '#f6e5cf' }}>
+        <div className="container mx-auto px-4">
+          <h2 
+            className="text-left mb-11" 
+            style={{ 
+              fontFamily: "'Cormorant Garamond', serif", 
+              fontWeight: 750, 
+              fontSize: '2.5rem', 
+              letterSpacing: '0.3em', 
+              color: '#b91c1c',
+              textTransform: 'uppercase'
+            }}
+          >
+            About
+          </h2>
+          <div className="grid md:grid-cols-2 gap-x-16 gap-y-8">
+            <ul 
+              className="list-disc pl-5 space-y-6"
+              style={{
+                fontFamily: "'Cormorant Garamond', serif",
+                fontWeight: 800,
+                fontSize: '1.38rem',
+                lineHeight: '1.6',
+                color: '#131212ff'
+              }}
+            >
+              <li>Guru epitomizes the convergence of elite athleticism, transformative coaching, and strategic leadership.</li>
+              <li>From his early mastery of weightlifting to his role in Business leadership managing over 100+ trainers in various region, he has consistently shaped performance excellence at every level.</li>
+              <li>His pursuit of athletic distinction led him to excel in the rare combination of 200m and 400m sprints, while also coaching football individuals and teams to reach peak potential.</li>
+            </ul>
+            <ul 
+              className="list-disc pl-5 space-y-6"
+              style={{
+                fontFamily: "'Cormorant Garamond', serif",
+                fontWeight: 800,
+                fontSize: '1.38rem',
+                lineHeight: '1.6',
+                color: '#131111ff'
+              }}
+            >
+              <li>Over the past decade, Guru has pioneered evidence-based methodologies that restore athletes from injury, elevate performance, and ensure long-term athletic development and excellence.</li>
+              <li>Combining precision strength training, advanced pain management, and scientifically curated nutrition, he empowers individuals to transcend limitations, reclaim energy, and unlock their ultimate potential—fusing the discipline of an athlete, the insight of a coach, and the vision of a strategist.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
       {/* About Guru Parallax Section */}
     {/* Image side - Centered and Easily Customizable */}
-                    <div className="w-full flex justify-center items-center py-8">
+                    {/* <div className="w-full flex justify-center items-center py-8">
                   <motion.div
                     className="relative rounded-lg overflow-hidden group"
                     style={{ width: '170%', maxWidth: '1200px', maxHeight: '1200px', perspective: '1200px' }}
@@ -108,7 +155,7 @@ const Experts = () => {
                         // transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
                       />
                     </motion.div>
-                  </div>
+                  </div> */}
           
 
       {/* Programs Section */}

@@ -82,11 +82,12 @@ const Home = () => {
         <div
           className="absolute inset-0 w-full h-full"
           style={{
-            backgroundColor: '#800000', // premium maroon color
             backgroundImage: 'url(/background.png)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
+            transition: 'opacity 0.8s cubic-bezier(0.16,1,0.3,1)',
+            opacity: 1
           }}
           aria-hidden
         />
