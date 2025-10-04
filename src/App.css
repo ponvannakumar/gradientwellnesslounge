@@ -155,6 +155,16 @@ body {
   z-index: 2;
 }
 
+/* Key Benefits gradient heading (matches global split heading) */
+.key-benefits {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  background: linear-gradient(90deg, #b91c1c 0%, #b91c1c 50%, #111111 50%, #111111 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .service-card p {
   color: #4b5563;
   margin-bottom: 20px;
@@ -170,6 +180,40 @@ h1, h2, h3, h4 {
   text-shadow: none;
   line-height: 1.3;
   letter-spacing: 0.02em;
+}
+
+/* Service typography variables (easy to tweak) */
+:root {
+  --service-title-size: 2rem; /* example: 2rem */
+  --service-title-weight: 900;
+  --service-desc-size: 1.35rem;
+  --service-desc-weight: 900;
+  --service-benefit-size: 1.35rem;
+  --service-benefit-weight: 700;
+}
+
+/* Services-specific styles (use Cormorant Garamond) */
+.services-title {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: var(--service-title-size) !important;
+  font-weight: var(--service-title-weight) !important;
+  line-height: 1.05;
+  margin: 0;
+}
+
+.services-desc {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: var(--service-desc-size) !important;
+  font-weight: var(--service-desc-weight) !important;
+  color: #000000 !important;
+}
+
+.services-benefit {
+  font-family: 'Cormorant Garamond', serif !important;
+  /* font-Style: 'italic' !important; */
+  font-size: var(--service-benefit-size) !important;
+  font-weight: var(--service-benefit-weight) !important;
+  color: #111827;
 }
 
 p {
@@ -1197,4 +1241,46 @@ html {
   .about-hero .mb-12 {
     margin-bottom: 3.5rem;
   }
+}
+
+/* Expert Section Styles */
+.cormorant-garamond {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.expert-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  background: linear-gradient(90deg, #b91c1c 0%, #b91c1c 50%, #111111 50%, #111111 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease-in-out infinite alternate;
+}
+
+.expert-description {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.feature-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  background: linear-gradient(90deg, #b91c1c 0%, #b91c1c 50%, #111111 50%, #111111 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease-in-out infinite alternate;
+}
+
+.feature-description {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.8 rem;
+   font-weight: 800;
+   
 }

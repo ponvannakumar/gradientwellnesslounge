@@ -4,14 +4,15 @@ import { ArrowRight, Book, Sparkles, Trophy } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FadeInSection from '../components/FadeInSection';
 import ParallaxBackground from '../components/ParallaxBackground';
+import FeedbackCarousel from '../components/FeedbackCarousel';
 
 const Experts = () => {
   const programs = [
     {
       icon: Book,
       title: 'EDUCATION',
-      subtitle: 'Complete Wellness Program',
-      description: 'A comprehensive approach to transforming your lifestyle through integrated wellness strategies.',
+      // subtitle: 'Complete Wellness Program',
+      // description: 'A comprehensive approach to transforming your lifestyle through integrated wellness strategies.',
       features: [
         {
           name: 'Master’s in Sports Management',
@@ -19,7 +20,7 @@ const Experts = () => {
         },
         {
           name: 'Advanced Internship in Strength & Conditioning, Pain Management, and Nutrition',
-          description: 'Personalized meal plans and nutritional education for lasting results'
+          description: '11-month immersive program under the mentorship of the Indian Cricket Team and RCB’s Fitness Coach, applying cutting-edge techniques in elite athlete performance.'
         },
         {
           name: 'Australian Strength & Conditioning Level 1 Certification',
@@ -34,8 +35,8 @@ const Experts = () => {
     {
       icon: Trophy,
       title: 'ACHEIVEMENTS',
-      subtitle: 'Elite Performance Program',
-      description: 'Advanced training protocols designed for athletes and high-performers seeking peak physical condition.',
+      // subtitle: 'Elite Performance Program',
+      // description: 'Advanced training protocols designed for athletes and high-performers seeking peak physical condition.',
       features: [
         {
           name: 'Weightlifting',
@@ -56,6 +57,41 @@ const Experts = () => {
       ]
     }
   ];
+
+  const current = { name: 'Guru' };
+
+  const feedbackSeed: Record<string, { name: string; description: string; rating: number; program: string; image?: string }[]> = {
+    Guru: [
+      {
+        name: 'Alex Johnson',
+        description: 'Working with Guru transformed my athletic performance completely. His expertise in strength and conditioning helped me achieve personal bests in both weightlifting and sprinting. The personalized training plan was exactly what I needed.',
+        rating: 5,
+        program: 'Elite Performance Training',
+        image: '/public/aboutgrad.png'
+      },
+      {
+        name: 'Sarah Chen',
+        description: 'Guru\'s coaching methodology is revolutionary. He combines scientific precision with practical application. After months of training under his guidance, I not only improved my physical capabilities but also developed a deeper understanding of athletic performance.',
+        rating: 5,
+        program: 'Sports Performance Program',
+        image: '/public/aboutguru.png'
+      },
+      {
+        name: 'Michael Rodriguez',
+        description: 'The mentorship I received from Guru was invaluable. His experience with elite athletes and his evidence-based approach to training helped me overcome chronic injuries and return to peak performance. Highly recommended.',
+        rating: 5,
+        program: 'Injury Recovery & Performance',
+        image: '/public/grad.png'
+      },
+      {
+        name: 'Sam Patel',
+        description: 'I improved my strength and mobility quickly under Guru\'s coaching. He tailored exercises that worked around my old injuries and kept me motivated throughout.',
+        rating: 5,
+        program: 'Rehab & Strength',
+        image: '/public/logo1.png'
+      }
+    ]
+  };
 
   return (
     <motion.div
@@ -98,8 +134,8 @@ const Experts = () => {
               className="list-disc pl-5 space-y-6"
               style={{
                 fontFamily: "'Cormorant Garamond', serif",
-                fontWeight: 800,
-                fontSize: '1.38rem',
+                fontWeight: 900,
+                fontSize: '1.45rem',
                 lineHeight: '1.6',
                 color: '#131212ff'
               }}
@@ -171,32 +207,64 @@ const Experts = () => {
                         <program.icon size={40} className="text-white" />
                       </div>
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
+                    <h2
+                      className="expert-title text-2xl md:text-3xl font-bold mb-4"
+                      style={{
+                        fontFamily: "'Cormorant Garamond', serif",
+                        fontWeight: 700,
+                        fontSize: '1.8rem',
+                        letterSpacing: '0.02em',
+                        color: '#7f0f0f'
+                      }}
+                    >
                       {program.title}
                     </h2>
-                    <p className="text-xl font-medium mb-6" style={{ color: '#8b0000' }}>
+
+                    {/* <p
+                      className="text-lg md:text-xl font-medium mb-6"
+                      style={{ color: '#8b0000', fontFamily: "'Cormorant Garamond', serif" }}
+                    >
                       {program.subtitle}
-                    </p>
-                    <p className="subtitle max-w-3xl mx-auto leading-relaxed">
+                    </p> */}
+
+                    {/* <p
+                      className="expert-description subtitle max-w-3xl mx-auto leading-relaxed"
+                      style={{
+                        fontFamily: "'Cormorant Garamond', serif",
+                        fontSize: '1.5rem',
+                        color: '#0f1720',
+                        fontWeight: 800
+                      }}
+                    >
                       {program.description}
-                    </p>
+                    </p> */}
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-8">
                     {program.features.map((feature, featureIndex) => (
                       <div key={featureIndex} className="bg-gradient-to-r from-[#8b0000]/10 to-[#111111]/10 rounded-xl p-6 border border-[#8b0000]/20">
-                        <h3 className="text-xl font-bold text-white mb-3">{feature.name}</h3>
-                        <p className="subtitle leading-relaxed">{feature.description}</p>
+                        <h3
+                          className="feature-title text-lg md:text-xl font-semibold text-white mb-3"
+                          style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 1000, color: '#b91c1c' }}
+                        >
+                          {feature.name}
+                        </h3>
+                        <p
+                          className="feature-description subtitle leading-relaxed"
+                          style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.40rem', color: '#0f1720' }}
+                        >
+                          {feature.description}
+                        </p>
                       </div>
                     ))}
                   </div>
 
-                  <div className="text-center mt-12">
+                  {/* <div className="text-center mt-12">
                     <Link to="/services" className="gradient-button">
                       EDUCATION
                       <ArrowRight size={20} />
                     </Link>
-                  </div>
+                  </div> */}
                 </div>
               </FadeInSection>
             ))}
@@ -204,61 +272,34 @@ const Experts = () => {
         </div>
       </section>
 
-      {/* Additional Services */}
-      <section className="section-padding">
+      {/* Feedback Carousel Section */}
+      <section className="section-padding" style={{ background: ' #f6e5cf'  }}>
         <div className="container">
-          <FadeInSection>
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
-                ACHEVIEMENTS
-              </h2>
-              <p className="subtitle max-w-3xl mx-auto">
-                Enhance your wellness journey with our specialized services 
-                designed to complement your core program.
-              </p>
-            </div>
-          </FadeInSection>
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2
+              className="text-4xl md:text-5xl font-bold gradient-text mb-6"
+              style={{
+                fontFamily: "'Cormorant Garamond', serif",
+                fontWeight: 900,
+                background: 'linear-gradient(90deg, #b91c1c 0%, #b91c1c 50%, #111111 50%, #111111 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}
+            >
+              CLIENT SUCCESS STORIES
+            </h2>
+            <p className="services-desc subtitle max-w-2xl mx-auto">
+              Discover how our premium wellness programs have transformed lives and exceeded expectations.
+            </p>
+          </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <FadeInSection delay={100}>
-              <div className="service-card text-center">
-                <h3 className="text-xl font-bold gradient-text mb-4">Nutrition Counseling</h3>
-                <p className="text-gray-300 mb-6">
-                  One-on-one sessions with our registered dietitians to optimize your nutrition strategy.
-                </p>
-                <Link to="/contact" className="text-pink-400 hover:text-pink-300 font-medium inline-flex items-center gap-2">
-                  Book Session
-                  <ArrowRight size={16} />
-                </Link>
-              </div>
-            </FadeInSection>
-
-            <FadeInSection delay={200}>
-              <div className="service-card text-center">
-                <h3 className="text-xl font-bold gradient-text mb-4">Stress Management</h3>
-                <p className="text-gray-300 mb-6">
-                  Learn effective techniques to manage stress and improve your mental wellbeing.
-                </p>
-                <Link to="/contact" className="text-pink-400 hover:text-pink-300 font-medium inline-flex items-center gap-2">
-                  Book Session
-                  <ArrowRight size={16} />
-                </Link>
-              </div>
-            </FadeInSection>
-
-            <FadeInSection delay={300}>
-              <div className="service-card text-center">
-                <h3 className="text-xl font-bold gradient-text mb-4">Group Classes</h3>
-                <p className="text-gray-300 mb-6">
-                  Join our group fitness and wellness classes for motivation and community support.
-                </p>
-                <Link to="/contact" className="text-pink-400 hover:text-pink-300 font-medium inline-flex items-center gap-2">
-                  View Schedule
-                  <ArrowRight size={16} />
-                </Link>
-              </div>
-            </FadeInSection>
-          </div>
+          <FeedbackCarousel feedbacks={feedbackSeed[current.name] || []} />
         </div>
       </section>
 

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const FloatingParticles = ({ 
   count = 10, 
-  color = '#f10909ff', 
+  color = '#ffffffff', 
   size = 4, 
   opacity = 0.5,
   duration = 6,

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
 import FadeInSection from '../components/FadeInSection';
@@ -6,6 +6,9 @@ import FadeInSection from '../components/FadeInSection';
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const intervalRef = useRef<number | null>(null);
+  const mountedRef = useRef(true);
 
   const testimonials = [
     {
@@ -14,6 +17,8 @@ const Testimonials = () => {
       quote: 'Gradient Wellness Lounge completely transformed my approach to health and fitness. The personalized program addressed not just my physical needs, but my mental and emotional wellness too. I\'ve never felt more energized and confident in my life.',
       result: 'Lost 25 lbs, improved sleep quality, reduced stress levels significantly',
       rating: 5
+      ,
+      image: '/aboutgrad.png'
     },
     {
       name: 'Michael Roberts',
@@ -21,6 +26,8 @@ const Testimonials = () => {
       quote: 'The trainers here are exceptional. They created a workout plan that fit perfectly with my busy schedule and dietary restrictions. The nutrition coaching was a game-changer - I learned how to fuel my body properly for the first time.',
       result: 'Gained 15 lbs of muscle, increased energy levels, learned sustainable nutrition habits',
       rating: 5
+      ,
+      image: '/aboutguru.png'
     },
     {
       name: 'Sarah Thompson',
@@ -28,6 +35,8 @@ const Testimonials = () => {
       quote: 'After years of chronic back pain, I was skeptical that anything could help. The physiotherapy team at Gradient Wellness not only helped me recover but taught me how to prevent future injuries. I\'m pain-free for the first time in years.',
       result: 'Complete recovery from chronic back pain, improved mobility and posture',
       rating: 5
+      ,
+      image: '/grad.png'
     },
     {
       name: 'David Chen',
@@ -35,6 +44,8 @@ const Testimonials = () => {
       quote: 'As a competitive athlete, I needed specialized training that would take my performance to the next level. The performance program here is world-class. The combination of strength training, recovery, and nutrition optimization helped me achieve my personal best.',
       result: 'Improved athletic performance by 20%, faster recovery times, injury-free season',
       rating: 5
+      ,
+      image: '/background1.png'
     },
     {
       name: 'Emma Williams',
@@ -42,6 +53,8 @@ const Testimonials = () => {
       quote: 'The stress management program saved my career and my sanity. I was burning out from work pressure, but the mindfulness techniques and lifestyle changes I learned here have made me more productive and happier than ever before.',
       result: 'Reduced stress levels, improved work-life balance, better sleep quality',
       rating: 5
+      ,
+      image: '/logo.png'
     },
     {
       name: 'Carlos Rodriguez',
@@ -49,6 +62,8 @@ const Testimonials = () => {
       quote: 'What sets Gradient Wellness apart is their holistic approach. They didn\'t just help me get fit - they helped me build a sustainable lifestyle. The team genuinely cares about your success and provides ongoing support every step of the way.',
       result: 'Complete lifestyle transformation, sustainable healthy habits, increased life satisfaction',
       rating: 5
+      ,
+      image: '/logo1.png'
     }
   ];
 
@@ -63,6 +78,49 @@ const Testimonials = () => {
   const goToTestimonial = (index: number) => {
     setCurrentIndex(index);
   };
+
+  // Autoplay: 5000ms interval, pause on hover/focus and when page hidden
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isPaused || testimonials.length <= 1) return;
+    if (intervalRef.current) {
+      window.clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+    intervalRef.current = window.setInterval(() => {
+      if (!mountedRef.current) return;
+      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => {
+      if (intervalRef.current) {
+        window.clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+    };
+  }, [isPaused, testimonials.length]);
+
+  // Pause when page hidden
+  useEffect(() => {
+    const onVisibility = () => setIsPaused(document.hidden);
+    document.addEventListener('visibilitychange', onVisibility);
+    return () => document.removeEventListener('visibilitychange', onVisibility);
+  }, []);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') setCurrentIndex((p) => (p - 1 + testimonials.length) % testimonials.length);
+      if (e.key === 'ArrowRight') setCurrentIndex((p) => (p + 1) % testimonials.length);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [testimonials.length]);
 
   return (
     <motion.div
@@ -93,7 +151,13 @@ const Testimonials = () => {
         <div className="container">
           <FadeInSection>
             <div className="max-w-4xl mx-auto">
-              <div className="relative">
+              <div
+                className="relative"
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
+                onFocus={() => setIsPaused(true)}
+                onBlur={() => setIsPaused(false)}
+              >
                 {/* Navigation Buttons */}
                 <button
                   onClick={prevTestimonial}
@@ -123,7 +187,16 @@ const Testimonials = () => {
                   className="service-card text-center"
                 >
                   <div className="flex justify-center mb-6">
-                    <Quote size={48} className="text-pink-400" />
+                    {testimonials[currentIndex].image ? (
+                      <img
+                        src={testimonials[currentIndex].image}
+                        alt={testimonials[currentIndex].name}
+                        className="w-20 h-20 rounded-full object-cover border-4 border-white shadow-lg"
+                        style={{ boxShadow: '0 10px 30px rgba(185,28,28,0.15)' }}
+                      />
+                    ) : (
+                      <Quote size={48} className="text-pink-400" />
+                    )}
                   </div>
                   
                   {/* Rating */}
