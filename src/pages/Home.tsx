@@ -165,12 +165,12 @@ const Home = () => {
         </div>
 
         {/* Decorative wave at the bottom */}
-        <div className="pointer-events-none absolute bottom-0 left-0 w-full h-[220px] overflow-hidden" aria-hidden>
+        {/* <div className="pointer-events-none absolute bottom-0 left-0 w-full h-[220px] overflow-hidden" aria-hidden>
           <svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
             <path fill="#b91c1c" fillOpacity="0.15" d="M0,256L48,245.3C96,235,192,213,288,181.3C384,149,480,107,576,85.3C672,64,768,64,864,85.3C960,107,1056,149,1152,170.7C1248,192,1344,192,1392,192L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" />
             <path fill="#b91c1c" fillOpacity="0.08" d="M0,224L60,224C120,224,240,224,360,213.3C480,203,600,181,720,165.3C840,149,960,139,1080,149.3C1200,160,1320,192,1380,208L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z" />
           </svg>
-        </div>
+        </div> */}
       </section>
 
       {/* Services Section */}
