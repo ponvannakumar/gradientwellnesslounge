@@ -140,8 +140,8 @@ const Services = () => {
             {services.map((service, index) => (
               <FadeInSection key={index} delay={index * 200}>
                 <div className="service-card h-full">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-16 h-16 rounded-full flex items-center justify-center overflow-hidden bg-white" style={{ background: 'linear-gradient(90deg, #b91c1c 0%, #8a1111 88%, #111111 100%)' }}>
+                  <div className="flex flex-col items-center gap-4 mb-6 text-center md:flex-row md:items-center md:text-left">
+                    <div className="w-16 h-16 rounded-full flex items-center justify-center overflow-hidden bg-white md:w-16 md:h-16" style={{ background: 'linear-gradient(90deg, #b91c1c 0%, #8a1111 88%, #111111 100%)' }}>
                       {service.imageUrl ? (
                         <img src={service.imageUrl} alt={service.title} className="w-full h-full object-cover" />
                       ) : (
@@ -149,7 +149,7 @@ const Services = () => {
                         <div className="w-8 h-8 rounded-full bg-red-700" />
                       )}
                     </div>
-                    <h2 className="services-title gradient-text">{service.title}</h2>
+                    <h2 className="services-title gradient-text text-center md:text-left w-full md:w-auto">{service.title}</h2>
                   </div>
                   <p className="services-desc mb-8 leading-relaxed">
                     {service.description}
