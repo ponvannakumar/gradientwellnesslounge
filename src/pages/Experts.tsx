@@ -28,7 +28,7 @@ const Experts = () => {
         },
         {
           name: 'D-License in Football Coaching',
-          description: 'Professional coaching certification emphasizing tactical, technical, and physical development'
+          description: 'Professional coaching certification emphasizing tactical, technical, and physical development'
         }
       ]
     },
@@ -44,7 +44,7 @@ const Experts = () => {
         },
         {
           name: 'Asian Master’s Athletic Championships',
-          description: 'Silver medalist in 400m (55.16s); Bronze medalist in 200m (23.88s)'
+          description: 'Silver medalist in 400m (55.16s); Bronze medalist in 200m (23.88s)'
         },
         // {
         //   name: 'Performance Tracking',
@@ -107,9 +107,9 @@ const Experts = () => {
             <img
               src="/guru.png"
               alt="Guru"
-              className="w-full h-auto object-cover -translate-x-1 -translate-y-10 max-w-md md:max-w-2xl"
+              className="w-[200%] h-[170%] object-cover -translate-x-1 -translate-y-10"
+              style={{ minHeight: '800px' }}
             />
-
           </FadeInSection>
         </div>
       </section>
