@@ -1,92 +1,76 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import FadeInSection from '../components/FadeInSection';
  
 
 const Services = () => {
   const services = [
     {
-      // icon: Target,
       title: 'ADVANCED PHYSIOTHERAPY',
       imageUrl: '/physio2.jpg',
-      link: '/services/advanced-physiotherapy',
       description: 'Lasting solutions for back pain, knee pain, arthritis, frozen shoulder, neck pain, & sports injuries through strength training finding the root cause. Unlike other Physiotherapy centres that rely only on IFT and Ultrasound for temporary relief, we follow a new approach. Where Pain meets Performance.',
       benefits: [
-        'Individualized assessment & treatment plans',
-        'Manual therapy and soft tissue techniques',
-        'Progressive rehabilitation protocols',
-        'Pain management strategies',
-        'Return-to-sport planning'
+        'Diagnose and treat the root cause of pain.',
+        'Restore joint function and body mechanics.',
+        'Personalized rehab programs for faster recovery.',
+        'Advanced techniques for lasting pain relief beyond machines.',
+        'Safe return to daily living functional activities .'
       ],
-      testimonial: '"The physiotherapy program helped me get back to full training faster than I expected." - A. Kumar'
+      // testimonial: '"The physiotherapy program helped me get back to full training faster than I expected." - A. Kumar'
     },
     {
-      // icon: Activity,
       title: 'PERSONALISED TRAINING',
       imageUrl: '/pertrain1.jpg',
-      link: '/services/personalised-training',
       description: 'Tailored one-on-one sessions designed to help you achieve your unique fitness goals. Whether its fat loss, muscle gain, or overall health, we create structured programs backed by science ensuring sustainable results, not quick fixes.',
       benefits: [
-        'Bespoke workout plans',
-        'Regular progress assessments',
-        'Technique coaching',
-        'Adaptive periodization',
-        'Motivation & accountability'
+        'Tailored fitness plans for your body and goals.',
+        'Extensive Movement screening to optimize performance.',
+        'Monitoring results to keep you on track.',
+        'Evidence-based methods for measurable improvements.'
       ],
-      testimonial: '"The tailored program changed my performance and consistency." - M. Roberts'
+      // testimonial: '"The tailored program changed my performance and consistency." - M. Roberts'
     },
     {
-      // icon: Target,
       title: 'SPORTS PERFORMANCE TRAINING',
       imageUrl: '/spotrain.jpg',
-      link: '/services/sports-performance-training',
       description: 'Dedicated programs for young athletes, college players, and adult professionals to maximize strength, speed, agility, and endurance. We use physiotherapy-based screening, corrective drills, strength & conditioning, and injury-prevention strategies to build resilient, high-performing athletes.',
       benefits: [
-        'Speed & power development',
-        'Agility & change-of-direction',
-        'Sport-specific strength programs',
-        'Recovery & load management',
-        'Performance testing'
+        'Scientific periodisation.',
+        'Sport-specific drills for peak athletic skill',
+        'Intelligent load management to prevent injuries.',
+        'Conditioning programs that are sport specific.',
+        'Data-driven tracking to monitor gains.'
       ],
-      testimonial: '"I hit new personal bests after the sport-specific program." - R. Singh'
+      // testimonial: '"I hit new personal bests after the sport-specific program." - R. Singh'
     },
     {
-      // icon: Heart,
       title: 'SPORTS REHABILITATION',
       imageUrl: '/sporehab.jpg',
-      link: '/services/sports-rehabilitation',
       description: 'Rehab and prevention programs for athletes and active individuals recovering from injuries such as ACL, ankle sprains, hamstring strains, rotator cuff & shoulder impingement, shin splints, plantar fasciitis & IT band syndrome Achilles tendinitis hip flexor strains, back pain related to sports.',
       benefits: [
-        'Injury-specific rehab plans',
-        'Progressive loading strategies',
-        'Functional movement restoration',
-        'Return-to-play protocols',
-        'Integrated clinical and performance input'
+        'Structured recovery from injury to top performance.',
+        'Correct biomechanical imbalances for efficiency.',
+        'Targeted exercises to rebuild functional capacity.',
+        'Prevent recurrence with expert guidance.',
+        'Return to sport with confidence.'
       ],
-      testimonial: '"Their rehab pipeline helped me return stronger than before." - S. Patel'
+      // testimonial: '"Their rehab pipeline helped me return stronger than before." - S. Patel'
     },
     {
-      // icon: Utensils,
       title: 'LIFESTYLE & NUTRITION',
       imageUrl: '/nut.jpg',
-      link: '/services/lifestyle-nutrition',
       description: 'Personalized nutrition and lifestyle guidance for fat loss, strength building, and long-term health transformations.',
       benefits: [
-        'Personalised meal plans',
-        'Behaviour change coaching',
-        'Metabolic health assessment',
-        'Supplement guidance',
-        'Long-term habit building'
+        'Personalized meal plans.',
+        'Sustainable fat loss and lean mass strategies.',
+        'Practical habits for daily wellness and metabolic health.',
+        'Continuous tracking for long-term results.'
       ],
-      testimonial: '"The nutrition coaching finally made healthy eating sustainable." - L. Gomez'
+    //   testimonial: '"The nutrition coaching finally made healthy eating sustainable." - L. Gomez'
     },
     {
-      // icon: Target,
       title: 'STRENGTH AND CONDITIONING',
       imageUrl: '/strenght.jpg',
-      link: '/services/strength-and-conditioning',
       description: 'Science-based training to build strength, endurance, and performance safely — suitable for all ages and fitness levels with one - one personalised training and programs.',
       benefits: [
         'Periodised strength plans',
@@ -95,13 +79,11 @@ const Services = () => {
         'Monitoring & recovery strategies',
         'Performance nutrition alignment'
       ],
-      testimonial: '"My strength gains were consistent and sustainable." - J. Park'
+      // testimonial: '"My strength gains were consistent and sustainable." - J. Park'
     },
     {
-      // icon: Heart,
       title: 'GERIATRIC FITNESS TRAINING',
       imageUrl: '/genric1.jpg',
-      link: '/services/geriatric-fitness-training',
       description: 'Specialized programs for seniors to improve balance, mobility, bone strength, and independence, while managing age-related conditions like arthritis and osteoporosis.',
       benefits: [
         'Balance & fall-prevention',
@@ -110,13 +92,11 @@ const Services = () => {
         'Chronic condition support',
         'Lifestyle & independence coaching'
       ],
-      testimonial: '"I feel stronger and more independent than before." - G. Fernandes'
+      // testimonial: '"I feel stronger and more independent than before." - G. Fernandes'
     },
     {
-      // icon: Utensils,
       title: 'METABOLIC HEALTH TRAINING',
       imageUrl: '/metabolic.jpg',
-      link: '/services/metabolic-health-training',
       description: 'A holistic program designed to manage lifestyle conditions such as Diabetes, Thyroid, and PCOD/PCOS. We combine science backed exercise, functional training, nutrition, and lifestyle modifications to restore energy, regulate metabolism, balance hormones, and improve long-term health and reversing.',
       benefits: [
         'Metabolic profiling',
@@ -125,7 +105,7 @@ const Services = () => {
         'Lifestyle interventions',
         'Long-term metabolic monitoring'
       ],
-      testimonial: '"My energy and metabolic markers improved dramatically." - A. Lee'
+      // testimonial: '"My energy and metabolic markers improved dramatically." - A. Lee'
     }
   ];
 
@@ -149,9 +129,6 @@ const Services = () => {
               Discover our comprehensive range of wellness services designed to transform 
               your health through expert guidance and personalized care.
             </p>
-            <Link to="/contact" className="gradient-button">
-              Book Your Consultation
-            </Link>
           </FadeInSection>
         </div>
       </section>
@@ -190,17 +167,10 @@ const Services = () => {
                     </ul>
                   </div>
 
-                  <div className="bg-gradient-to-r from-[#8b0000]/10 to-[#111111]/10 rounded-lg p-6 border border-[#8b0000]/20">
+                  {/* <div className="bg-gradient-to-r from-[#8b0000]/10 to-[#111111]/10 rounded-lg p-6 border border-[#8b0000]/20">
                     <p className="text-gray-700 italic mb-2">"{service.testimonial.split('" - ')[0]}"</p>
                     <p className="font-medium" style={{ color: '#8b0000' }}>- {service.testimonial.split('" - ')[1]}</p>
-                  </div>
-
-                  <div className="mt-8">
-                    <Link to={service.link} className="gradient-button w-full flex items-center justify-center gap-2">
-                      Learn More About {service.title}
-                      <ArrowRight size={20} />
-                    </Link>
-                  </div>
+                  </div> */}
                 </div>
               </FadeInSection>
             ))}
@@ -220,14 +190,6 @@ const Services = () => {
                 Book a consultation today and let our expert team create a 
                 personalized wellness plan tailored to your unique goals.
               </p>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <Link to="/contact" className="gradient-button">
-                  Schedule Consultation
-                </Link>
-                <Link to="/about" className="gradient-button outline">
-                  Meet Our Team
-                </Link>
-              </div>
             </div>
           </FadeInSection>
         </div>

@@ -1260,6 +1260,33 @@ html {
   contain: layout style paint;
 }
 
+/* Mobile layout for service cards */
+@media (max-width: 480px) {
+  .service-card {
+    text-align: center;
+  }
+
+  .service-card .flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service-card .w-16 {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+  }
+
+  .service-card .services-title {
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .service-card .services-desc {
+    text-align: left;
+  }
+}
+
 /* Ensure About page maintains desktop layout on mobile */
 @media (max-width: 480px) {
   .about-hero h1 {

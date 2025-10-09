@@ -8,11 +8,6 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
-import FitnessAssessment from './pages/services/FitnessAssessment';
-import PersonalTraining from './pages/services/PersonalTraining';
-import Physiotherapy from './pages/services/Physiotherapy';
-import Nutrition from './pages/services/Nutrition';
-import StressManagement from './pages/services/StressManagement';
 import Experts from './pages/Experts';
 import Testimonials from './pages/Testimonials';
 import FAQ from './pages/FAQ';
@@ -41,11 +36,6 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/services/fitness-assessment" element={<FitnessAssessment />} />
-            <Route path="/services/personal-training" element={<PersonalTraining />} />
-            <Route path="/services/physiotherapy" element={<Physiotherapy />} />
-            <Route path="/services/nutrition" element={<Nutrition />} />
-            <Route path="/services/stress-management" element={<StressManagement />} />
             <Route path="/experts" element={<Experts />} />
             <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/faq" element={<FAQ />} />
