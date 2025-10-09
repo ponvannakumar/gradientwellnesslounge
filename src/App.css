@@ -369,8 +369,43 @@ p {
   background: #fdf8f3;
   backdrop-filter: blur(10px);
   z-index: 1000;
-  padding: 12px 0;
+  padding: 10px 0;
   transition: all 0.3s ease;
+}
+
+/* Brand title responsiveness and single-line behavior */
+.nav-brand-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: clamp(0.8rem, 3.8vw, 1rem);
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .nav-brand-title {
+    font-size: clamp(1rem, 2.1vw, 1.35rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav-brand-title {
+    font-size: 1.6rem;
+  }
+}
+
+/* Ensure the brand text doesn't collide with the hamburger on small screens */
+@media (max-width: 768px) {
+  .nav-brand-title {
+    max-width: 68vw; /* leave room for logo + hamburger */
+  }
+}
+
+/* Tablet width constraint to avoid overlap with nav items */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .nav-brand-title {
+    max-width: 72vw;
+  }
 }
 
 .nav-link {
@@ -416,7 +451,7 @@ p {
   border-radius: 8px;
   transition: all 0.3s ease;
   font-weight: 500;
-  font-size: 1.1rem;
+  font-size: 1rem;
   border: 1px solid transparent;
 }
 
@@ -1426,7 +1461,11 @@ html {
 
   /* Navigation Mobile */
   .nav-sticky {
-    padding: 8px 0;
+    padding: 5px 0;
+  }
+
+  .nav-brand-title {
+    font-size: 1.1rem !important;
   }
 
   .nav-link {

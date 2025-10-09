@@ -34,9 +34,9 @@ const Navigation = () => {
       <div className="container">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <img src="/logo.png" alt="Gradient Holistic Wellness Lounge" className="w-10 h-10 object-contain" />
-            <span className="text-1xl font-bold gradient-text" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 900, fontSize: '1.5rem' }}>
+          <Link to="/" className="flex items-center gap-3 min-w-0">
+            <img src="/logo.png" alt="Gradient Holistic Wellness Lounge" className="w-8 h-8 md:w-10 md:h-10 object-contain flex-shrink-0" />
+            <span className="text-1xl font-bold gradient-text nav-brand-title flex-shrink" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 900 }}>
               Gradient Holistic Wellness Lounge
             </span>
           </Link>

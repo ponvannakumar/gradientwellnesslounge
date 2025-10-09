@@ -39,11 +39,11 @@ const Experts = () => {
       // description: 'Advanced training protocols designed for athletes and high-performers seeking peak physical condition.',
       features: [
         {
-          name: 'Weightlifting',
+          name: '🏋🏽‍♂️ Weightlifting',
           description: 'Silver medalist at Junior Nationals; Bronze medalist at Interuniversity Championships.'
         },
         {
-          name: 'Asian Master’s Athletic Championships',
+          name: '🏅 Asian Master’s Athletic Championships',
           description: 'Silver medalist in 400m (55.16s); Bronze medalist in 200m (23.88s)'
         },
         // {
@@ -101,23 +101,25 @@ const Experts = () => {
       transition={{ duration: 0.5 }}
     >
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center text-center section-padding p-0 m-0 overflow-hidden">
+      <section className="md:min-h-screen flex items-start md:items-center justify-center text-center py-0 md:py-36 m-0 overflow-visible md:overflow-hidden">
         <div className="container p-0 m-0 w-full h-full">
           <FadeInSection>
-            <img
-              src="/guru.png"
-              alt="Guru"
-              className="w-[200%] h-[170%] object-cover -translate-x-1 -translate-y-10"
-              style={{ minHeight: '800px' }}
-            />
+            <picture>
+              <source media="(min-width: 768px)" srcSet="/guru.png" />
+              <img
+                src="/Guru_mob.png"
+                alt="Guru"
+                className="w-full h-[70vh] object-contain mx-auto md:w-[200%] md:h-[170%] md:object-cover md:-translate-x-1 md:-translate-y-10 md:min-h-[800px]"
+              />
+            </picture>
           </FadeInSection>
         </div>
       </section>
       {/* About Section */}
-      <section className="py-20" style={{ backgroundColor: '#f6e5cf' }}>
+      <section className="pt-0 pb-6 -mt-2 md:mt-0 md:py-20" style={{ backgroundColor: '#f6e5cf' }}>
         <div className="container mx-auto px-4">
           <h2 
-            className="text-left mb-11" 
+            className="text-left mb-2 md:mb-10" 
             style={{ 
               fontFamily: "'Cormorant Garamond', serif", 
               fontWeight: 750, 

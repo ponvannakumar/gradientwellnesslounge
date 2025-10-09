@@ -7,7 +7,7 @@ const Services = () => {
   const services = [
     {
       title: 'ADVANCED PHYSIOTHERAPY',
-      imageUrl: '/physio2.jpg',
+      imageUrl: '/physio.jpg',
       description: 'Lasting solutions for back pain, knee pain, arthritis, frozen shoulder, neck pain, & sports injuries through strength training finding the root cause. Unlike other Physiotherapy centres that rely only on IFT and Ultrasound for temporary relief, we follow a new approach. Where Pain meets Performance.',
       benefits: [
         'Diagnose and treat the root cause of pain.',
@@ -20,7 +20,7 @@ const Services = () => {
     },
     {
       title: 'PERSONALISED TRAINING',
-      imageUrl: '/pertrain1.jpg',
+      imageUrl: '/pertrain.jpg',
       description: 'Tailored one-on-one sessions designed to help you achieve your unique fitness goals. Whether its fat loss, muscle gain, or overall health, we create structured programs backed by science ensuring sustainable results, not quick fixes.',
       benefits: [
         'Tailored fitness plans for your body and goals.',
@@ -83,7 +83,7 @@ const Services = () => {
     },
     {
       title: 'GERIATRIC FITNESS TRAINING',
-      imageUrl: '/genric1.jpg',
+      imageUrl: '/genric.jpg',
       description: 'Specialized programs for seniors to improve balance, mobility, bone strength, and independence, while managing age-related conditions like arthritis and osteoporosis.',
       benefits: [
         'Balance & fall-prevention',
