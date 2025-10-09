@@ -107,9 +107,9 @@ const Experts = () => {
             <img
               src="/guru.png"
               alt="Guru"
-              className="w-[200%] h-[170%] object-cover -translate-x-1 -translate-y-10"
-              style={{ minHeight: '800px' }}
+              className="w-full h-auto object-cover -translate-x-1 -translate-y-10 max-w-md md:max-w-2xl"
             />
+
           </FadeInSection>
         </div>
       </section>
