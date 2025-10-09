@@ -1263,7 +1263,6 @@ html {
 /* Mobile layout for service cards */
 @media (max-width: 480px) {
   .service-card {
-    text-align: center;
   }
 
   .service-card .flex {
