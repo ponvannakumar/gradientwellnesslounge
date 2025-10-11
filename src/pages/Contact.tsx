@@ -5,9 +5,14 @@ import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from 'lucide-react';
 
 import FadeInSection from '../components/FadeInSection';
+<<<<<<< HEAD
 
 
 
+=======
+import { API_ENDPOINTS } from '../config/api';
+ 
+>>>>>>> 433406df9b853b02a5ea2a0ecc93399c677160d4
 
 const Contact = () => {
 
@@ -24,6 +29,8 @@ const Contact = () => {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
 
 
@@ -39,6 +46,7 @@ const Contact = () => {
 
   };
 
+<<<<<<< HEAD
 
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -53,6 +61,42 @@ const Contact = () => {
 
     setFormData({ name: '', email: '', phone: '', message: '' });
 
+=======
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setSubmitError('');
+    
+    try {
+      const response = await fetch(API_ENDPOINTS.CONTACT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          message: formData.message
+        })
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setFormData({ name: '', email: '', phone: '', message: '' });
+        setTimeout(() => setIsSubmitted(false), 5000);
+      } else {
+        setSubmitError(result.message || 'Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitError('Network error. Please check your connection and try again.');
+    } finally {
+      setIsLoading(false);
+    }
+>>>>>>> 433406df9b853b02a5ea2a0ecc93399c677160d4
   };
 
 
@@ -417,16 +461,28 @@ const Contact = () => {
 
                   </div>
 
+<<<<<<< HEAD
 
+=======
+                  {submitError && (
+                    <div className="bg-red-900/20 border border-red-500/50 rounded-lg p-4 mb-4">
+                      <p className="text-red-400 text-sm">{submitError}</p>
+                    </div>
+                  )}
+>>>>>>> 433406df9b853b02a5ea2a0ecc93399c677160d4
 
                   <button
 
                     type="submit"
 
                     className="gradient-button w-full"
+<<<<<<< HEAD
 
                     disabled={isSubmitted}
 
+=======
+                    disabled={isSubmitted || isLoading}
+>>>>>>> 433406df9b853b02a5ea2a0ecc93399c677160d4
                   >
 
                     {isSubmitted ? (
@@ -438,7 +494,15 @@ const Contact = () => {
                         Message Sent!
 
                       </>
+<<<<<<< HEAD
 
+=======
+                    ) : isLoading ? (
+                      <>
+                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                        Sending...
+                      </>
+>>>>>>> 433406df9b853b02a5ea2a0ecc93399c677160d4
                     ) : (
 
                       <>
