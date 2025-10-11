@@ -13,7 +13,7 @@ import Testimonials from './pages/Testimonials';
 import FAQ from './pages/FAQ';
 import Contact from './pages/Contact';
 import './App.css';
-import FloatingParticles from './components/FloatingParticles';
+
 
 // ScrollToTop component
 function ScrollToTop() {
@@ -29,7 +29,6 @@ function App() {
     <Router>
       <ScrollToTop />
       <div className="App relative">
-        <FloatingParticles />
         <Navigation />
         <AnimatePresence mode="wait">
           <Routes>

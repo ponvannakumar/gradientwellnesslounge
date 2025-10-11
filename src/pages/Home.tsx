@@ -225,10 +225,10 @@ const Home = () => {
         <div className="container">
           <FadeInSection>
             <div className="text-center mb-16">
-              <h2 className="text-5xl md:text-6xl font-bold gradient-text mb-6" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+              <h2 className="gradient-difference-heading text-5xl md:text-6xl font-bold gradient-text mb-6" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
                 THE GRADIENT DIFFERENCE
               </h2>
-              <p className="text-xl md:text-2xl subtitle max-w-[1200px] mx-auto leading-tight" style={{ fontFamily: "'Cormorant Garamond', serif", textAlign: 'justify', textAlignLast: 'center', fontWeight: 600, color: '#1a1919ff', lineHeight: 1.1 }}>
+              <p className="text-xl md:text-2xl subtitle max-w-[1200px] mx-auto leading-tight" style={{ fontFamily: "'Cormorant Garamond', serif", textAlignLast: 'center', fontWeight: 600, color: '#1a1919ff', lineHeight: 1.1 }}>
                {/* At Gradient Holistic Wellness Lounge, we go beyond physiotherapy, gyms, and diets. We are a <span className="gradient-text" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600 }}>comprehensive human pain management, performance and lifestyle transformation</span> lounge—designed for professionals, executives, individuals and athletes who demand long-term results, precision, and exclusivity. */}
               An elite space offering a holistic blend of pain-free living, peak performance, and lasting lifestyle transformation — all under one roof. We seamlessly set ourselves apart through precision, personalization, and science.
               </p>
@@ -245,7 +245,7 @@ const Home = () => {
         <div className="container">
           <FadeInSection>
             <div className="text-center">
-              <h2 className="text-4xl md:text-4xl font-bold gradient-text mb-6" style={{ fontFamily: "'Playfair Display', serif" , fontStyle: 'italic' }}>
+              <h2 className="why-settle-heading text-4xl md:text-4xl font-bold gradient-text mb-6" style={{ fontFamily: "'Playfair Display', serif" , fontStyle: 'italic' }}>
                 Why Settle For Temporary Fixes? When You Can Get A Permanent Solution!
               </h2>
               <p className="text-xl subtitle mb-12 max-w-2xl mx-auto">
