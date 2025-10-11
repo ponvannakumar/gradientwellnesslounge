@@ -5,14 +5,14 @@ import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from 'lucide-react';
 
 import FadeInSection from '../components/FadeInSection';
-<<<<<<< HEAD
 
 
 
-=======
+
+
 import { API_ENDPOINTS } from '../config/api';
  
->>>>>>> 433406df9b853b02a5ea2a0ecc93399c677160d4
+
 
 const Contact = () => {
 
@@ -46,22 +46,9 @@ const Contact = () => {
 
   };
 
-<<<<<<< HEAD
 
 
-  const handleSubmit = (e: React.FormEvent) => {
 
-    e.preventDefault();
-
-    // Simulate form submission
-
-    setIsSubmitted(true);
-
-    setTimeout(() => setIsSubmitted(false), 3000);
-
-    setFormData({ name: '', email: '', phone: '', message: '' });
-
-=======
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
@@ -96,7 +83,7 @@ const Contact = () => {
     } finally {
       setIsLoading(false);
     }
->>>>>>> 433406df9b853b02a5ea2a0ecc93399c677160d4
+
   };
 
 
@@ -461,28 +448,18 @@ const Contact = () => {
 
                   </div>
 
-<<<<<<< HEAD
-
-=======
                   {submitError && (
                     <div className="bg-red-900/20 border border-red-500/50 rounded-lg p-4 mb-4">
                       <p className="text-red-400 text-sm">{submitError}</p>
                     </div>
                   )}
->>>>>>> 433406df9b853b02a5ea2a0ecc93399c677160d4
 
                   <button
 
                     type="submit"
 
                     className="gradient-button w-full"
-<<<<<<< HEAD
-
-                    disabled={isSubmitted}
-
-=======
                     disabled={isSubmitted || isLoading}
->>>>>>> 433406df9b853b02a5ea2a0ecc93399c677160d4
                   >
 
                     {isSubmitted ? (
@@ -494,15 +471,11 @@ const Contact = () => {
                         Message Sent!
 
                       </>
-<<<<<<< HEAD
-
-=======
                     ) : isLoading ? (
                       <>
                         <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
                         Sending...
                       </>
->>>>>>> 433406df9b853b02a5ea2a0ecc93399c677160d4
                     ) : (
 
                       <>
@@ -713,7 +686,4 @@ const Contact = () => {
 
 };
 
-
-
 export default Contact;
-
