@@ -1943,3 +1943,30 @@ html {
     animation: none;
   }
 }
+
+/* Responsive background images for Home page */
+.responsive-bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('/background.png');
+}
+
+/* Mobile background */
+@media (max-width: 768px) {
+  .responsive-bg {
+    background-image: url('/bg_mob.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+  }
+}
+
+/* Tablet and Desktop background */
+@media (min-width: 769px) {
+  .responsive-bg {
+    background-image: url('/background.png');
+    background-size: cover;
+    background-position: center;
+  }
+}

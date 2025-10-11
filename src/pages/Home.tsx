@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { ArrowRight, User, Zap, Target, Coffee, Dumbbell, Activity } from 'lucide-react';
@@ -8,6 +8,16 @@ import AnimatedServicesGrid from '../components/AnimatedServicesGrid';
 
 const Home = () => {
   const scrollTextRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 639px)');
+    setIsMobile(mediaQuery.matches);
+
+    const handleChange = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mediaQuery.addListener(handleChange);
+    return () => mediaQuery.removeListener(handleChange);
+  }, []);
 
   useEffect(() => {
     if (scrollTextRef.current) {
@@ -75,19 +85,12 @@ const Home = () => {
     >
       {/* Hero Section */}
       <section
-        className="min-h-screen flex items-start relative"
-        style={{ paddingTop: '175px', paddingBottom: 0 }}
+        className="min-h-screen flex items-start relative pt-36 sm:pt-[175px]"
+        style={{ paddingBottom: 0 }}
       >
         {/* High-quality background image layer */}
         <div
-          className="absolute inset-0 w-full h-full"
-          style={{
-            
-            backgroundImage: 'url(/background.png)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-          }}
+          className="absolute inset-0 w-full h-full responsive-bg"
           aria-hidden
         />
         {/* overlays removed to show the background image clearly */}
@@ -114,52 +117,96 @@ const Home = () => {
 >
   GRADIENT HOLISTIC WELLNESS LOUNGE • GRADIENT HOLISTIC WELLNESS LOUNGE • GRADIENT HOLISTIC WELLNESS LOUNGE • GRADIENT HOLISTIC WELLNESS LOUNGE •
 </div> */}
-<motion.h1
-  className="text-[2.75rem] md:text-[4rem] font-bold mb-3 leading-tight text-left relative z-20"
-  style={{ fontFamily: "'Playfair Display', serif", fontWeight: 400, lineHeight: 1.05, color: '#111111' }}
-  initial={{ y: 30, opacity: 0 }}
-  animate={{ y: 0, opacity: 1 }}
-  transition={{ duration: 0.8, delay: 0.2 }}
->
-  <span style={{ textTransform: 'none', letterSpacing: '0.01em', display: 'block', fontFamily: "'Playfair Display', serif", fontWeight: 400, marginBottom: '0.1em' }}>A New Paradigm In</span>
-  <span
-    style={{
-      fontFamily: "'Playfair Display', serif",
-      fontStyle: 'italic',
-      textTransform: 'none',
-      display: 'block',
-      letterSpacing: '0.01em',
-      color: '#111111',
-      marginBottom: '0.6em'
-    }}
-  >
-    Fitness & Pain Management
-  </span>
-</motion.h1>
-              <motion.p 
-                className="text-2xl md:text-2xl leading-relaxed relative z-20 text-left"
-                style={{ fontFamily: "'Adobe Caslon Pro', 'Adobe Caslon', 'Caslon', 'Big Caslon', 'Georgia', serif", fontWeight: 600, color: '#222222', marginBottom: '2.5rem' }}
-                initial={{ y: 30, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-              >
-                <span style={{ letterSpacing: '0.10em' }}>G R A D I E N T</span>
-                <span> - A Wellness Experience like </span>
-                <span style={{ color: '#b91c1c', fontWeight: 700 }}>Never</span>
-                <span> Before!</span>
-              </motion.p>
-              <motion.div 
-                className="flex flex-col sm:flex-row gap-6 justify-start items-center relative z-20"
-                style={{ marginTop: '1.25rem' }}
-                initial={{ y: 0, opacity: 1 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0 }}
-              >
-                <Link to="/contact" className="gradient-button btn-md">
-                 Experience The Gradient Difference
-                 
-                </Link>
-              </motion.div>
+              {/* Separate Mobile and Desktop Hero Content */}
+              {isMobile ? (
+                // Mobile View Hero Content - Centered, smaller sizes, normal weight for second line, tighter spacing
+                <>
+                  <motion.h1
+                    className="text-lg font-normal leading-snug text-center relative z-20 mb-10"
+                    style={{ fontFamily: "'Playfair Display', serif", lineHeight: 1.02, color: '#111111' }}
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                  >
+                    <span className=" block mb-1" style={{ textTransform: 'none', letterSpacing: '0.01em', fontFamily: "'Playfair Display', serif", fontSize: '68%', fontWeight: 500 }}>A New Paradigm In</span>
+                    <span className="font-normal italic block mb-3" style={{ fontFamily: "'Playfair Display', serif", textTransform: 'none', letterSpacing: '0.01em', color: '#111111', whiteSpace: 'nowrap', fontSize: '68%',  fontWeight: 500  }}>
+                      Fitness & Pain Management
+                    </span>
+                  </motion.h1>
+                  <motion.p 
+                    className="leading-snug text-center relative z-20 mb-10"
+                    style={{ fontFamily: "'Adobe Caslon Pro', 'Adobe Caslon', 'Caslon', 'Big Caslon', 'Georgia', serif", fontSize: '85%', fontWeight: 600, color: '#222222' }}
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                  >
+                    <span style={{ letterSpacing: '0.10em',fontSize: '100%' }}>G R A D I E N T</span>
+                    <span> - A Wellness Experience like </span>
+                    <span style={{ color: '#b91c1c', fontWeight: 700 }}>Never</span>
+                    <span> Before!</span>
+                  </motion.p>
+                  <motion.div 
+                    className="flex justify-center items-center relative z-20 w-full mx-auto"
+                    initial={{ y: 0, opacity: 1 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0 }}
+                  >
+                    <Link to="/contact" className="gradient-button btn-md w-full max-w-[15rem]" style={{ padding: '0.375rem 0.75rem', fontSize: '0.75rem', height: '2rem', lineHeight: 1 }}>
+                      Experience The Gradient Difference
+                    </Link>
+                  </motion.div>
+                </>
+              ) : (
+                // Desktop View Hero Content - Original left-aligned, larger sizes
+                <>
+                  <motion.h1
+                    className="text-[2.75rem] md:text-[4rem] font-bold mb-3 leading-tight text-left relative z-20"
+                    style={{ fontFamily: "'Playfair Display', serif", fontWeight: 400, lineHeight: 1.05, color: '#111111' }}
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                  >
+                    <span style={{ textTransform: 'none', letterSpacing: '0.01em', display: 'block', fontFamily: "'Playfair Display', serif", fontWeight: 400, marginBottom: '0.1em' }}>A New Paradigm In</span>
+                    <span
+                      style={{
+                        fontFamily: "'Playfair Display', serif",
+                        fontStyle: 'italic',
+                        textTransform: 'none',
+                        display: 'block',
+                        letterSpacing: '0.01em',
+                        color: '#111111',
+                        marginBottom: '0.6em',
+                        whiteSpace: 'nowrap'
+                      }}
+                    >
+                      Fitness & Pain Management
+                    </span>
+                  </motion.h1>
+                  <motion.p 
+                    className="text-2xl md:text-2xl leading-relaxed relative z-20 text-left mb-10"
+                    style={{ fontFamily: "'Adobe Caslon Pro', 'Adobe Caslon', 'Caslon', 'Big Caslon', 'Georgia', serif", fontWeight: 600, color: '#222222', marginBottom: '2.5rem' }}
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                  >
+                    <span style={{ letterSpacing: '0.10em' }}>G R A D I E N T</span>
+                    <span> - A Wellness Experience like </span>
+                    <span style={{ color: '#b91c1c', fontWeight: 700 }}>Never</span>
+                    <span> Before!</span>
+                  </motion.p>
+                  <motion.div 
+                    className="flex flex-row gap-6 justify-start items-center relative z-20 w-auto max-w-none mx-0"
+                    style={{ marginTop: '1.25rem' }}
+                    initial={{ y: 0, opacity: 1 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0 }}
+                  >
+                    <Link to="/contact" className="gradient-button btn-md w-auto">
+                      Experience The Gradient Difference
+                    </Link>
+                  </motion.div>
+                </>
+              )}
             </div>
           </FadeInSection>
         </div>
