@@ -1,97 +1,173 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Book, Sparkles, Trophy } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FadeInSection from '../components/FadeInSection';
 import ParallaxBackground from '../components/ParallaxBackground';
 import FeedbackCarousel from '../components/FeedbackCarousel';
+import './Experts.css';
 
 const Experts = () => {
-  const programs = [
+  const expertsData = [
     {
-      icon: Book,
-      title: 'EDUCATION',
-      // subtitle: 'Complete Wellness Program',
-      // description: 'A comprehensive approach to transforming your lifestyle through integrated wellness strategies.',
-      features: [
+      name: 'Guru',
+      image: '/guru.png',
+      mobImage: '/Guru_mob.png',
+      about: [
+        'Guru epitomizes the convergence of elite athleticism, transformative coaching, and strategic leadership.',
+        'From his early mastery of weightlifting to his role in Business leadership managing over 100+ trainers in various region, he has consistently shaped performance excellence at every level.',
+        'His pursuit of athletic distinction led him to excel in the rare combination of 200m and 400m sprints, while also coaching football individuals and teams to reach peak potential.',
+        'Over the past decade, Guru has pioneered evidence-based methodologies that restore athletes from injury, elevate performance, and ensure long-term athletic development and excellence.',
+        'Combining precision strength training, advanced pain management, and scientifically curated nutrition, he empowers individuals to transcend limitations, reclaim energy, and unlock their ultimate potential—fusing the discipline of an athlete, the insight of a coach, and the vision of a strategist.'
+      ],
+      programs: [
         {
-          name: 'Master’s in Sports Management',
-          description: 'Comprehensive academic foundation in sports administration and performance optimization.'
+          icon: Book,
+          title: 'EDUCATION',
+          features: [
+            {
+              name: 'MASTER’S IN SPORTS MANAGEMENT',
+              description: 'Comprehensive academic foundation in sports administration and performance optimization.'
+            },
+            {
+              name: 'ADVANCED INTERNSHIP IN STRENGTH & CONDITIONING, PAIN MANAGEMENT, AND NUTRITION',
+              description: '11-month immersive program under the mentorship of the Indian Cricket Team and RCB’s Fitness Coach, applying cutting-edge techniques in elite athlete performance.'
+            },
+            {
+              name: 'AUSTRALIAN STRENGTH & CONDITIONING LEVEL 1 CERTIFICATION',
+              description: 'Accredited training in modern strength and conditioning principles.'
+            },
+            {
+              name: 'D-LICENSE IN FOOTBALL COACHING',
+              description: 'Professional coaching certification emphasizing tactical, technical, and physical development'
+            }
+          ]
         },
         {
-          name: 'Advanced Internship in Strength & Conditioning, Pain Management, and Nutrition',
-          description: '11-month immersive program under the mentorship of the Indian Cricket Team and RCB’s Fitness Coach, applying cutting-edge techniques in elite athlete performance.'
+          icon: Trophy,
+          title: 'ACHEIVEMENTS',
+          features: [
+            {
+              name: '🏋🏽‍♂️ WEIGHTLIFTING',
+              description: 'Silver medalist at Junior Nationals; Bronze medalist at Interuniversity Championships.'
+            },
+            {
+              name: '🏅 ASIAN MASTER’S ATHLETIC CHAMPIONSHIPS',
+              description: 'Silver medalist in 400m (55.16s); Bronze medalist in 200m (23.88s)'
+            },
+          ]
+        }
+      ],
+      feedback: [
+        {
+          name: 'Alex Johnson',
+          description: 'Working with Guru transformed my athletic performance completely. His expertise in strength and conditioning helped me achieve personal bests in both weightlifting and sprinting. The personalized training plan was exactly what I needed.',
+          rating: 5,
+          program: 'Elite Performance Training',
+          image: '/public/aboutgrad.png'
         },
         {
-          name: 'Australian Strength & Conditioning Level 1 Certification',
-          description: 'Accredited training in modern strength and conditioning principles.'
+          name: 'Sarah Chen',
+          description: 'Guru\'s coaching methodology is revolutionary. He combines scientific precision with practical application. After months of training under his guidance, I not only improved my physical capabilities but also developed a deeper understanding of athletic performance.',
+          rating: 5,
+          program: 'Sports Performance Program',
+          image: '/public/aboutguru.png'
         },
         {
-          name: 'D-License in Football Coaching',
-          description: 'Professional coaching certification emphasizing tactical, technical, and physical development'
+          name: 'Michael Rodriguez',
+          description: 'The mentorship I received from Guru was invaluable. His experience with elite athletes and his evidence-based approach to training helped me overcome chronic injuries and return to peak performance. Highly recommended.',
+          rating: 5,
+          program: 'Injury Recovery & Performance',
+          image: '/public/grad.png'
+        },
+        {
+          name: 'Sam Patel',
+          description: 'I improved my strength and mobility quickly under Guru\'s coaching. He tailored exercises that worked around my old injuries and kept me motivated throughout.',
+          rating: 5,
+          program: 'Rehab & Strength',
+          image: '/public/logo1.png'
         }
       ]
     },
     {
-      icon: Trophy,
-      title: 'ACHEIVEMENTS',
-      // subtitle: 'Elite Performance Program',
-      // description: 'Advanced training protocols designed for athletes and high-performers seeking peak physical condition.',
-      features: [
+      name: 'Jamuna',
+      image: '/guru.png', // Replace with Jamuna's image
+      mobImage: '/Jam_mob.png', // Replace with Jamuna's mobile image
+      about: [
+        'Jamuna epitomizes the convergence of elite athleticism, transformative coaching, and strategic leadership.',
+        'From his early mastery of weightlifting to his role in Business leadership managing over 100+ trainers in various region, he has consistently shaped performance excellence at every level.',
+        'His pursuit of athletic distinction led him to excel in the rare combination of 200m and 400m sprints, while also coaching football individuals and teams to reach peak potential.',
+        'Over the past decade, Jamuna has pioneered evidence-based methodologies that restore athletes from injury, elevate performance, and ensure long-term athletic development and excellence.',
+        'Combining precision strength training, advanced pain management, and scientifically curated nutrition, he empowers individuals to transcend limitations, reclaim energy, and unlock their ultimate potential—fusing the discipline of an athlete, the insight of a coach, and the vision of a strategist.'
+      ],
+      programs: [
         {
-          name: '🏋🏽‍♂️ Weightlifting',
-          description: 'Silver medalist at Junior Nationals; Bronze medalist at Interuniversity Championships.'
+          icon: Book,
+          title: 'EDUCATION',
+          features: [
+            {
+              name: 'MASTER’S IN SPORTS MANAGEMENT',
+              description: 'Comprehensive academic foundation in sports administration and performance optimization.'
+            },
+            {
+              name: 'ADVANCED INTERNSHIP IN STRENGTH & CONDITIONING, PAIN MANAGEMENT, AND NUTRITION',
+              description: '11-month immersive program under the mentorship of the Indian Cricket Team and RCB’s Fitness Coach, applying cutting-edge techniques in elite athlete performance.'
+            },
+            {
+              name: 'AUSTRALIAN STRENGTH & CONDITIONING LEVEL 1 CERTIFICATION',
+              description: 'Accredited training in modern strength and conditioning principles.'
+            },
+            {
+              name: 'D-LICENSE IN FOOTBALL COACHING',
+              description: 'Professional coaching certification emphasizing tactical, technical, and physical development'
+            }
+          ]
         },
         {
-          name: '🏅 Asian Master’s Athletic Championships',
-          description: 'Silver medalist in 400m (55.16s); Bronze medalist in 200m (23.88s)'
+          icon: Trophy,
+          title: 'ACHEIVEMENTS',
+          features: [
+            {
+              name: '🏋🏽‍♂️ WEIGHTLIFTING',
+              description: 'Silver medalist at Junior Nationals; Bronze medalist at Interuniversity Championships.'
+            },
+            {
+              name: '🏅 ASIAN MASTER’S ATHLETIC CHAMPIONSHIPS',
+              description: 'Silver medalist in 400m (55.16s); Bronze medalist in 200m (23.88s)'
+            },
+          ]
+        }
+      ],
+      feedback: [
+        {
+          name: 'Alex Johnson',
+          description: 'Working with Jamuna transformed my athletic performance completely. His expertise in strength and conditioning helped me achieve personal bests in both weightlifting and sprinting. The personalized training plan was exactly what I needed.',
+          rating: 5,
+          program: 'Elite Performance Training',
+          image: '/public/aboutgrad.png'
         },
-        // {
-        //   name: 'Performance Tracking',
-        //   description: 'Data-driven monitoring of progress with cutting-edge assessment tools'
-        // },
-        // {
-        //   name: 'Sport-Specific Training',
-        //   description: 'Customized programs tailored to your specific sport or performance goals'
-        // }
+        {
+          name: 'Sarah Chen',
+          description: 'Jamuna\'s coaching methodology is revolutionary. He combines scientific precision with practical application. After months of training under his guidance, I not only improved my physical capabilities but also developed a deeper understanding of athletic performance.',
+          rating: 5,
+          program: 'Sports Performance Program',
+          image: '/public/aboutguru.png'
+        }
       ]
     }
   ];
 
-  const current = { name: 'Guru' };
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const feedbackSeed: Record<string, { name: string; description: string; rating: number; program: string; image?: string }[]> = {
-    Guru: [
-      {
-        name: 'Alex Johnson',
-        description: 'Working with Guru transformed my athletic performance completely. His expertise in strength and conditioning helped me achieve personal bests in both weightlifting and sprinting. The personalized training plan was exactly what I needed.',
-        rating: 5,
-        program: 'Elite Performance Training',
-        image: '/public/aboutgrad.png'
-      },
-      {
-        name: 'Sarah Chen',
-        description: 'Guru\'s coaching methodology is revolutionary. He combines scientific precision with practical application. After months of training under his guidance, I not only improved my physical capabilities but also developed a deeper understanding of athletic performance.',
-        rating: 5,
-        program: 'Sports Performance Program',
-        image: '/public/aboutguru.png'
-      },
-      {
-        name: 'Michael Rodriguez',
-        description: 'The mentorship I received from Guru was invaluable. His experience with elite athletes and his evidence-based approach to training helped me overcome chronic injuries and return to peak performance. Highly recommended.',
-        rating: 5,
-        program: 'Injury Recovery & Performance',
-        image: '/public/grad.png'
-      },
-      {
-        name: 'Sam Patel',
-        description: 'I improved my strength and mobility quickly under Guru\'s coaching. He tailored exercises that worked around my old injuries and kept me motivated throughout.',
-        rating: 5,
-        program: 'Rehab & Strength',
-        image: '/public/logo1.png'
-      }
-    ]
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % expertsData.length);
   };
+
+  const handlePrevious = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + expertsData.length) % expertsData.length);
+  };
+
+  const currentExpert = expertsData[currentIndex];
 
   return (
     <motion.div
@@ -105,10 +181,10 @@ const Experts = () => {
         <div className="container p-0 m-0 w-full h-full">
           <FadeInSection>
             <picture>
-              <source media="(min-width: 768px)" srcSet="/guru.png" />
+              <source media="(min-width: 768px)" srcSet={currentExpert.image} />
               <img
-                src="/Guru_mob.png"
-                alt="Guru"
+                src={currentExpert.mobImage}
+                alt={currentExpert.name}
                 className="w-full h-[70vh] object-contain mx-auto md:w-[200%] md:h-[170%] md:object-cover md:-translate-x-1 md:-translate-y-10 md:min-h-[800px]"
               />
             </picture>
@@ -118,46 +194,19 @@ const Experts = () => {
       {/* About Section */}
       <section className="pt-0 pb-6 -mt-2 md:mt-0 md:py-20" style={{ backgroundColor: '#f6e5cf' }}>
         <div className="container mx-auto px-4">
-          <h2 
-            className="text-left mb-2 md:mb-10" 
-            style={{ 
-              fontFamily: "'Cormorant Garamond', serif", 
-              fontWeight: 750, 
-              fontSize: '2.5rem', 
-              letterSpacing: '0.3em', 
-              color: '#b91c1c',
-              textTransform: 'uppercase'
-            }}
-          >
+          <h2 className="experts-about-title text-left">
             About
           </h2>
           <div className="grid md:grid-cols-2 gap-x-16 gap-y-8">
-            <ul 
-              className="list-disc pl-5 space-y-6"
-              style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                fontWeight: 900,
-                fontSize: '1.45rem',
-                lineHeight: '1.6',
-                color: '#131212ff'
-              }}
-            >
-              <li>Guru epitomizes the convergence of elite athleticism, transformative coaching, and strategic leadership.</li>
-              <li>From his early mastery of weightlifting to his role in Business leadership managing over 100+ trainers in various region, he has consistently shaped performance excellence at every level.</li>
-              <li>His pursuit of athletic distinction led him to excel in the rare combination of 200m and 400m sprints, while also coaching football individuals and teams to reach peak potential.</li>
+            <ul className="experts-about-list space-y-6">
+              {currentExpert.about.slice(0, 3).map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
             </ul>
-            <ul 
-              className="list-disc pl-5 space-y-6"
-              style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                fontWeight: 800,
-                fontSize: '1.38rem',
-                lineHeight: '1.6',
-                color: '#131111ff'
-              }}
-            >
-              <li>Over the past decade, Guru has pioneered evidence-based methodologies that restore athletes from injury, elevate performance, and ensure long-term athletic development and excellence.</li>
-              <li>Combining precision strength training, advanced pain management, and scientifically curated nutrition, he empowers individuals to transcend limitations, reclaim energy, and unlock their ultimate potential—fusing the discipline of an athlete, the insight of a coach, and the vision of a strategist.</li>
+            <ul className="experts-about-list-secondary space-y-6">
+              {currentExpert.about.slice(3).map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
             </ul>
           </div>
         </div>
@@ -200,73 +249,32 @@ const Experts = () => {
       <section className="section-padding bg-black bg-opacity-20">
         <div className="container">
           <div className="space-y-24">
-            {programs.map((program, index) => (
+            {currentExpert.programs.map((program, index) => (
               <FadeInSection key={index} delay={index * 300}>
                 <div className="service-card">
                   <div className="text-center mb-12">
                     <div className="flex justify-center mb-6">
-                      <div className="w-20 h-20 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(90deg, #b91c1c 0%, #8a1111 88%, #111111 100%)' }}>
+                      <div className="experts-icon-wrapper">
                         <program.icon size={40} className="text-white" />
                       </div>
                     </div>
-                    <h2
-                      className="expert-title text-2xl md:text-3xl font-bold mb-4"
-                      style={{
-                        fontFamily: "'Cormorant Garamond', serif",
-                        fontWeight: 700,
-                        fontSize: '1.8rem',
-                        letterSpacing: '0.02em',
-                        color: '#7f0f0f'
-                      }}
-                    >
+                    <h2 className="expert-program-title text-2xl md:text-3xl font-bold mb-4">
                       {program.title}
                     </h2>
-
-                    {/* <p
-                      className="text-lg md:text-xl font-medium mb-6"
-                      style={{ color: '#8b0000', fontFamily: "'Cormorant Garamond', serif" }}
-                    >
-                      {program.subtitle}
-                    </p> */}
-
-                    {/* <p
-                      className="expert-description subtitle max-w-3xl mx-auto leading-relaxed"
-                      style={{
-                        fontFamily: "'Cormorant Garamond', serif",
-                        fontSize: '1.5rem',
-                        color: '#0f1720',
-                        fontWeight: 800
-                      }}
-                    >
-                      {program.description}
-                    </p> */}
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-8">
                     {program.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="bg-gradient-to-r from-[#8b0000]/10 to-[#111111]/10 rounded-xl p-6 border border-[#8b0000]/20">
-                        <h3
-                          className="feature-title text-lg md:text-xl font-semibold text-white mb-3"
-                          style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 1000, color: '#b91c1c' }}
-                        >
+                      <div key={featureIndex} className="expert-feature-card">
+                        <h3 className="expert-feature-title text-lg md:text-xl font-semibold">
                           {feature.name}
                         </h3>
-                        <p
-                          className="feature-description subtitle leading-relaxed"
-                          style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.40rem', color: '#0f1720' }}
-                        >
+                        <p className="expert-feature-description leading-relaxed">
                           {feature.description}
                         </p>
                       </div>
                     ))}
                   </div>
-
-                  {/* <div className="text-center mt-12">
-                    <Link to="/services" className="gradient-button">
-                      EDUCATION
-                      <ArrowRight size={20} />
-                    </Link>
-                  </div> */}
                 </div>
               </FadeInSection>
             ))}
@@ -284,24 +292,31 @@ const Experts = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2
-              className="text-4xl md:text-5xl font-bold gradient-text mb-6"
-              style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                fontWeight: 900,
-                background: 'linear-gradient(90deg, #b91c1c 0%, #b91c1c 50%, #111111 50%, #111111 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-              }}
-            >
+            <h2 className="expert-feedback-title text-4xl md:text-5xl font-bold mb-6">
               CLIENT SUCCESS STORIES
             </h2>
-            <p className="services-desc subtitle max-w-2xl mx-auto">
+            <p className="expert-subtitle max-w-2xl mx-auto">
               Discover how our premium wellness programs have transformed lives and exceeded expectations.
             </p>
           </motion.div>
 
-          <FeedbackCarousel feedbacks={feedbackSeed[current.name] || []} />
+          <FeedbackCarousel feedbacks={currentExpert.feedback || []} />
+        </div>
+      </section>
+
+      {/* Expert Navigation */}
+      <section className="bg-black bg-opacity-10">
+        <div className="container">
+          <FadeInSection>
+            <div className="expert-navigation-container">
+              <button onClick={handlePrevious} className="expert-navigation-button">
+                Previous Expert
+              </button>
+              <button onClick={handleNext} className="expert-navigation-button">
+                Next Expert
+              </button>
+            </div>
+          </FadeInSection>
         </div>
       </section>
 

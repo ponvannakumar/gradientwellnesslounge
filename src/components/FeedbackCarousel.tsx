@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Star, Quote, Save, X } from 'lucide-react';
+import './FeedbackCarousel.css';
 
 interface Feedback {
   name: string;
@@ -104,7 +105,7 @@ const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ feedbacks, autoPlay
   const currentFeedback = feedbacks[currentIndex];
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="feedback-carousel-container">
       <div
         className="relative"
         onMouseEnter={() => setIsPaused(true)}
@@ -115,8 +116,7 @@ const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ feedbacks, autoPlay
         {/* Navigation Buttons */}
         <button
           onClick={prevFeedback}
-          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 w-12 h-12 rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform z-10"
-          style={{ background: 'linear-gradient(90deg, #b91c1c 0%, #8a1111 88%, #111111 100%)' }}
+          className="feedback-navigation-button feedback-prev-button"
           aria-label="Previous feedback"
         >
           <ChevronLeft size={24} />
@@ -124,8 +124,7 @@ const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ feedbacks, autoPlay
 
         <button
           onClick={nextFeedback}
-          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 w-12 h-12 rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform z-10"
-          style={{ background: 'linear-gradient(90deg, #b91c1c 0%, #8a1111 88%, #111111 100%)' }}
+          className="feedback-navigation-button feedback-next-button"
           aria-label="Next feedback"
         >
           <ChevronRight size={24} />
@@ -138,7 +137,7 @@ const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ feedbacks, autoPlay
           animate={{ opacity: 1, x: 0, scale: 1 }}
           exit={{ opacity: 0, x: -50, scale: 0.98 }}
           transition={{ duration: 0.55, ease: 'easeInOut' }}
-          className="service-card text-center"
+          className="feedback-card service-card text-center"
         >
           <div className="flex justify-center mb-6">
             {currentFeedback.image ? (
@@ -187,14 +186,14 @@ const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ feedbacks, autoPlay
               </div>
             </div>
           ) : (
-            <p className="subtitle leading-relaxed mb-8 italic">
+            <p className="feedback-description subtitle leading-relaxed mb-8 italic">
               "{currentFeedback.description}"
             </p>
           )}
 
           {/* Client Info */}
           <div className="mb-4">
-            <h3 className="text-2xl font-bold gradient-text mb-2">
+            <h3 className="feedback-client-name text-2xl font-bold gradient-text mb-2">
               {currentFeedback.name}
             </h3>
             {currentFeedback.program && (
@@ -217,21 +216,21 @@ const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ feedbacks, autoPlay
         </motion.div>
 
         {/* Dots Indicator with animated progress */}
-        <div className="flex justify-center mt-12 gap-3 items-center">
+        <div className="flex justify-center mt-12 gap-2 md:gap-3 items-center">
           {feedbacks.map((_, index) => {
             const active = index === currentIndex;
             return (
               <button
                 key={index}
                 onClick={() => goToFeedback(index)}
-                className={`rounded-full transition-all duration-400 flex items-center justify-center ${active ? 'w-9 h-3 rounded-full' : 'w-3 h-3'}`}
+                className={`rounded-full transition-all duration-400 flex items-center justify-center ${active ? 'w-8 h-2.5 md:w-9 md:h-3 rounded-full' : 'w-2.5 h-2.5 md:w-3 md:h-3'}`}
                 style={active ? { background: 'linear-gradient(90deg, #b91c1c 0%, #8a1111 88%)' } : { background: '#d1d5db' }}
                 aria-label={`Go to feedback ${index + 1}`}
               >
                 {active && (
                   <motion.span
                     layoutId="dot"
-                    className="block h-3"
+                    className="block h-2.5 md:h-3"
                     style={{ width: '100%' }}
                     initial={{ opacity: 0.8 }}
                     animate={{ opacity: 1 }}

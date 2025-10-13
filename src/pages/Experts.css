@@ -1,0 +1,286 @@
+/* ===================================
+   EXPERTS PAGE STYLES
+   =================================== */
+
+/* Desktop Styles (Default) */
+@media (min-width: 768px) {
+  .expert-navigation-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .expert-navigation-button.prev {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .expert-navigation-button.next {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .expert-navigation-button {
+    font-size: 1.125rem;
+    padding: 1rem 2rem;
+  }
+}
+
+/* Desktop Styles (Default) */
+@media (min-width: 768px) {
+  .experts-about-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 750;
+    font-size: 2.5rem;
+    letter-spacing: 0.3em;
+    color: #b91c1c;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+  }
+
+  .experts-about-list {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 900;
+    font-size: 1.45rem;
+    line-height: 1.6;
+    color: #131212ff;
+    list-style: disc;
+    padding-left: 1.25rem;
+  }
+
+  .experts-about-list-secondary {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 800;
+    font-size: 1.38rem;
+    line-height: 1.6;
+    color: #131111ff;
+    list-style: disc;
+    padding-left: 1.25rem;
+  }
+
+  .experts-about-list li,
+  .experts-about-list-secondary li {
+    margin-bottom: 1.5rem;
+  }
+
+  .expert-program-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    letter-spacing: 0.02em;
+    color: #7f0f0f;
+  }
+
+  .expert-feature-title {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-weight: 900 !important;
+    font-size: 1.5rem !important;
+    color: #b91c1c !important;
+    margin-bottom: 0.75rem;
+  }
+
+  .expert-feature-description {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem !important;
+    line-height: 1.7;
+    color: #000000 !important;
+       font-weight: 700 !important;
+  }
+
+  .expert-feedback-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 900;
+    font-size: 3rem;
+    background: linear-gradient(90deg, #b91c1c 0%, #b91c1c 50%, #111111 50%, #111111 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+  .experts-about-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    letter-spacing: 0.2em;
+    color: #b91c1c;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .experts-about-list {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #131212ff;
+    list-style: disc;
+    padding-left: 1rem;
+  }
+
+  .experts-about-list-secondary {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: #131111ff;
+    list-style: disc;
+    padding-left: 1rem;
+  }
+
+  .experts-about-list li,
+  .experts-about-list-secondary li {
+    margin-bottom: 1rem;
+  }
+
+  .expert-program-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 0.02em;
+    color: #7f0f0f;
+  }
+
+  .expert-feature-title {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-weight: 900 !important;
+    font-size: 1rem !important;
+    color: #b91c1c !important;
+    margin-bottom: 0.5rem;
+  }
+
+  .expert-feature-description {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem !important;
+    line-height: 1.6;
+    color: #000000 !important;
+       font-weight: 700 !important;
+  }
+
+  .expert-feedback-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 900;
+    font-size: 1.5rem !important;
+    background: linear-gradient(90deg, #b91c1c 0%, #b91c1c 50%, #111111 50%, #111111 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Feedback Carousel Styles for Mobile */
+  /* .service-card {
+    padding: 0.9rem !important;
+  }
+
+  .subtitle.leading-relaxed.mb-8.italic {
+    font-size: 0.9rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+
+  .w-20.h-20.rounded-full.object-cover.border-4.border-white.shadow-lg {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .absolute.left-0.top-1\/2.-translate-y-1\/2.-translate-x-12.w-12.h-12.rounded-full.flex.items-center.justify-center.text-white.hover\:scale-110.transition-transform.z-10,
+  .absolute.right-0.top-1\/2.-translate-y-1\/2.translate-x-12.w-12.h-12.rounded-full.flex.items-center.justify-center.text-white.hover\:scale-110.transition-transform.z-10 {
+    width: 3rem !important;
+    height: 1.7rem;
+    transform: translate(-50%, -50%);
+  }*/
+} 
+
+/* Common Styles (Both Mobile & Desktop) */
+.experts-icon-wrapper {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #b91c1c 0%, #8a1111 88%, #111111 100%);
+}
+
+.expert-feature-card {
+  background: linear-gradient(to right, rgba(139, 0, 0, 0.1), rgba(17, 17, 17, 0.1));
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(139, 0, 0, 0.2);
+}
+
+.expert-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  color: #0f1720;
+  font-weight: 800;
+}
+
+/* Responsive adjustments for feature cards */
+@media (max-width: 767px) {
+  .expert-feature-card {
+    padding: 1rem;
+  }
+}
+
+/* Expert Navigation Buttons */
+.expert-navigation-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.expert-navigation-button {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  color: #ffffff;
+  font-weight: 600;
+  border: none;
+  border-radius: 9999px;
+  padding: 16px 32px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.expert-navigation-button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(220, 38, 38, 0.4);
+  filter: brightness(1.1);
+  color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .expert-navigation-container {
+    margin-top: 3rem;
+    justify-content: space-between;
+  }
+
+  .expert-navigation-button {
+    font-size: 1.125rem;
+    padding: 1rem 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .expert-navigation-button {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}

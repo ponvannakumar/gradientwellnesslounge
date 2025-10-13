@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
 import FadeInSection from '../components/FadeInSection';
+import './Testimonials.css';
  
 
 const Testimonials = () => {
@@ -150,7 +151,7 @@ const Testimonials = () => {
       <section className="section-padding bg-black bg-opacity-20">
         <div className="container">
           <FadeInSection>
-            <div className="max-w-4xl mx-auto">
+            <div className="testimonial-carousel-container">
               <div
                 className="relative"
                 onMouseEnter={() => setIsPaused(true)}
@@ -161,8 +162,7 @@ const Testimonials = () => {
                 {/* Navigation Buttons */}
                 <button
                   onClick={prevTestimonial}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 w-12 h-12 rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform z-10"
-                  style={{ background: 'linear-gradient(90deg, #b91c1c 0%, #8a1111 88%, #111111 100%)' }}
+                  className="testimonial-navigation-button testimonial-prev-button"
                   aria-label="Previous testimonial"
                 >
                   <ChevronLeft size={24} />
@@ -170,8 +170,7 @@ const Testimonials = () => {
                 
                 <button
                   onClick={nextTestimonial}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 w-12 h-12 rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform z-10"
-                  style={{ background: 'linear-gradient(90deg, #b91c1c 0%, #8a1111 88%, #111111 100%)' }}
+                  className="testimonial-navigation-button testimonial-next-button"
                   aria-label="Next testimonial"
                 >
                   <ChevronRight size={24} />
@@ -184,7 +183,7 @@ const Testimonials = () => {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -50 }}
                   transition={{ duration: 0.5 }}
-                  className="service-card text-center"
+                  className="testimonial-card service-card text-center"
                 >
                   <div className="flex justify-center mb-6">
                     {testimonials[currentIndex].image ? (
@@ -207,7 +206,7 @@ const Testimonials = () => {
                   </div>
                   
                   {/* Quote */}
-                  <p className="subtitle leading-relaxed mb-8 italic">
+                  <p className="testimonial-quote subtitle leading-relaxed mb-8 italic">
                     "{testimonials[currentIndex].quote}"
                   </p>
                   
@@ -219,7 +218,7 @@ const Testimonials = () => {
                   
                   {/* Client Info */}
                   <div>
-                    <h3 className="text-2xl font-bold gradient-text mb-2">
+                    <h3 className="testimonial-client-name text-2xl font-bold gradient-text mb-2">
                       {testimonials[currentIndex].name}
                     </h3>
                     <p className="font-medium" style={{ color: '#8b0000' }}>
@@ -229,12 +228,12 @@ const Testimonials = () => {
                 </motion.div>
 
                 {/* Dots Indicator */}
-                <div className="flex justify-center mt-12 gap-2">
+                <div className="flex justify-center mt-12 gap-2 md:gap-3">
                   {testimonials.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => goToTestimonial(index)}
-                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
                         index === currentIndex
                           ? 'scale-125'
                           : 'bg-gray-600 hover:bg-gray-500'
