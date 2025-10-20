@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "update-browserslist-db": "^1.1.3"
+  },
+  "_npx": {
+    "packages": [
+      "update-browserslist-db@latest"
+    ]
+  }
+}

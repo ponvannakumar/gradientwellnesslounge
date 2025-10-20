@@ -51,8 +51,8 @@ const Home = () => {
     },
     {
       icon: Zap,
-      title: 'NO OUT-DATED TRAINING',
-      description: 'Backed by Science for Sports Performance & Athleticism.',
+      title: 'NO FLASHY MODALITY',
+      description: 'Exercise-only solution to restore strength and eliminate pain.',
       link: '/services/nutrition',
     },
       {
@@ -70,8 +70,8 @@ const Home = () => {
     },
     {
       icon: Activity,
-      title: 'NO LIMITS. NO DEPENDENCY',
-      description: 'Programs that help you to restore strength & move without limits.',
+      title: 'NO STACK OF PILLS',
+      description: 'Science based protocols to reclaim control on Diabetes, Thyroid, PCOD, etc.',
       link: '/services/holistic-healing',
     }
   ];

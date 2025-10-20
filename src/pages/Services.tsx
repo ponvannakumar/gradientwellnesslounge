@@ -6,7 +6,7 @@ import FadeInSection from '../components/FadeInSection';
 const Services = () => {
   const services = [
     {
-      title: 'ADVANCED PHYSIOTHERAPY',
+      title: 'INTEGRATED PHYSIOTHERAPY',
       imageUrl: '/physio.jpg',
       description: 'Lasting solutions for back pain, knee pain, arthritis, frozen shoulder, neck pain, & sports injuries through strength training finding the root cause. Unlike other Physiotherapy centres that rely only on IFT and Ultrasound for temporary relief, we follow a new approach. Where Pain meets Performance.',
       benefits: [
@@ -16,7 +16,7 @@ const Services = () => {
         'Advanced techniques for lasting pain relief beyond machines.',
         'Safe return to daily living functional activities .'
       ],
-      // testimonial: '"The physiotherapy program helped me get back to full training faster than I expected." - A. Kumar'
+      testimonial: '"The physiotherapy program helped me get back to full training faster than I expected." - A. Kumar'
     },
     {
       title: 'PERSONALISED TRAINING',
@@ -28,7 +28,7 @@ const Services = () => {
         'Monitoring results to keep you on track.',
         'Evidence-based methods for measurable improvements.'
       ],
-      // testimonial: '"The tailored program changed my performance and consistency." - M. Roberts'
+      testimonial: '"The tailored program changed my performance and consistency." - M. Roberts'
     },
     {
       title: 'SPORTS PERFORMANCE TRAINING',
@@ -41,7 +41,7 @@ const Services = () => {
         'Conditioning programs that are sport specific.',
         'Data-driven tracking to monitor gains.'
       ],
-      // testimonial: '"I hit new personal bests after the sport-specific program." - R. Singh'
+      testimonial: '"I hit new personal bests after the sport-specific program." - R. Singh'
     },
     {
       title: 'SPORTS REHABILITATION',
@@ -54,7 +54,7 @@ const Services = () => {
         'Prevent recurrence with expert guidance.',
         'Return to sport with confidence.'
       ],
-      // testimonial: '"Their rehab pipeline helped me return stronger than before." - S. Patel'
+      testimonial: '"Their rehab pipeline helped me return stronger than before." - S. Patel'
     },
     {
       title: 'LIFESTYLE & NUTRITION',
@@ -66,7 +66,7 @@ const Services = () => {
         'Practical habits for daily wellness and metabolic health.',
         'Continuous tracking for long-term results.'
       ],
-    //   testimonial: '"The nutrition coaching finally made healthy eating sustainable." - L. Gomez'
+      testimonial: '"The nutrition coaching finally made healthy eating sustainable." - L. Gomez'
     },
     {
       title: 'STRENGTH AND CONDITIONING',
@@ -79,7 +79,7 @@ const Services = () => {
         'Monitoring & recovery strategies',
         'Performance nutrition alignment'
       ],
-      // testimonial: '"My strength gains were consistent and sustainable." - J. Park'
+      testimonial: '"My strength gains were consistent and sustainable." - J. Park'
     },
     {
       title: 'GERIATRIC FITNESS TRAINING',
@@ -92,7 +92,7 @@ const Services = () => {
         'Chronic condition support',
         'Lifestyle & independence coaching'
       ],
-      // testimonial: '"I feel stronger and more independent than before." - G. Fernandes'
+      testimonial: '"I feel stronger and more independent than before." - G. Fernandes'
     },
     {
       title: 'METABOLIC HEALTH TRAINING',
@@ -105,7 +105,7 @@ const Services = () => {
         'Lifestyle interventions',
         'Long-term metabolic monitoring'
       ],
-      // testimonial: '"My energy and metabolic markers improved dramatically." - A. Lee'
+      testimonial: '"My energy and metabolic markers improved dramatically." - A. Lee'
     }
   ];
 
@@ -167,10 +167,10 @@ const Services = () => {
                     </ul>
                   </div>
 
-                  {/* <div className="bg-gradient-to-r from-[#8b0000]/10 to-[#111111]/10 rounded-lg p-6 border border-[#8b0000]/20">
+                  <div className="bg-gradient-to-r from-[#8b0000]/10 to-[#111111]/10 rounded-lg p-6 border border-[#8b0000]/20">
                     <p className="text-gray-700 italic mb-2">"{service.testimonial.split('" - ')[0]}"</p>
                     <p className="font-medium" style={{ color: '#8b0000' }}>- {service.testimonial.split('" - ')[1]}</p>
-                  </div> */}
+                  </div>
                 </div>
               </FadeInSection>
             ))}

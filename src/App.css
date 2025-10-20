@@ -194,7 +194,7 @@ h1, h2, h3, h4 {
 
 /* Services-specific styles (use Cormorant Garamond) */
 .services-title {
-  font-family: 'Cormorant Garamond', serif !important;
+  font-family: 'Playfair Display', serif !important;
   font-size: var(--service-title-size) !important;
   font-weight: var(--service-title-weight) !important;
   line-height: 1.05;
