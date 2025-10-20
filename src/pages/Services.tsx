@@ -17,8 +17,8 @@ const Services = () => {
         'Advanced techniques for lasting pain relief beyond machines.',
         'Safe return to daily living functional activities .'
       ],
-      testimonial: '"The physiotherapy program helped me get back to full training faster than I expected." - A. Kumar',
-      avatarUrl: '/1.png'
+      testimonial: '"The physiotherapy program helped me get back to full training faster than I expected." - SRUTHI',
+      avatarUrl: '/sruthi.jpg'
     },
     {
       title: 'PERSONALISED TRAINING',
@@ -44,8 +44,8 @@ const Services = () => {
         'Conditioning programs that are sport specific.',
         'Data-driven tracking to monitor gains.'
       ],
-      testimonial: '"I hit new personal bests after the sport-specific program." - R. Singh',
-      avatarUrl: '/harish.jpg'
+      testimonial: '"As a sprinter, my performance was lagging ,i couldn’t reach my goal. After training under coach Guru, there was notable elevation in my performance and timing, he also guided me with proper recovery methodologies.." - YOHITH',
+      avatarUrl: '/yohith.jpg'
     },
     {
       title: 'SPORTS REHABILITATION',
@@ -58,8 +58,8 @@ const Services = () => {
         'Prevent recurrence with expert guidance.',
         'Return to sport with confidence.'
       ],
-      testimonial: '"Their rehab pipeline helped me return stronger than before." - S. Patel',
-      avatarUrl: '/Jam_mob.png'
+      testimonial: '" After my ACL reconstruction, getting back to the court felt like a distant dream That changed completely when I started training under Guru. I was able to return to playing badminton within just 6-7 months, completely pain-free." - HARISH',
+      avatarUrl: '/harish.jpg'
     },
     {
       title: 'LIFESTYLE & NUTRITION',
@@ -71,8 +71,8 @@ const Services = () => {
         'Practical habits for daily wellness and metabolic health.',
         'Continuous tracking for long-term results.'
       ],
-      testimonial: '"The nutrition coaching finally made healthy eating sustainable." - L. Gomez',
-      avatarUrl: '/logo.png'
+      testimonial: '"After following Guru’s nutrition and training plan at Gradient, my liver function and bilirubin levels completely normalized. I’ve regained my energy and vitality — something medicines couldn’t achieve. Truly grateful to Guru and Gradient for this life-changing transformation." - KAROL',
+      avatarUrl: '/karol.jpg'
     },
     {
       title: 'STRENGTH AND CONDITIONING',

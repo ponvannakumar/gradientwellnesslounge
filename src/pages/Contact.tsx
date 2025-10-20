@@ -10,7 +10,7 @@ import FadeInSection from '../components/FadeInSection';
 
 
 
-import { API_ENDPOINTS } from '../config/api';
+
  
 
 
@@ -49,43 +49,25 @@ const Contact = () => {
 
 
 
-  const handleSubmit = async (e: React.FormEvent) => {
+ const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
-    setSubmitError('');
     
-    try {
-      const response = await fetch(API_ENDPOINTS.CONTACT, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          phone: formData.phone,
-          email: formData.email,
-          message: formData.message
-        })
-      });
+    const { name, email, phone, message } = formData;
 
-      const result = await response.json();
+    // 1. Format the message for WhatsApp
+    const whatsappMessage = `New Inquiry from Website:\n\n*Name:* ${name}\n*Email:* ${email}\n*Phone:* ${phone}\n\n*Message:*\n${message}`;
+    const whatsappUrl = `https://wa.me/919500059260?text=${encodeURIComponent(whatsappMessage)}`;
 
-      if (response.ok) {
-        setIsSubmitted(true);
-        setFormData({ name: '', email: '', phone: '', message: '' });
-        setTimeout(() => setIsSubmitted(false), 5000);
-      } else {
-        setSubmitError(result.message || 'Failed to send message. Please try again.');
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setSubmitError('Network error. Please check your connection and try again.');
-    } finally {
-      setIsLoading(false);
-    }
+    // 2. Open WhatsApp link in a new tab
+    window.open(whatsappUrl, '_blank');
 
+    // 3. Reset form and show success message
+    setIsSubmitted(true);
+    setFormData({ name: '', email: '', phone: '', message: '' });
+    setTimeout(() => setIsSubmitted(false), 5000);
   };
 
+     
 
 
   const contactInfo = [
