@@ -1,6 +1,7 @@
 import React, { useMemo, useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence, useMotionValue, useScroll, useTransform } from 'framer-motion';
 import { Star, Sparkles, Crown, Zap, ArrowLeft, ArrowRight } from 'lucide-react';
+import './About.css';
 
 interface PersonProfile {
   name: string;
@@ -842,7 +843,7 @@ const About = () => {
                     alt="Gradient Holistic Wellness Lounge"
                     className="w-20 h-30 object-contain mb-2" />
                   <h1
-                    className="text-5xl md:text-6xl font-bold mb-2"
+                    className="text-5xl md:text-6xl font-bold mb-2 about-title"
                     style={{
                       fontFamily: "'Copperplate Gothic Bold', 'Copperplate Gothic Light', Copperplate, fantasy",
                       color: '#000000',
@@ -853,7 +854,7 @@ const About = () => {
                     G R A D I E N T
                   </h1>
                   <h2
-                    className="text-xl tracking-widest"
+                    className="text-xl tracking-widest about-subtitle"
                     style={{
                       fontFamily: "'Times New Roman', serif",
                       color: '#000000',

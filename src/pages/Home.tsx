@@ -5,6 +5,7 @@ import { ArrowRight, User, Zap, Target, Coffee, Dumbbell, Activity } from 'lucid
 import { Link } from 'react-router-dom';
 import FadeInSection from '../components/FadeInSection';
 import AnimatedServicesGrid from '../components/AnimatedServicesGrid';
+import './Home.css';
 
 const Home = () => {
   const scrollTextRef = useRef<HTMLDivElement>(null);
@@ -92,7 +93,7 @@ const Home = () => {
         <div
           className="absolute inset-0 w-full h-full responsive-bg"
           aria-hidden
-        />
+        ></div>
         {/* overlays removed to show the background image clearly */}
 
         <div className="container relative z-10">

@@ -1,0 +1,37 @@
+/* ===================================
+   HOME PAGE STYLES
+   =================================== */
+
+/* Desktop Styles (Default) */
+@media (min-width: 768px) {
+  .responsive-bg {
+    background-image: url('/gradienthomeee.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .gradient-difference-heading {
+    font-size: 3.75rem;
+  }
+
+  .why-settle-heading {
+    font-size: 2.25rem;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+  .responsive-bg {
+    background-image: url('/bg_mob.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .gradient-difference-heading {
+    font-size: 2.5rem;
+  }
+
+  .why-settle-heading {
+    font-size: 1.75rem;
+  }
+}

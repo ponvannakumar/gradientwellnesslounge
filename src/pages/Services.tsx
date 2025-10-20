@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import FadeInSection from '../components/FadeInSection';
+import './Services.css';
  
 
 const Services = () => {
@@ -16,7 +17,8 @@ const Services = () => {
         'Advanced techniques for lasting pain relief beyond machines.',
         'Safe return to daily living functional activities .'
       ],
-      testimonial: '"The physiotherapy program helped me get back to full training faster than I expected." - A. Kumar'
+      testimonial: '"The physiotherapy program helped me get back to full training faster than I expected." - A. Kumar',
+      avatarUrl: '/1.png'
     },
     {
       title: 'PERSONALISED TRAINING',
@@ -28,7 +30,8 @@ const Services = () => {
         'Monitoring results to keep you on track.',
         'Evidence-based methods for measurable improvements.'
       ],
-      testimonial: '"The tailored program changed my performance and consistency." - M. Roberts'
+      testimonial: '"The tailored program changed my performance and consistency." - M. Roberts',
+      avatarUrl: '/guru.png'
     },
     {
       title: 'SPORTS PERFORMANCE TRAINING',
@@ -41,7 +44,8 @@ const Services = () => {
         'Conditioning programs that are sport specific.',
         'Data-driven tracking to monitor gains.'
       ],
-      testimonial: '"I hit new personal bests after the sport-specific program." - R. Singh'
+      testimonial: '"I hit new personal bests after the sport-specific program." - R. Singh',
+      avatarUrl: '/harish.jpg'
     },
     {
       title: 'SPORTS REHABILITATION',
@@ -54,7 +58,8 @@ const Services = () => {
         'Prevent recurrence with expert guidance.',
         'Return to sport with confidence.'
       ],
-      testimonial: '"Their rehab pipeline helped me return stronger than before." - S. Patel'
+      testimonial: '"Their rehab pipeline helped me return stronger than before." - S. Patel',
+      avatarUrl: '/Jam_mob.png'
     },
     {
       title: 'LIFESTYLE & NUTRITION',
@@ -66,7 +71,8 @@ const Services = () => {
         'Practical habits for daily wellness and metabolic health.',
         'Continuous tracking for long-term results.'
       ],
-      testimonial: '"The nutrition coaching finally made healthy eating sustainable." - L. Gomez'
+      testimonial: '"The nutrition coaching finally made healthy eating sustainable." - L. Gomez',
+      avatarUrl: '/logo.png'
     },
     {
       title: 'STRENGTH AND CONDITIONING',
@@ -79,7 +85,8 @@ const Services = () => {
         'Monitoring & recovery strategies',
         'Performance nutrition alignment'
       ],
-      testimonial: '"My strength gains were consistent and sustainable." - J. Park'
+      testimonial: '"My strength gains were consistent and sustainable." - J. Park',
+      avatarUrl: '/physio.jpg'
     },
     {
       title: 'GERIATRIC FITNESS TRAINING',
@@ -92,7 +99,8 @@ const Services = () => {
         'Chronic condition support',
         'Lifestyle & independence coaching'
       ],
-      testimonial: '"I feel stronger and more independent than before." - G. Fernandes'
+      testimonial: '"I feel stronger and more independent than before." - G. Fernandes',
+      avatarUrl: '/sporehab.jpg'
     },
     {
       title: 'METABOLIC HEALTH TRAINING',
@@ -105,7 +113,8 @@ const Services = () => {
         'Lifestyle interventions',
         'Long-term metabolic monitoring'
       ],
-      testimonial: '"My energy and metabolic markers improved dramatically." - A. Lee'
+      testimonial: '"My energy and metabolic markers improved dramatically." - A. Lee',
+      avatarUrl: '/spotrain.jpg'
     }
   ];
 
@@ -167,9 +176,32 @@ const Services = () => {
                     </ul>
                   </div>
 
-                  <div className="bg-gradient-to-r from-[#8b0000]/10 to-[#111111]/10 rounded-lg p-6 border border-[#8b0000]/20">
-                    <p className="text-gray-700 italic mb-2">"{service.testimonial.split('" - ')[0]}"</p>
-                    <p className="font-medium" style={{ color: '#8b0000' }}>- {service.testimonial.split('" - ')[1]}</p>
+                  <div className="bg-white bg-opacity-5 rounded-lg p-6 flex items-start space-x-4 border-4 border-maroon-500">
+                    {/* Avatar */}
+                    <div className="flex-shrink-0">
+                      <img className="w-20 h-20 rounded-full border-2 border-red-700" src={service.avatarUrl} alt="Avatar" />
+                    </div>
+
+                    <div className="flex-1">
+                      <div className="flex justify-between items-center mb-2">
+                        {/* Name */}
+                        <div className="bg-red-700 text-white text-sm font-bold px-4 py-1 rounded-full">
+                          {service.testimonial.split('" - ')[1]}
+                        </div>
+                        {/* Stars */}
+                        <div className="flex text-yellow-400">
+                          <span className="text-2xl">★</span>
+                          <span className="text-2xl">★</span>
+                          <span className="text-2xl">★</span>
+                          <span className="text-2xl">★</span>
+                          <span className="text-2xl">★</span>
+                        </div>
+                      </div>
+                      {/* Testimonial Text */}
+                      <p className="text-gray-300 italic">
+                        {service.testimonial.split('" - ')[0]}"
+                      </p>
+                    </div>
                   </div>
                 </div>
               </FadeInSection>

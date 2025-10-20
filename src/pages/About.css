@@ -1,0 +1,30 @@
+/* ===================================
+   ABOUT PAGE STYLES
+   =================================== */
+
+/* Desktop Styles (Default) */
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+  .section-padding {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .about-title {
+    font-size: 2.5rem; /* Reduced font size for mobile */
+    white-space: normal; /* Allow text to wrap */
+  }
+
+  .about-subtitle {
+    font-size: 1rem; /* Reduced font size for mobile */
+    white-space: normal; /* Allow text to wrap */
+    letter-spacing: 0.1em; /* Adjusted letter spacing */
+  }
+}
