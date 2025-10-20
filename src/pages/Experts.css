@@ -78,9 +78,9 @@
   }
 
   .expert-feature-title {
-    font-family: 'Cormorant Garamond', serif !important;
+    font-family: 'Playfair Display', serif !important;
     font-weight: 900 !important;
-    font-size: 1.5rem !important;
+    font-size: 1.4rem !important;
     color: #b91c1c !important;
     margin-bottom: 0.75rem;
   }
@@ -150,9 +150,9 @@
   }
 
   .expert-feature-title {
-    font-family: 'Cormorant Garamond', serif !important;
+    font-family: 'Playfair Display', serif !important;
     font-weight: 900 !important;
-    font-size: 1rem !important;
+    font-size: 0.8rem !important;
     color: #b91c1c !important;
     margin-bottom: 0.5rem;
   }

@@ -94,11 +94,11 @@ const Experts = () => {
       image: '/guru.png', // Replace with Jamuna's image
       mobImage: '/Jam_mob.png', // Replace with Jamuna's mobile image
       about: [
-        'Jamuna epitomizes the convergence of elite athleticism, transformative coaching, and strategic leadership.',
-        'From his early mastery of weightlifting to his role in Business leadership managing over 100+ trainers in various region, he has consistently shaped performance excellence at every level.',
-        'His pursuit of athletic distinction led him to excel in the rare combination of 200m and 400m sprints, while also coaching football individuals and teams to reach peak potential.',
-        'Over the past decade, Jamuna has pioneered evidence-based methodologies that restore athletes from injury, elevate performance, and ensure long-term athletic development and excellence.',
-        'Combining precision strength training, advanced pain management, and scientifically curated nutrition, he empowers individuals to transcend limitations, reclaim energy, and unlock their ultimate potential—fusing the discipline of an athlete, the insight of a coach, and the vision of a strategist.'
+        'Jamuna exemplifies the integration of clinical expertise, functional rehabilitation, and human-centered care.',
+        'With extensive experience in the domains of physiotherapy and pain management, she has guided over a hundred individuals from chronic pain to confident, pain-free living.',
+        'A distinguished member of the Indian Association of Physiotherapists, her mastery lies in delivering sustainable outcomes without dependence on ostentatious modalities.',
+        'Renowned for her educational approach, she cultivates awareness, trust, and adherence in every client interaction.',
+        'Specializing in musculoskeletal rehabilitation, sports injury management, and geriatric functional restoration, Jamuna’s methodology transcends symptomatic treatment—reinstating balance, movement efficiency, and holistic vitality.'
       ],
       programs: [
         {
@@ -106,37 +106,53 @@ const Experts = () => {
           title: 'EDUCATION',
           features: [
             {
-              name: 'MASTER’S IN SPORTS MANAGEMENT',
-              description: 'Comprehensive academic foundation in sports administration and performance optimization.'
+              name: 'BACHELOR OF PHYSIOTHERAPY(BPT)',
+              description: 'Extensive training in musculoskeletal, neurological, and functional rehabilitation, establishing a robust clinical foundationn.'
             },
             {
-              name: 'ADVANCED INTERNSHIP IN STRENGTH & CONDITIONING, PAIN MANAGEMENT, AND NUTRITION',
-              description: '11-month immersive program under the mentorship of the Indian Cricket Team and RCB’s Fitness Coach, applying cutting-edge techniques in elite athlete performance.'
+              name: 'MEMBER, INDIAN ASSOCIATION OF PHYSIOTHERAPISTS (IAP)',
+              description: 'Recognized as a qualified professional adhering to India’s highest standards in physiotherapy practice.'
             },
             {
-              name: 'AUSTRALIAN STRENGTH & CONDITIONING LEVEL 1 CERTIFICATION',
-              description: 'Accredited training in modern strength and conditioning principles.'
+              name: 'CERTIFIED TRIGGER POINT RELEASE THERAPIST',
+              description: 'Proficient in releasing myofascial trigger points to alleviate chronic pain and restore optimal movement.'
             },
             {
-              name: 'D-LICENSE IN FOOTBALL COACHING',
-              description: 'Professional coaching certification emphasizing tactical, technical, and physical development'
-            }
+              name: 'CERTIFIED IASTM PRACTITIONER',
+              description: 'Expert in instrument-assisted soft tissue mobilization to treat scar tissue, adhesions, and musculoskeletal restrictions.'
+            },
+             {
+              name: 'CERTIFIED TAPING THERAPIST',
+              description: 'Expert in therapeutic taping for joint support, stability, and accelerated injury recovery.'
+            },
+            {
+              name: 'CERTIFIED IN DRY NEEDLING AND CUPPING THERAPIST',
+              description: 'Specialized in precision dry needling techniques for muscle relaxation, pain reduction, and functional improvement. Skilled in cupping therapy to enhance circulation, relieve muscular tension, and facilitate tissue healing.'
+            },
+            {
+              name: 'CERTIFIED PERSONAL TRAINER – PRIMAL PATTERNS',
+              description: 'Equipped to design performance-driven programs based on foundational human movement patterns.'
+            },
+            {
+              name: 'CERTIFIED PRACTICAL APPLICATION IN STRENGTH & CONDITIONING – PRIMAL PATTERNS',
+              description: 'Applies evidence-based, primal movement strategies to optimize functional performance, prevent injuries, and enhance mobility.'
+            },
           ]
         },
-        {
-          icon: Trophy,
-          title: 'ACHEIVEMENTS',
-          features: [
-            {
-              name: '🏋🏽‍♂️ WEIGHTLIFTING',
-              description: 'Silver medalist at Junior Nationals; Bronze medalist at Interuniversity Championships.'
-            },
-            {
-              name: '🏅 ASIAN MASTER’S ATHLETIC CHAMPIONSHIPS',
-              description: 'Silver medalist in 400m (55.16s); Bronze medalist in 200m (23.88s)'
-            },
-          ]
-        }
+        // {
+        //   icon: Trophy,
+        //   title: 'ACHEIVEMENTS',
+        //   features: [
+        //     {
+        //       name: '🏋🏽‍♂️ WEIGHTLIFTING',
+        //       description: 'Silver medalist at Junior Nationals; Bronze medalist at Interuniversity Championships.'
+        //     },
+        //     {
+        //       name: '🏅 ASIAN MASTER’S ATHLETIC CHAMPIONSHIPS',
+        //       description: 'Silver medalist in 400m (55.16s); Bronze medalist in 200m (23.88s)'
+        //     },
+        //   ]
+        // }
       ],
       feedback: [
         {
