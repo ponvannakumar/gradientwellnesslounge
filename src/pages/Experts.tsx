@@ -60,32 +60,39 @@ const Experts = () => {
       ],
       feedback: [
         {
-          name: 'Alex Johnson',
-          description: 'Working with Guru transformed my athletic performance completely. His expertise in strength and conditioning helped me achieve personal bests in both weightlifting and sprinting. The personalized training plan was exactly what I needed.',
+          name: 'HARISH ',
+          description: 'After my ACL reconstruction, returning to the badminton court felt impossible. Training under Guru completely changed that. His structured strength & conditioning program made me functionally strong, stable, and ready to return to sport. Thanks to his guidance, I was back playing advanced-level badminton in just 6–7 months, completely pain-free. The focus on functional strength and movement efficiency accelerated my recovery and restored my confidence on court.',
           rating: 5,
-          program: 'Elite Performance Training',
-          image: '/public/aboutgrad.png'
+          program: 'Sports Rehabilitation Program',
+          image: '/harish.jpg'
         },
         {
-          name: 'Sarah Chen',
-          description: 'Guru\'s coaching methodology is revolutionary. He combines scientific precision with practical application. After months of training under his guidance, I not only improved my physical capabilities but also developed a deeper understanding of athletic performance.',
+          name: 'KAROL',
+          description: 'I was facing issues with my liver function and had abnormal bilirubin levels. After meeting Guru and following his curated nutrition plan along with strength training, I experienced a remarkable change. My reports reversed, and I feel more energetic than ever before. What medicines couldn’t achieve, the right nutrition and workouts did. I’m truly grateful to Guru and Gradient for their guidance. I highly recommend this place to anyone looking for real, long-term solutions.',
           rating: 5,
-          program: 'Sports Performance Program',
-          image: '/public/aboutguru.png'
+          program: 'Lifestyle and Nutritional.',
+          image: '/karol.jpg'
         },
         {
-          name: 'Michael Rodriguez',
-          description: 'The mentorship I received from Guru was invaluable. His experience with elite athletes and his evidence-based approach to training helped me overcome chronic injuries and return to peak performance. Highly recommended.',
+          name: 'YOHITH',
+          description: 'As a sprinter, I often felt that my performance had plateaued, and I struggled to reach the goals I had set for myself. Despite putting in consistent effort, my timings and overall performance were not improving as I had hoped. After beginning training under Coach Guru, I experienced a remarkable transformation. Not only did my sprint times improve significantly, but my overall athletic performance elevated to a level I hadn’t thought possible. What sets Guru apart is his holistic approach—he not only provided tailored training programs but also guided me on proper recovery strategies, nutrition, and injury prevention. Thanks to his expertise, I now feel stronger, faster, and more confident on the track, and I am finally progressing toward my peak potential.',
           rating: 5,
-          program: 'Injury Recovery & Performance',
-          image: '/public/grad.png'
+          program: 'Sports Performance Training',
+          image: '/yohith.jpg'
+        },
+         {
+          name: 'KEERTHANA',
+          description: 'I’ve been attending the gradient holistic online wellness classes, and I’m truly grateful for the guidance and support I’ve received. Over time, I’ve seen a huge improvement in my health—my PCOD parameters have reduced significantly, which has been such a positive change for me. The sessions are practical, motivating, and easy to follow, even from home. Thank you for making this smoother and achievable.',
+          rating: 5,
+          program: 'Metabolic Health Traning.',
+          image: '/keethu.jpg'
         },
         {
-          name: 'Sam Patel',
-          description: 'I improved my strength and mobility quickly under Guru\'s coaching. He tailored exercises that worked around my old injuries and kept me motivated throughout.',
+          name: 'VENKAT',
+          description: 'I was 84 kgs due to my unhealthy food and lifestyle habits. I was so depressed. I got to know about Guru, and after taking a consultation with him, I took a DEXA scan which showed 31% body fat. Working with him consistently, his training programs and his approach helped me regain the confidence I had lost, and everything was science-based. Every day felt like a new opportunity to learn. Today, my weight has reduced to 73 kgs and my body fat to 20%. I am truly grateful for this transformation. He has taught me how to live.',
           rating: 5,
-          program: 'Rehab & Strength',
-          image: '/public/logo1.png'
+          program: 'PERSONALISED TRANING',
+          image: '/venkat.jpg'
         }
       ]
     },
@@ -156,18 +163,32 @@ const Experts = () => {
       ],
       feedback: [
         {
-          name: 'Alex Johnson',
-          description: 'Working with Jamuna transformed my athletic performance completely. His expertise in strength and conditioning helped me achieve personal bests in both weightlifting and sprinting. The personalized training plan was exactly what I needed.',
+          name: 'CATHERINE ',
+          description: 'I am so grateful to my trainer Jamuna for helping me recover from severe back pain after my C-section. When I first started, even simple movements felt difficult, but with her guidance and specially designed exercises, I began to see steady improvement. She not only focused on strengthening my back and core but also made sure I felt comfortable and confident throughout the recovery process. Now I feel stronger, healthier, and free from the pain that once held me back. I truly appreciate her dedication and highly recommend her to anyone looking for safe and effective post-surgery recovery support.',
           rating: 5,
-          program: 'Elite Performance Training',
+          program: 'Personal traning program',
           image: '/public/aboutgrad.png'
         },
         {
-          name: 'Sarah Chen',
-          description: 'Jamuna\'s coaching methodology is revolutionary. He combines scientific precision with practical application. After months of training under his guidance, I not only improved my physical capabilities but also developed a deeper understanding of athletic performance.',
+          name: 'SRUTHI',
+          description: 'I started training with Jamuna and she took care of my entire fitness journey. Her structured strength and functional training completely transformed my body and mindset. Jamuna’s support throughout my journey was incredible. Her patience, guidance, and constant encouragement gave me the confidence to push through tough days. With her help, I not only healed from back pain but also learned to move safely and efficiently, which made my entire fitness journey far more effective and sustainable.',
           rating: 5,
-          program: 'Sports Performance Program',
-          image: '/public/aboutguru.png'
+          program: 'Integrated Physiotherapy',
+          image: '/sruthi.jpg'
+        },
+        {
+          name: 'JAYA',
+          description: 'I am Jaya, 78 years old . I was struggling with knee pain and I wasn’t able to walk, when i started to train with strength training programs I doubted my self a lot. But today i am able to climb up and down the stairs with weights. My balance, stability strength has been drastically improved. I feel myself more confident and stronger. I enjoy doing workouts and now i am pain free.',
+          rating: 5,
+          program: 'Geriatric Fitness Training',
+          image: '/sruthi.jpg'
+        },
+        {
+          name: 'HARISH',
+          description: 'Jamuna’s expertise as a sports physiotherapist was a game-changer for my ACL recovery. From day one, she provided a holistic, hands-on approach, focusing on rehabilitation exercises and functional progression. One of the highlights of my journey was that we never relied on physiotherapy modalities like IFT, yet my recovery was faster and more effective. Today, I move smarter, stronger, and with complete confidence on the court.',
+          rating: 5,
+          program: 'Sports Rehabilitation Program',
+          image: '/harish.jpg'
         }
       ]
     }

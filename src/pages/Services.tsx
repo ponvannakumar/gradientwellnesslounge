@@ -17,7 +17,7 @@ const Services = () => {
         'Advanced techniques for lasting pain relief beyond machines.',
         'Safe return to daily living functional activities .'
       ],
-      testimonial: '"The physiotherapy program helped me get back to full training faster than I expected." - SRUTHI',
+      testimonial: '"I have recovered from back pain, a major milestone, thanks to consistent exercise and rehab - a gradual but worthwhile journey." - SRUTHI',
       avatarUrl: '/sruthi.jpg'
     },
     {
@@ -30,7 +30,7 @@ const Services = () => {
         'Monitoring results to keep you on track.',
         'Evidence-based methods for measurable improvements.'
       ],
-      testimonial: '"The tailored program changed my performance and consistency." - M. Roberts',
+      testimonial: '"At Gradient, I had full 1-on-1 sessions with guidance on every exercise and a program customized to me—something I never experienced at my previous gym. Now, I’m noticeably stronger, and the results feel lasting." - VENKAT',
       avatarUrl: '/guru.png'
     },
     {
@@ -77,44 +77,44 @@ const Services = () => {
     {
       title: 'STRENGTH AND CONDITIONING',
       imageUrl: '/strenght.jpg',
-      description: 'Science-based training to build strength, endurance, and performance safely — suitable for all ages and fitness levels with one - one personalised training and programs.',
+      description: 'Elevating performance with precision-tailored Strength & Conditioning, designed to build resilient strength, flawless movement, and lasting results. Every session combines science-backed training with expert guidance.',
       benefits: [
-        'Periodised strength plans',
-        'Olympic & powerlifting foundations',
-        'Accessory & injury-prevention work',
-        'Monitoring & recovery strategies',
-        'Performance nutrition alignment'
+        'Builds functional foundation.',
+        'Enhanced overall fitness.',
+        'Biomechanical optimization.',
+        'Recovery and Adaptation strategies.',
+        
       ],
-      testimonial: '"My strength gains were consistent and sustainable." - J. Park',
+      testimonial: '"I joined Gradient’s Strength and Conditioning program to build overall strength and endurance. Within a few weeks, I started lifting heavier, feeling more stable, and performing daily activities with ease without getting injured. It’s been a powerful transformation" - SELVI',
       avatarUrl: '/physio.jpg'
     },
     {
       title: 'GERIATRIC FITNESS TRAINING',
       imageUrl: '/genric.jpg',
-      description: 'Specialized programs for seniors to improve balance, mobility, bone strength, and independence, while managing age-related conditions like arthritis and osteoporosis.',
+      description: 'specialized, evidence-based approach designed to-recover from age-related muscle loss, osteoporosis, or joint stiffness. Older adults aiming to improve balance, posture, and fall resistance through structured programs.',
       benefits: [
-        'Balance & fall-prevention',
-        'Functional strength training',
-        'Mobility & flexibility routines',
-        'Chronic condition support',
-        'Lifestyle & independence coaching'
+        'Enhanced muscle strength & functional independance',
+        'Combats sarcopenia',
+        'Improved bone density & joint health',
+        'Better balance & stability',
+        'Long term vitality and quality of life'
       ],
-      testimonial: '"I feel stronger and more independent than before." - G. Fernandes',
+      testimonial: '"’m 78 years old and once struggled with severe knee pain that made it difficult to walk on my own. After taking consistent sessions at Gradient, I can now walk independently, completely pain-free, and with renewed confidence." - JAYA',
       avatarUrl: '/sporehab.jpg'
     },
     {
       title: 'METABOLIC HEALTH TRAINING',
       imageUrl: '/metabolic.jpg',
-      description: 'A holistic program designed to manage lifestyle conditions such as Diabetes, Thyroid, and PCOD/PCOS. We combine science backed exercise, functional training, nutrition, and lifestyle modifications to restore energy, regulate metabolism, balance hormones, and improve long-term health and reversing.',
+      description: 'scientifically structured program targeting metabolic dysfunction and hormonal imbalances, designed to restore energy, optimize body composition, and improve long-term health. Unlike generic fitness programs, it addresses underlying conditions like diabetes, thyroid disorders, and PCOD while enhancing metabolism, hormonal balance, and functional vitality.',
       benefits: [
-        'Metabolic profiling',
-        'Tailored cardio & resistance programs',
-        'Nutrition for metabolic health',
-        'Lifestyle interventions',
-        'Long-term metabolic monitoring'
+        'Reduces insulin resistance & balance hormones',
+        'Improves insulin sensitivity & stabilizes glucose levels',
+        'Supports metabolic regulation & energy levels',
+        'Stress & Cortisol management',
+        ''
       ],
-      testimonial: '"My energy and metabolic markers improved dramatically." - A. Lee',
-      avatarUrl: '/spotrain.jpg'
+      testimonial: '"I am 19 yrs old and I’ve been attending the gradient holistic online wellness classes, and I’m truly grateful for the guidance and support I’ve received. Over time, I’ve seen a huge improvement in my health—my PCOD parameters have reduced significantly, which has been such a positive change for me.." - KEERTHANA',
+      avatarUrl: '/keethu.jpg'
     }
   ];
 
@@ -132,11 +132,10 @@ const Services = () => {
         <div className="container">
           <FadeInSection>
             <h1 className="text-5xl md:text-6xl font-bold gradient-text mb-8">
-              Our Premium Services
+              THE GRADIENT SERVICES
             </h1>
             <p className="subtitle mb-12 max-w-4xl mx-auto leading-relaxed">
-              Discover our comprehensive range of wellness services designed to transform 
-              your health through expert guidance and personalized care.
+              Every service in gradient is curated to eliminate guesswork and deliver integrated performance, bespoke results and vitality.
             </p>
           </FadeInSection>
         </div>

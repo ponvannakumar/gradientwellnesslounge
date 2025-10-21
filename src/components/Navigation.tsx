@@ -21,7 +21,7 @@ const Navigation = () => {
     { path: '/about', label: 'About' },
     { path: '/services', label: 'Services' },
     { path: '/experts', label: 'Experts' },
-    { path: '/testimonials', label: 'Testimonials' },
+    // { path: '/testimonials', label: 'Testimonials' },
     { path: '/faq', label: 'FAQ & Gallery' },
     { path: '/contact', label: 'Contact' },
   ];
