@@ -76,10 +76,12 @@ const StackingCardsGSAP: React.FC = () => {
     items.forEach((item, index) => {
       const nextItem = items[index + 1];
       if (nextItem) {
-        timeline.to(item, {
-          scale: 0.9,
-          borderRadius: "10px",
-        });
+        if (!isMobile) {
+          timeline.to(item, {
+            scale: 0.9,
+            borderRadius: "10px",
+          });
+        }
         timeline.to(nextItem, { yPercent: 0 }, "<");
       }
     });
