@@ -1,20 +1,17 @@
 @media (max-width: 768px) {
     .card {
-        width: 90%;
-        padding: 20px;
-        height: auto;
-        min-height: 400px;
+        padding: 24px;
+        /* MODIFIED: Set a fixed height for all cards */
+        height: 600px;
+        /* MODIFIED: Allow scrolling if content overflows */
+        overflow-y: auto; 
     }
 
     .card-title {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 
     .card-description {
         font-size: 1rem;
-    }
-
-    .card-2, .card-3, .card-4 {
-        margin-top: 150px;
     }
 }

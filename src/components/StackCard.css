@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background:  #f6e5cf ;
+    overflow-x: hidden;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    opacity: 0.9;
+}
+
+.timeline-container {
+    height: 400vh;
+    position: relative;
+    background: #f6e5cf;
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+
+.card {
+    width: 90%;
+    max-width: 950px;
+    min-height: 90vh;
+    margin: 0 auto;
+    border-radius: 24px;
+    padding: 60px;
+    color: white;
+    position: sticky;
+    top: 50vh;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transform-origin: center center;
+    z-index: 1;
+    transition: transform 0.3s ease-out;
+    will-change: transform;
+}
+
+.card-inner {
+    transform-origin: center center;
+    text-align: center;
+}
+
+/* --- EDITABLE FONT SIZES --- */
+.card-title {
+    font-size: 3rem; 
+}
+
+.card-description {
+    font-size: 1.7rem;
+}
+/* --------------------------- */
+
+.card h2 {
+    margin-bottom: 1.5rem;
+}
+
+.card p {
+    line-height: 1.8;
+    opacity: 0.95;
+}
+
+
+/* Card Colors and Spacing */
+.card-1 {
+    background: linear-gradient(135deg, #eb3131 0%, #a71010 100%);
+    margin-top: 40vh;
+}
+
+.card-2 {
+    background: linear-gradient(135deg, #eb3131 0%, #a71010 100%);
+    margin-top: 100vh;
+}
+
+.card-3 {
+    background: linear-gradient(135deg, #eb3131 0%, #a71010 100%);
+    margin-top: 100vh;
+}
+
+.card-4 {
+    background: linear-gradient(135deg, #eb3131 0%, #a71010 100%);
+    margin-top: 100vh;
+}
+
+/* Commented out card styles */
+/* .card-5 {
+    background: linear-gradient(135deg, #af1d1d 0%, #c51e1e 100%);
+    margin-top: 300px;
+}
+
+.card-6 {
+    background: linear-gradient(135deg, #af1d1d 0%, #c51e1e 100%);
+    margin-top: 300px;
+} */
+
+.footer {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:  #f6e5cf ;
+    color: #333;
+}
+
+.footer h2 {
+    font-size: 3rem;
+}
+
+@media (max-width: 768px) {
+    .timeline-container {
+        min-height: 400vh;
+    }
+
+    .card {
+        padding: 24px;
+        min-height: 70vh;
+        width: 92%;
+        position: sticky;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0 auto;
+    }
+
+    .card-inner {
+        padding: 20px;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        transform-origin: center center;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: transform;
+    }
+
+    .card-title {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    .card-description {
+        font-size: 1rem;
+        line-height: 1.6;
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .card.active .card-inner {
+        transform: scale(1) translateY(0);
+    }
+
+    .card:not(.active) .card-inner {
+        transform: scale(0.8) translateY(100px);
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+}

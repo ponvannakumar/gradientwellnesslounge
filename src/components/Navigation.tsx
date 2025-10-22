@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
   const location = useLocation();
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +18,48 @@ const Navigation = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Track mobile viewport and hide-on-scroll behavior for About page only
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    // initialize
+    handleResize();
+
+    const handleHideOnScroll = () => {
+      const current = window.scrollY;
+
+      // Only apply hide-on-scroll on mobile AND only for the About page
+      if (!isMobile || location.pathname !== '/about') {
+        setIsHidden(false);
+        lastScrollY.current = current;
+        return;
+      }
+
+      // If mobile menu is open, keep nav visible
+      if (isMobileMenuOpen) {
+        setIsHidden(false);
+        lastScrollY.current = current;
+        return;
+      }
+
+      // Scrolling down -> hide; scrolling up -> show
+      if (current > lastScrollY.current && current > 80) {
+        setIsHidden(true);
+      } else if (current < lastScrollY.current) {
+        setIsHidden(false);
+      }
+
+      lastScrollY.current = current;
+    };
+
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('scroll', handleHideOnScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleHideOnScroll as EventListener);
+    };
+  }, [isMobileMenuOpen, isMobile, location.pathname]);
 
   const navItems = [
     { path: '/', label: 'Home' },
@@ -29,8 +74,15 @@ const Navigation = () => {
   // Determine navbar background color based on current path
   const navbarBgColor = location.pathname === '/' ? 'white' : '#f6e5cf';
 
+  // Apply a transform when hidden on mobile; desktop and other pages unaffected
+  const navStyle: React.CSSProperties = {
+    backgroundColor: navbarBgColor,
+    transform: isHidden ? 'translateY(-110%)' : 'translateY(0)',
+    transition: 'transform 0.28s ease-in-out',
+  };
+
   return (
-    <nav className={`nav-sticky ${isScrolled ? 'scrolled' : ''}`} style={{ backgroundColor: navbarBgColor }}>
+    <nav className={`nav-sticky ${isScrolled ? 'scrolled' : ''}`} style={navStyle}>
       <div className="container">
         <div className="flex items-center justify-between">
           {/* Logo */}

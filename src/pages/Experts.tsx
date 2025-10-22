@@ -8,6 +8,7 @@ import FeedbackCarousel from '../components/FeedbackCarousel';
 import './Experts.css';
 
 const Experts = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const expertsData = [
     {
       name: 'Guru',
@@ -98,8 +99,8 @@ const Experts = () => {
     },
     {
       name: 'Jamuna',
-      image: '/guru.png', // Replace with Jamuna's image
-      mobImage: '/Jam_mob.png', // Replace with Jamuna's mobile image
+      image: '/guru.png',
+      mobImage: '/Jam_mob.png',
       about: [
         'Jamuna exemplifies the integration of clinical expertise, functional rehabilitation, and human-centered care.',
         'With extensive experience in the domains of physiotherapy and pain management, she has guided over a hundred individuals from chronic pain to confident, pain-free living.',
@@ -167,7 +168,7 @@ const Experts = () => {
           description: 'I am so grateful to my trainer Jamuna for helping me recover from severe back pain after my C-section. When I first started, even simple movements felt difficult, but with her guidance and specially designed exercises, I began to see steady improvement. She not only focused on strengthening my back and core but also made sure I felt comfortable and confident throughout the recovery process. Now I feel stronger, healthier, and free from the pain that once held me back. I truly appreciate her dedication and highly recommend her to anyone looking for safe and effective post-surgery recovery support.',
           rating: 5,
           program: 'Personal traning program',
-          image: '/public/aboutgrad.png'
+          image: '/cathere.jpg'
         },
         {
           name: 'SRUTHI',
@@ -181,7 +182,7 @@ const Experts = () => {
           description: 'I am Jaya, 78 years old . I was struggling with knee pain and I wasn’t able to walk, when i started to train with strength training programs I doubted my self a lot. But today i am able to climb up and down the stairs with weights. My balance, stability strength has been drastically improved. I feel myself more confident and stronger. I enjoy doing workouts and now i am pain free.',
           rating: 5,
           program: 'Geriatric Fitness Training',
-          image: '/sruthi.jpg'
+          image: '/jaya.jpg'
         },
         {
           name: 'HARISH',
@@ -196,12 +197,46 @@ const Experts = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % expertsData.length);
+  const handleNext = async () => {
+    setIsLoading(true);
+    try {
+      // Preload the next expert's images
+      const nextIndex = (currentIndex + 1) % expertsData.length;
+      const nextExpert = expertsData[nextIndex];
+      await Promise.all([
+        preloadImage(nextExpert.image),
+        preloadImage(nextExpert.mobImage)
+      ]);
+      setCurrentIndex(nextIndex);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const handlePrevious = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + expertsData.length) % expertsData.length);
+  const handlePrevious = async () => {
+    setIsLoading(true);
+    try {
+      // Preload the previous expert's images
+      const prevIndex = (currentIndex - 1 + expertsData.length) % expertsData.length;
+      const prevExpert = expertsData[prevIndex];
+      await Promise.all([
+        preloadImage(prevExpert.image),
+        preloadImage(prevExpert.mobImage)
+      ]);
+      setCurrentIndex(prevIndex);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // Helper function to preload images
+  const preloadImage = (src: string): Promise<void> => {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => resolve();
+      img.onerror = reject;
+      img.src = src;
+    });
   };
 
   const currentExpert = expertsData[currentIndex];
@@ -217,14 +252,21 @@ const Experts = () => {
       <section className="md:min-h-screen flex items-start md:items-center justify-center text-center py-0 md:py-36 m-0 overflow-visible md:overflow-hidden">
         <div className="container p-0 m-0 w-full h-full">
           <FadeInSection>
-            <picture>
-              <source media="(min-width: 768px)" srcSet={currentExpert.image} />
-              <img
-                src={currentExpert.mobImage}
-                alt={currentExpert.name}
-                className="w-full h-[70vh] object-contain mx-auto md:w-[200%] md:h-[170%] md:object-cover md:-translate-x-1 md:-translate-y-10 md:min-h-[800px]"
-              />
-            </picture>
+            <div className="relative">
+              {isLoading && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30">
+                  <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-white"></div>
+                </div>
+              )}
+              <picture>
+                <source media="(min-width: 768px)" srcSet={currentExpert.image} />
+                <img
+                  src={currentExpert.mobImage}
+                  alt={currentExpert.name}
+                  className="w-full h-[70vh] object-contain mx-auto md:w-[200%] md:h-[170%] md:object-cover md:-translate-x-1 md:-translate-y-10 md:min-h-[800px]"
+                />
+              </picture>
+            </div>
           </FadeInSection>
         </div>
       </section>

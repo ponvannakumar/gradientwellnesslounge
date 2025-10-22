@@ -1,0 +1,239 @@
+/* Responsive, bold, and easy-to-edit card title */
+.card-title-responsive {
+  font-family:Playfair Display, serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0 0 1.2rem 0;
+  line-height: 1.18;
+  letter-spacing: 0.01em;
+  word-break: break-word;
+}
+
+/* Responsive, larger card description */
+.card-desc-responsive {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0 0 0.5rem 0;
+  word-break: break-word;
+}
+
+@media (max-width: 768px) {
+  .card-title-responsive {
+    font-size: 1.05rem;
+    text-align: center !important;
+    margin-bottom: 0.6rem;
+  }
+  .card-desc-responsive {
+    font-size: 0.92rem;
+    text-align: justify;
+    line-height: 1.45;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-title-responsive {
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  .card-desc-responsive {
+    font-size: 0.72rem;
+    text-align: center;
+    line-height: 1.6;
+    word-spacing: 0.05rem;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+}
+/* Add gap below stacking cards before footer */
+.stacking-cards-bottom-gap {
+  height: 64px;
+  width: 100%;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #eeeeee;
+  color: #292929;
+  font-family: sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.heading {
+  font-size: 2.5rem;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 0.04em 0.04rem 0 #81b5ab;
+}
+
+.section {
+  /* overflow: hidden; */
+}
+
+.wrapper {
+  height: 100vh;
+}
+
+.list {
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  display: flex;
+  position: relative;
+  padding: 0.2rem;
+}
+
+.item {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  inset: 0%;
+  box-shadow: rgb(149, 157, 165, 0.2) 0px 8px 24px;
+  overflow: hidden;
+}
+
+.item_number {
+  font-size: 1.5rem;
+  height: 3rem;
+  width: 3rem;
+  margin-bottom: 0.5rem;
+  border-radius: 50%;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  position: absolute;
+  top: 6rem;
+  left: 3rem;
+  right: auto;
+}
+
+.item_content {
+  background-color: #fff;
+  color: #292929;
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3rem;
+  display: flex;
+  position: relative;
+  width: 50%;
+}
+
+/* About page specific: previous gradient (commented out)
+.about-stacking-cards .list .item:nth-child(-n+4) .item_content {
+  background: linear-gradient(135deg, #eb3131 0%, #a71010 100%);
+  color: #fff;
+}
+
+.about-stacking-cards .list .item:nth-child(-n+4) .item_content h2,
+.about-stacking-cards .list .item:nth-child(-n+4) .item_content .item_p {
+  color: #fff;
+}
+*/
+
+/* Premium maroon styling for About page cards (first 4) */
+.about-stacking-cards .list .item:nth-child(-n+4) .item_content {
+  /* Use site maroon as base and add depth for a premium feel */
+  background: linear-gradient(135deg, #b91c1c 0%, #7a0f0f 60%, #3a0505 100%);
+  color: #fff;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.03);
+  position: relative; /* for sheen pseudo-element */
+  overflow: hidden;
+}
+
+/* Soft glossy sheen across the card to make it look premium */
+.about-stacking-cards .list .item:nth-child(-n+4) .item_content::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  left: -20%;
+  width: 60%;
+  height: 200%;
+  transform: rotate(22deg);
+  background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.02));
+  mix-blend-mode: overlay;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+/* Ensure headings and paragraph text remain readable */
+.about-stacking-cards .list .item:nth-child(-n+4) .item_content h2,
+.about-stacking-cards .list .item:nth-child(-n+4) .item_content .item_p {
+  color: #fff;
+}
+
+/* Make the item number contrast well on maroon */
+.about-stacking-cards .list .item:nth-child(-n+4) .item_number {
+  background: rgba(0,0,0,0.85);
+  color: #fff;
+}
+
+.item_media {
+  object-fit: cover;
+  width: 50%;
+  height: 100%;
+}
+
+.padding-global {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+.padding-vertical {
+  padding: 2rem;
+}
+
+@media (max-width: 575.98px) {
+  .wrapper {
+    height: calc(100vh - 60px); /* Adjust height for mobile navbar */
+  }
+  .heading {
+    font-size: 2.5rem;
+  }
+
+  .item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .item_content,
+  .item_media {
+    height: 50vh;
+    width: 100%;
+  }
+
+  .item_content {
+    padding: 0;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .item_number {
+    display: none;
+  }
+}

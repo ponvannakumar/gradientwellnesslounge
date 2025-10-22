@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import './GreenShiftStackingCards.css';
-import './GreenShiftStackingCards.mobile.css';
 
 const GreenShiftStackingCards: React.FC = () => {
   const timelineContainerRef = useRef<HTMLDivElement>(null);
@@ -8,39 +7,19 @@ const GreenShiftStackingCards: React.FC = () => {
 
   useEffect(() => {
     const cards = [
-      {
-        element: cardRefs.current[0],
-        inner: cardRefs.current[0]?.querySelector('.card-inner'),
-        scale: { start: 0.85, end: 1 },
-        translateY: 0,
-      },
-      {
-        element: cardRefs.current[1],
-        inner: cardRefs.current[1]?.querySelector('.card-inner'),
-        scale: { start: 0.88, end: 1 },
-        translateY: 0,
-      },
-      {
-        element: cardRefs.current[2],
-        inner: cardRefs.current[2]?.querySelector('.card-inner'),
-        scale: { start: 0.91, end: 1 },
-        translateY: 0,
-      },
-      {
-        element: cardRefs.current[3],
-        inner: cardRefs.current[3]?.querySelector('.card-inner'),
-        scale: { start: 0.94, end: 1 },
-        translateY: 0,
-      },
+      { element: cardRefs.current[0], inner: cardRefs.current[0]?.querySelector('.card-inner'), scale: { start: 0.85, end: 1 }, translateY: 0 },
+      { element: cardRefs.current[1], inner: cardRefs.current[1]?.querySelector('.card-inner'), scale: { start: 0.88, end: 1 }, translateY: 0 },
+      { element: cardRefs.current[2], inner: cardRefs.current[2]?.querySelector('.card-inner'), scale: { start: 0.91, end: 1 }, translateY: 0 },
+      { element: cardRefs.current[3], inner: cardRefs.current[3]?.querySelector('.card-inner'), scale: { start: 0.94, end: 1 }, translateY: 0 },
     ];
 
     const timelineContainer = timelineContainerRef.current;
     if (!timelineContainer) return;
 
-    const triggerStart = 300;
-    const animationRange = 1800;
+    const animationRange = 300;
 
     const updateCardAnimations = () => {
+      const triggerStart = window.innerHeight / 2;
       const scrollY = window.scrollY;
       const containerTop = timelineContainer.offsetTop;
 
@@ -50,7 +29,6 @@ const GreenShiftStackingCards: React.FC = () => {
         const cardTop = card.element.offsetTop + containerTop;
         const triggerPoint = cardTop - triggerStart;
         const scrollProgress = scrollY - triggerPoint;
-
         let progress = Math.max(0, Math.min(1, scrollProgress / animationRange));
 
         const scale = card.scale.start + (card.scale.end - card.scale.start) * progress;
@@ -61,9 +39,9 @@ const GreenShiftStackingCards: React.FC = () => {
     };
 
     cards.forEach((card) => {
-        if(card.inner) {
-            (card.inner as HTMLElement).style.transform = `scale(${card.scale.start}) translateY(${card.translateY}%)`;
-        }
+      if (card.inner) {
+        (card.inner as HTMLElement).style.transform = `scale(${card.scale.start}) translateY(${card.translateY}%)`;
+      }
     });
 
     window.addEventListener('scroll', updateCardAnimations);

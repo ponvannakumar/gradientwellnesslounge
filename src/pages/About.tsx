@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useLayoutEffect } from 'react';
+import StackingCardsGSAP from '../components/StackingCardsGSAP';
 import { motion } from 'framer-motion';
 import './About.css';
-import GreenShiftStackingCards from '../components/GreenShiftStackingCards';
+// import Stack from '../components/Stack';
 
 const pageVariants = {
   initial: { opacity: 0, y: 40 },
@@ -10,6 +11,17 @@ const pageVariants = {
 };
 
 const About: React.FC = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useLayoutEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <motion.div
       initial="initial"
@@ -42,8 +54,9 @@ const About: React.FC = () => {
                   style={{
                     fontFamily: "'Times New Roman', serif",
                     color: '#000000',
-                    letterSpacing: '0.2em',
                     whiteSpace: 'nowrap',
+                    fontSize: isMobile ? '0.9rem' : '1.25rem',
+                    letterSpacing: isMobile ? '0.15em' : '0.2em'
                   }}
                 >
                   HOLISTIC WELLNESS LOUNGE
@@ -77,10 +90,26 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* GreenShift Stacking Card Animation Section */}
-      <GreenShiftStackingCards />
+      {/* Stacking Cards GSAP Feature Section */}
+      <div
+        style={{
+          width: '100%',
+          background: '#f0a749ff',
+          padding: '3rem 0 2rem 0',
+          textAlign: 'center',
+          fontFamily: "'Copperplate Gothic Bold', 'Copperplate Gothic Light', Copperplate, fantasy",
+          fontWeight: 700,
+          fontSize: '2rem',
+          color: '#222',
+          letterSpacing: '0.01em',
+        }}
+      >
+        But Vertical Scroll Is Also Cool!
+      </div>
+      <div className="about-stacking-cards">
+        <StackingCardsGSAP />
+      </div>
     </motion.div>
   );
 };
-
 export default About;
