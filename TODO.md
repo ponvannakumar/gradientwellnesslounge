@@ -14,3 +14,4 @@
 - [x] Update the Contact form (`src/pages/Contact.tsx`):
     - [x] Modify the form submission logic to include the audio file data.
 - [x] Install axios
+- [x] Make the code editable for font weight size and family for both mobile and desktop separatly in service.css

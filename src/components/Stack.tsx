@@ -66,6 +66,20 @@ const StackingCardsPage: React.FC = () => {
 
   // 3. Wrap the animation function in useCallback for performance
   const updateCardAnimations = useCallback(() => {
+    if (isMobile) {
+      // Simplified animation for mobile devices
+      cards.forEach((card) => {
+        if (!card.element.current) return;
+        const rect = card.element.current.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+          card.element.current.classList.add('active');
+        } else {
+          card.element.current.classList.remove('active');
+        }
+      });
+      return;
+    }
+
     if (!timelineContainerRef.current) return;
     
     const vh = window.innerHeight;
@@ -123,7 +137,7 @@ const StackingCardsPage: React.FC = () => {
       // Apply transform using the .current property of the ref
       card.inner.current.style.transform = `scale(${scale}) translateY(${translateY}%)`;
     });
-  }, [cards]); // Dependency array for useCallback
+  }, [cards, isMobile]); // Dependency array for useCallback
 
   useEffect(() => {
     // Set initial transforms

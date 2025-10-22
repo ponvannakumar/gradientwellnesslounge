@@ -17,7 +17,8 @@ const Services = () => {
         'Advanced techniques for lasting pain relief beyond machines.',
         'Safe return to daily living functional activities .'
       ],
-      testimonial: '"I have recovered from back pain, a major milestone, thanks to consistent exercise and rehab - a gradual but worthwhile journey." - SRUTHI',
+      testimonial: '"I have recovered from back pain, a major milestone, thanks to consistent exercise and rehab - a gradual but worthwhile journey."',
+      name: 'SRUTHI',
       avatarUrl: '/sruthi.jpg'
     },
     {
@@ -30,8 +31,9 @@ const Services = () => {
         'Monitoring results to keep you on track.',
         'Evidence-based methods for measurable improvements.'
       ],
-      testimonial: '"At Gradient, I had full 1-on-1 sessions with guidance on every exercise and a program customized to me—something I never experienced at my previous gym. Now, I’m noticeably stronger, and the results feel lasting." - VENKAT',
-      avatarUrl: '/guru.png'
+      testimonial: '"At Gradient, I had full 1-on-1 sessions with guidance on every exercise and a program customized to me—something I never experienced at my previous gym. Now, I’m noticeably stronger, and the results feel lasting."',
+      name: 'VENKAT',
+      avatarUrl: '/venkat.jpg'
     },
     {
       title: 'SPORTS PERFORMANCE TRAINING',
@@ -44,7 +46,8 @@ const Services = () => {
         'Conditioning programs that are sport specific.',
         'Data-driven tracking to monitor gains.'
       ],
-      testimonial: '"As a sprinter, my performance was lagging ,i couldn’t reach my goal. After training under coach Guru, there was notable elevation in my performance and timing, he also guided me with proper recovery methodologies.." - YOHITH',
+      testimonial: '"As a sprinter, my performance was lagging ,i couldn’t reach my goal. After training under coach Guru, there was notable elevation in my performance and timing, he also guided me with proper recovery methodologies.."',
+      name: 'YOHITH',
       avatarUrl: '/yohith.jpg'
     },
     {
@@ -58,7 +61,8 @@ const Services = () => {
         'Prevent recurrence with expert guidance.',
         'Return to sport with confidence.'
       ],
-      testimonial: '" After my ACL reconstruction, getting back to the court felt like a distant dream That changed completely when I started training under Guru. I was able to return to playing badminton within just 6-7 months, completely pain-free." - HARISH',
+      testimonial: '" After my ACL reconstruction, getting back to the court felt like a distant dream That changed completely when I started training under Guru. I was able to return to playing badminton within just 6-7 months, completely pain-free."',
+      name: 'HARISH',
       avatarUrl: '/harish.jpg'
     },
     {
@@ -71,7 +75,8 @@ const Services = () => {
         'Practical habits for daily wellness and metabolic health.',
         'Continuous tracking for long-term results.'
       ],
-      testimonial: '"After following Guru’s nutrition and training plan at Gradient, my liver function and bilirubin levels completely normalized. I’ve regained my energy and vitality — something medicines couldn’t achieve. Truly grateful to Guru and Gradient for this life-changing transformation." - KAROL',
+      testimonial: '"After following Guru’s nutrition and training plan at Gradient, my liver function and bilirubin levels completely normalized. I’ve regained my energy and vitality — something medicines couldn’t achieve. Truly grateful to Guru and Gradient for this life-changing transformation."',
+      name: 'KAROL',
       avatarUrl: '/karol.jpg'
     },
     {
@@ -85,7 +90,8 @@ const Services = () => {
         'Recovery and Adaptation strategies.',
         
       ],
-      testimonial: '"I joined Gradient’s Strength and Conditioning program to build overall strength and endurance. Within a few weeks, I started lifting heavier, feeling more stable, and performing daily activities with ease without getting injured. It’s been a powerful transformation" - SELVI',
+      testimonial: '"I joined Gradient’s Strength and Conditioning program to build overall strength and endurance. Within a few weeks, I started lifting heavier, feeling more stable, and performing daily activities with ease without getting injured. It’s been a powerful transformation"',
+      name: 'SELVI',
       avatarUrl: '/physio.jpg'
     },
     {
@@ -99,8 +105,9 @@ const Services = () => {
         'Better balance & stability',
         'Long term vitality and quality of life'
       ],
-      testimonial: '"’m 78 years old and once struggled with severe knee pain that made it difficult to walk on my own. After taking consistent sessions at Gradient, I can now walk independently, completely pain-free, and with renewed confidence." - JAYA',
-      avatarUrl: '/sporehab.jpg'
+      testimonial: '"’m 78 years old and once struggled with severe knee pain that made it difficult to walk on my own. After taking consistent sessions at Gradient, I can now walk independently, completely pain-free, and with renewed confidence."',
+      name: 'JAYA',
+      avatarUrl: '/jaya.jpg'
     },
     {
       title: 'METABOLIC HEALTH TRAINING',
@@ -111,9 +118,10 @@ const Services = () => {
         'Improves insulin sensitivity & stabilizes glucose levels',
         'Supports metabolic regulation & energy levels',
         'Stress & Cortisol management',
-        ''
+        
       ],
-      testimonial: '"I am 19 yrs old and I’ve been attending the gradient holistic online wellness classes, and I’m truly grateful for the guidance and support I’ve received. Over time, I’ve seen a huge improvement in my health—my PCOD parameters have reduced significantly, which has been such a positive change for me.." - KEERTHANA',
+      testimonial: '"I am 19 yrs old and I’ve been attending the gradient holistic online wellness classes, and I’m truly grateful for the guidance and support I’ve received. Over time, I’ve seen a huge improvement in my health—my PCOD parameters have reduced significantly, which has been such a positive change for me.."',
+      name: 'KEERTHANA',
       avatarUrl: '/keethu.jpg'
     }
   ];
@@ -131,10 +139,10 @@ const Services = () => {
       <section className="min-h-screen flex items-center justify-center text-center section-padding">
         <div className="container">
           <FadeInSection>
-            <h1 className="text-5xl md:text-6xl font-bold gradient-text mb-8">
+            <h1 className="text-5xl md:text-6xl font-bold gradient-text mb-8 font-cormorant-garamond">
               THE GRADIENT SERVICES
             </h1>
-            <p className="subtitle mb-12 max-w-4xl mx-auto leading-relaxed">
+            <p className="subtitle mb-12 max-w-4xl mx-auto leading-relaxed font-playfair-display">
               Every service in gradient is curated to eliminate guesswork and deliver integrated performance, bespoke results and vitality.
             </p>
           </FadeInSection>
@@ -175,32 +183,49 @@ const Services = () => {
                     </ul>
                   </div>
 
-                  <div className="bg-white bg-opacity-5 rounded-lg p-6 flex items-start space-x-4 border-4 border-maroon-500">
-                    {/* Avatar */}
+                  {/* Desktop Testimonial Card */}
+                  <div className="hidden md:flex bg-white bg-opacity-5 rounded-lg p-6 items-start space-x-4 border-4 border-maroon-500">
                     <div className="flex-shrink-0">
                       <img className="w-20 h-20 rounded-full border-2 border-red-700" src={service.avatarUrl} alt="Avatar" />
                     </div>
-
                     <div className="flex-1">
                       <div className="flex justify-between items-center mb-2">
-                        {/* Name */}
-                        <div className="bg-red-700 text-white text-sm font-bold px-4 py-1 rounded-full">
-                          {service.testimonial.split('" - ')[1]}
+                        <div className="bg-red-700 text-white text-sm font-bold px-4 py-1 rounded-full flex items-center">
+                          {service.name}
                         </div>
-                        {/* Stars */}
-                        <div className="flex text-yellow-400">
-                          <span className="text-2xl">★</span>
-                          <span className="text-2xl">★</span>
-                          <span className="text-2xl">★</span>
-                          <span className="text-2xl">★</span>
-                          <span className="text-2xl">★</span>
-                        </div>
+												<span className="md:flex hidden text-yellow-400 ml-2">
+                            <span className="text-2xl">★</span>
+                            <span className="text-2xl">★</span>
+                            <span className="text-2xl">★</span>
+                            <span className="text-2xl">★</span>
+                            <span className="text-2xl">★</span>
+                          </span>
                       </div>
-                      {/* Testimonial Text */}
                       <p className="text-gray-300 italic">
-                        {service.testimonial.split('" - ')[0]}"
+                        {service.testimonial}
                       </p>
                     </div>
+                  </div>
+
+                  {/* Mobile Testimonial Card */}
+                  <div className="testimonial-card md:hidden bg-white bg-opacity-5 rounded-lg p-6 border-4 border-maroon-500">
+                    <div className="flex justify-center">
+                      <img className="w-20 h-20 rounded-full border-2 border-red-700" src={service.avatarUrl} alt="Avatar" />
+                    </div>
+                    <div className="text-center text-red text-sm font-bold">
+                      {service.name}
+                    </div>
+                    <div className="flex justify-center text-yellow-400 my-4 md:hidden">
+                      <span className="text-2xl">★</span>
+                      <span className="text-2xl">★</span>
+                      <span className="text-2xl">★</span>
+                      <span className="text-2xl">★</span>
+                      <span className="text-2xl">★</span>
+                    </div>
+                    <p className="text-gray-300 italic text-center mb-4">
+                      {service.testimonial}
+                    </p>
+                   
                   </div>
                 </div>
               </FadeInSection>

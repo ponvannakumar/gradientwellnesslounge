@@ -64,24 +64,25 @@ const About: React.FC = () => {
               </div>
 
               {/* Company Introduction Content */}
-              <section>
-                <div className="container mx-auto flex flex-col md:flex-row items-center gap-12">
-                  <div className="w-full flex justify-center items-center py-8">
-                    <motion.div
-                      className="relative rounded-lg overflow-hidden group"
-                      style={{ width: '200%', maxWidth: '1400px', maxHeight: '1400px', perspective: '1400px' }}
-                      whileHover={{ rotateY: 5, rotateX: -5, scale: 1.02, transition: { duration: 0.4 } }}
-                    >
-                      <motion.img
-                        src="/aboutgrad.png"
-                        alt="Gradient Holistic Wellness Lounge"
-                        className="w-full h-auto object-contain bg-white"
-                        style={{ backgroundColor: '#fff' }}
-                        initial={{ scale: 1.02, rotate: -0.5 }}
-                        animate={{ scale: [1.02, 1.04, 1.02], rotate: [-0.5, 0.5, -0.5] }}
-                        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-                      />
-                    </motion.div>
+              <section className="container mx-auto py-12">
+                <div className="grid md:grid-cols-2 gap-12 items-center">
+                  {/* Left Column: Vision Text */}
+                  <div className="text-left">
+                    <h3 className="text-2xl font-bold mb-4 text-red-700">OUR VISION</h3>
+                    <p className="mb-4 vision-text">
+                      At Gradient, we are setting a new benchmark in the way health, fitness, performance and pain management are experienced.
+                    </p>
+                    <p className="mb-4 vision-text">
+                      No shortcuts, no one size fits-all routines. Gradient is built on science baked, evidence based and precision. Every program here is personalised, every session is purpose driven, and every transformation is sustainable.
+                    </p>
+                    <p className="vision-text">
+                      Whether you’re recovering from chronic pain, an athlete chasing peak performance, or seeking a holistic approach to metabolic conditions, Gradient offers a one-stop solution: cutting-edge physiotherapy, strength & conditioning, and lifestyle coaching – all under one roof
+                    </p>
+                  </div>
+
+                  {/* Right Column: Experience and Image Placeholder */}
+                  <div className="text-center">
+                    <img src="/grad.jpg" alt="The Gradient Difference" className="experience-image" />
                   </div>
                 </div>
               </section>

@@ -1,145 +1,40 @@
-/* ===================================
-   ABOUT PAGE STYLES
-   =================================== */
+.about-title {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-/* Desktop Styles (Default) */
-@media (min-width: 768px) {
-  .section-padding {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
+.about-subtitle {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.about-stacking-cards {
+  background-color: #f6e5cf;
+}
+
+.vision-text {
+  --desktop-font-weight: 1000;
+  --desktop-font-size: 1.29rem;
+  --mobile-font-weight: 800;
+  --mobile-font-size: 1.15rem;
+
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: var(--desktop-font-weight);
+  font-size: var(--desktop-font-size);
+}
+
+@media (max-width: 768px) {
+  .vision-text {
+    font-weight: var(--mobile-font-weight);
+    font-size: var(--mobile-font-size);
   }
 }
 
-/* Mobile Styles */
-@media (max-width: 767px) {
-  .section-padding {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-
-  .about-title {
-    font-size: 2.5rem; /* Reduced font size for mobile */
-    white-space: normal; /* Allow text to wrap */
-  }
-
-  .about-subtitle {
-    font-size: 1rem; /* Reduced font size for mobile */
-    white-space: normal; /* Allow text to wrap */
-    letter-spacing: 0.1em; /* Adjusted letter spacing */
-  }
-}
-
-/* ==============================
-   Stacking Cards (GreenShift-like)
-   ============================== */
-.gsl-stack-wrapper {
-  background: #f6e5cf;
-}
-
-.gsl-timeline {
-  position: relative;
-  height: 10000px !important; /* large scrollable area */
-}
-
-.gsl-sticky {
-  position: sticky;
-  top: 20px; /* as requested */
-}
-
-.gsl-cards {
-  position: relative;
-  width: min(100%, 1100px);
+.experience-image {
+  width: 80%; /* Default size for desktop */
   margin: 0 auto;
-  display: grid;
 }
-
-.gsl-card {
-  position: relative;
-  height: 300px !important; /* base card height */
-  border-radius: 20px;
-  background: #ffffff;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-  overflow: hidden;
-  display: grid;
-  place-items: center;
-  transform-origin: center ; /* transform origin center top */
-}
-
-/* inner styling */
-.gsl-card-inner {
-  padding: 32px;
-  text-align: center;
-  max-width: 70ch;
-}
-
-/* spacing: half of height between cards */
-.mt-half { margin-top: 300px; }
-
-/* initial scales per spec: 0.7, 0.8, 0.9, 1.0 */
-.gsl-card[data-i="0"] { transform: translateY(-6%) scale(0.7); z-index: 4; }
-.gsl-card[data-i="1"] { transform: translateY(-6%) scale(0.8); z-index: 3; }
-.gsl-card[data-i="2"] { transform: translateY(-6%) scale(0.9); z-index: 2; }
-.gsl-card[data-i="3"] { transform: translateY(-6%) scale(1);   z-index: 1; }
-
-/* colors just for differentiation */
-.gsl-card[data-i="0"] { background: linear-gradient(180deg, #fff8f0, #ffffff); }
-.gsl-card[data-i="1"] { background: linear-gradient(180deg, #f0fff8, #ffffff); }
-.gsl-card[data-i="2"] { background: linear-gradient(180deg, #f0f6ff, #ffffff); }
-.gsl-card[data-i="3"] { background: linear-gradient(180deg, #fff0f6, #ffffff); }
-
-/* Responsive tweaks */
-@media (max-width: 768px) {
-  .gsl-card { height: 520px; }
-  .mt-half { margin-top: 260px; }
-}
-
-/* Scroll interpolation note: In this implementation, transforms are static
-   baselines that produce a clean stacking effect while scrolling through
-   the 4000px timeline with a sticky container. For advanced animated
-   interpolation, we could add a tiny requestAnimationFrame hook to mutate
-   transforms based on progress (trigger start -300px, end +=1800px). */
-
-/* ===================================
-   Pinned stacking stage
-   =================================== */
-.stack-wrapper { background: #f6e5cf; }
-.stack-timeline { position: relative; height: 2700px; }
-.stack-pin { position: sticky; top: 0; height: 100vh; }
-.stack-stage { position: relative; width: 100%; height: 100%; }
-
-.stack-card {
-   width: 90%;
-            max-width: 950px;
-            height: 650px;
-            margin: 0 auto;
-            border-radius: 24px;
-            padding: 60px;
-            color: white;
-            position: sticky;
-            top: 50%;
-            transform: translateY(-50%); 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            transform-origin: center center;
-        
-}
-
-.stack-content { text-align: center; }
-.card-title { font-size: 3rem; }
-.card-description { font-size: 1.7rem; }
-
-.card-1 { z-index: 1; background: linear-gradient(135deg, #eb3131 0%, #a71010 100%); }
-.card-2 { z-index: 2; background: linear-gradient(135deg, #eb3131 0%, #a71010 100%); }
-.card-3 { z-index: 3; background: linear-gradient(135deg, #eb3131 0%, #a71010 100%); }
-.card-4 { z-index: 4; background: linear-gradient(135deg, #eb3131 0%, #a71010 100%); }
-
-.stack-spacer { height: 600px; }
 
 @media (max-width: 768px) {
-  .stack-card { padding: 40px; height: auto; min-height: 500px; }
-  .card-title { font-size: 2rem; }
-  .card-description { font-size: 1.1rem; }
+  .experience-image {
+    width: 90%; /* Larger size for mobile */
+  }
 }

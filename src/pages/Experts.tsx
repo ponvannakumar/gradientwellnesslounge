@@ -99,7 +99,7 @@ const Experts = () => {
     },
     {
       name: 'Jamuna',
-      image: '/guru.png',
+      image: '/jamuna.jpg',
       mobImage: '/Jam_mob.png',
       about: [
         'Jamuna exemplifies the integration of clinical expertise, functional rehabilitation, and human-centered care.',

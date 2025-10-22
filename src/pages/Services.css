@@ -1,51 +1,90 @@
-/* ===================================
-   SERVICES PAGE STYLES
-   =================================== */
+.gradient-text {
+  /* Default values for mobile */
+  font-size: var(--gradient-text-font-size-mobile, 2.0rem);
+  font-weight: var(--gradient-text-font-weight-mobile, 700);
+  font-family: var(--gradient-text-font-family-mobile, 'Cormorant Garamond');
+  background: linear-gradient(90deg, #b91c1c 0%, #8a1111 88%, #111111 100%);
 
-/* Desktop Styles (Default) */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Desktop styles */
 @media (min-width: 768px) {
-  .section-padding {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-  }
-
-  .services-title {
-    font-size: 2.25rem;
-  }
-
-  .services-desc {
-    font-size: 1.125rem;
-  }
-
-  .key-benefits {
-    font-size: 1.25rem;
-  }
-
-  .services-benefit {
-    font-size: 1rem;
+  .gradient-text {
+    font-size: var(--gradient-text-font-size-desktop, 6rem);
+    font-weight: var(--gradient-text-font-weight-desktop, 700);
+    font-family: var(--gradient-text-font-family-desktop, 'Cormorant Garamond');
   }
 }
 
-/* Mobile Styles */
-@media (max-width: 767px) {
-  .section-padding {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+.section-padding {
+
+  padding: 6rem 0;
+}
+
+.subtitle {
+  /* Default values for mobile */
+  font-size: var(--subtitle-font-size-mobile, 1.25rem);
+  font-weight: var(--subtitle-font-weight-mobile, 400);
+  font-family: var(--subtitle-font-family-mobile, 'Playfair Display');
+  color: #d1d5db;
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+  .subtitle {
+    font-size: var(--subtitle-font-size-desktop, 1.25rem);
+    font-weight: var(--subtitle-font-weight-desktop, 400);
+    font-family: var(--subtitle-font-family-desktop, 'Playfair Display');
+  }
+}
+
+
+.service-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.services-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.services-desc {
+  font-size: 1.125rem;
+  color: #d1d5db;
+}
+
+.key-benefits {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #f9a8d4;
+}
+
+.services-benefit {
+  font-size: 1rem;
+}
+
+.border-maroon-500 {
+  border-color: #881337;
+}
+
+@media (max-width: 768px) {
+  .testimonial-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .services-title {
-    font-size: 1.75rem;
-  }
-
-  .services-desc {
-    font-size: 1rem;
-  }
-
-  .key-benefits {
-    font-size: 1.125rem;
-  }
-
-  .services-benefit {
-    font-size: 0.875rem;
+  .md\:hidden {
+    display: flex !important;
   }
 }
