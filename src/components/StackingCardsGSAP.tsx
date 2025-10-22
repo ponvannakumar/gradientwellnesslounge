@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState, useLayoutEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./StackingCardsGSAP.css";
@@ -34,6 +34,16 @@ const cards = [
 
 const StackingCardsGSAP: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useLayoutEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -92,13 +102,15 @@ const StackingCardsGSAP: React.FC = () => {
                   <h2 className="card-title-responsive">{card.title}</h2>
                   <p className="item_p card-desc-responsive">{card.desc}</p>
                 </div>
-                <video
-                  src={card.video}
-                  autoPlay
-                  muted
-                  loop
-                  className="item_media"
-                ></video>
+                {!isMobile && (
+                  <video
+                    src={card.video}
+                    autoPlay
+                    muted
+                    loop
+                    className="item_media"
+                  ></video>
+                )}
               </div>
             ))}
           </div>
