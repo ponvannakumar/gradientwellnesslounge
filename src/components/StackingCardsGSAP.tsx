@@ -73,24 +73,32 @@ const StackingCardsGSAP: React.FC = () => {
       defaults: { ease: "none" },
     });
 
-    items.forEach((item, index) => {
-      const nextItem = items[index + 1];
-      if (nextItem) {
-        if (!isMobile) {
-          timeline.to(item, {
-            scale: 0.9,
-            borderRadius: "10px",
-          });
+    if (isMobile) {
+      items.forEach((item, index) => {
+        const nextItem = items[index + 1];
+        if (nextItem) {
+          timeline.to(nextItem, { yPercent: 0 });
         }
-        timeline.to(nextItem, { yPercent: 0 }, "<");
-      }
-    });
+      });
+    } else {
+      items.forEach((item, index) => {
+        const nextItem = items[index + 1];
+        if (nextItem) {
+          timeline
+            .to(item, {
+              scale: 0.9,
+              borderRadius: "10px",
+            })
+            .to(nextItem, { yPercent: 0 }, "<");
+        }
+      });
+    }
 
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
       timeline.kill();
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <>
