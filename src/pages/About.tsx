@@ -41,17 +41,17 @@ const About: React.FC = () => {
       });
 
       return () => {
-        tl.kill();
-        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        // tl.kill();
+        // ScrollTrigger.getAll().forEach(trigger => trigger.kill());
       };
     } else if (!isMobile && experienceImageRef.current) {
       // Ensure any mobile-specific scroll triggers are killed and the image is visible
-      ScrollTrigger.getAll().forEach(trigger => {
-        if (trigger.trigger === experienceImageRef.current) {
-          trigger.kill();
-        }
-      });
-      gsap.set(experienceImageRef.current, { autoAlpha: 1 });
+      // ScrollTrigger.getAll().forEach(trigger => {
+      //   if (trigger.trigger === experienceImageRef.current) {
+      //     trigger.kill();
+      //   }
+      // });
+      // gsap.set(experienceImageRef.current, { autoAlpha: 1 });
     }
   }, [isMobile]);
 

@@ -83,7 +83,7 @@ const StackingCardsGSAP: React.FC = () => {
         trigger: section,
         pin: true,
         start: "top top",
-        end: `+=${(items.length - 1) * 100}%`,
+        end: isMobile ? `+=${(items.length - 2) * 100}%` : `+=${(items.length - 1) * 100}%`,
         scrub: 1,
         invalidateOnRefresh: true,
       },
