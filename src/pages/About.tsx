@@ -1,8 +1,12 @@
-import React, { useState, useLayoutEffect } from 'react';
+import React, { useState, useLayoutEffect, useRef, useEffect } from 'react';
 import StackingCardsGSAP from '../components/StackingCardsGSAP';
 import { motion } from 'framer-motion';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './About.css';
 // import Stack from '../components/Stack';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const pageVariants = {
   initial: { opacity: 0, y: 40 },
@@ -12,6 +16,7 @@ const pageVariants = {
 
 const About: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const experienceImageRef = useRef<HTMLImageElement>(null);
 
   useLayoutEffect(() => {
     const checkMobile = () => {
@@ -21,6 +26,34 @@ const About: React.FC = () => {
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  useEffect(() => {
+    if (isMobile && experienceImageRef.current) {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: experienceImageRef.current,
+          start: 'top center',
+          end: 'bottom top',
+          onLeave: () => gsap.to(experienceImageRef.current, { autoAlpha: 0 }),
+          onEnterBack: () => gsap.to(experienceImageRef.current, { autoAlpha: 1 }),
+          scrub: true,
+        },
+      });
+
+      return () => {
+        tl.kill();
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      };
+    } else if (!isMobile && experienceImageRef.current) {
+      // Ensure any mobile-specific scroll triggers are killed and the image is visible
+      ScrollTrigger.getAll().forEach(trigger => {
+        if (trigger.trigger === experienceImageRef.current) {
+          trigger.kill();
+        }
+      });
+      gsap.set(experienceImageRef.current, { autoAlpha: 1 });
+    }
+  }, [isMobile]);
 
   return (
     <motion.div
@@ -82,7 +115,12 @@ const About: React.FC = () => {
 
                   {/* Right Column: Experience and Image Placeholder */}
                   <div className="text-center">
-                    <img src="/grad.jpg" alt="The Gradient Difference" className="experience-image" />
+                    <img
+                      ref={experienceImageRef}
+                      src="/grad.jpg"
+                      alt="The Gradient Difference"
+                      className="experience-image"
+                    />
                   </div>
                 </div>
               </section>
@@ -92,21 +130,6 @@ const About: React.FC = () => {
       </section>
 
       {/* Stacking Cards GSAP Feature Section */}
-      <div
-        style={{
-          width: '100%',
-          background: '#f0a749ff',
-          padding: '3rem 0 2rem 0',
-          textAlign: 'center',
-          fontFamily: "'Copperplate Gothic Bold', 'Copperplate Gothic Light', Copperplate, fantasy",
-          fontWeight: 700,
-          fontSize: '2rem',
-          color: '#222',
-          letterSpacing: '0.01em',
-        }}
-      >
-        But Vertical Scroll Is Also Cool!
-      </div>
       <div className="about-stacking-cards">
         <StackingCardsGSAP />
       </div>

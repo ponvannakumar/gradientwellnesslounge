@@ -142,20 +142,28 @@ h2 {
   width: 50%;
 }
 
+.title-card-item .item_content {
+  width: 100%;
+  height: 50vh;
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
 /* About page specific: previous gradient (commented out)
-.about-stacking-cards .list .item:nth-child(-n+4) .item_content {
+.about-stacking-cards .list .maroon-card .item_content {
   background: linear-gradient(135deg, #eb3131 0%, #a71010 100%);
   color: #fff;
 }
 
-.about-stacking-cards .list .item:nth-child(-n+4) .item_content h2,
-.about-stacking-cards .list .item:nth-child(-n+4) .item_content .item_p {
+.about-stacking-cards .list .maroon-card .item_content h2,
+.about-stacking-cards .list .maroon-card .item_content .item_p {
   color: #fff;
 }
 */
 
 /* Premium maroon styling for About page cards (first 4) */
-.about-stacking-cards .list .item:nth-child(-n+4) .item_content {
+.about-stacking-cards .list .maroon-card {
   /* Use site maroon as base and add depth for a premium feel */
   background: linear-gradient(135deg, #b91c1c 0%, #7a0f0f 60%, #3a0505 100%);
   color: #fff;
@@ -165,7 +173,7 @@ h2 {
 }
 
 /* Soft glossy sheen across the card to make it look premium */
-.about-stacking-cards .list .item:nth-child(-n+4) .item_content::before {
+.about-stacking-cards .list .maroon-card::before {
   content: '';
   position: absolute;
   top: -40%;
@@ -180,13 +188,13 @@ h2 {
 }
 
 /* Ensure headings and paragraph text remain readable */
-.about-stacking-cards .list .item:nth-child(-n+4) .item_content h2,
-.about-stacking-cards .list .item:nth-child(-n+4) .item_content .item_p {
+.about-stacking-cards .list .maroon-card h2,
+.about-stacking-cards .list .maroon-card .item_p {
   color: #fff;
 }
 
 /* Make the item number contrast well on maroon */
-.about-stacking-cards .list .item:nth-child(-n+4) .item_number {
+.about-stacking-cards .list .maroon-card .item_number {
   background: rgba(0,0,0,0.85);
   color: #fff;
 }
