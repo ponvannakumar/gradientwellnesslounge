@@ -8,6 +8,8 @@
 
 .about-stacking-cards {
   background-color: #f6e5cf;
+  position: relative;
+  z-index: 2;
 }
 
 .vision-text {
