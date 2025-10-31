@@ -10,7 +10,8 @@
     "test": "node test-contact.js",
     "test:server": "node test-with-server.js",
     "test:email": "node test-email.js",
-    "debug:whatsapp": "node debug-whatsapp.js"
+    "debug:whatsapp": "node debug-whatsapp.js",
+    "stop": "npx kill-port 3001"
   },
   "dependencies": {
     "cloudinary": "^1.41.3",
