@@ -89,7 +89,7 @@ Submitted at: ${new Date().toLocaleString()}
 
         // 1. Send notification email to business
         await transporter.sendMail({
-            from: `"Gradient Wellness Lounge" <${process.env.EMAIL_USER}>`,
+            from: `"ceo@gradientlounge.com" <${process.env.EMAIL_USER}>`,
             to: process.env.EMAIL_TO || process.env.EMAIL_USER, // Business email
             subject: `New Contact Form Submission from ${name}`,
             html: `
@@ -109,7 +109,7 @@ Submitted at: ${new Date().toLocaleString()}
         if (email) {
             console.log(`📧 Sending auto-reply email to user: ${email}`);
             await transporter.sendMail({
-            from: `"Gradient Wellness Lounge" <${process.env.EMAIL_USER}>`,
+            from: `"Gradient Holistic Wellness Lounge" <${process.env.EMAIL_USER}>`,
             to: email,
             subject: "Thank you for contacting Gradient Wellness Lounge!",
             html: `

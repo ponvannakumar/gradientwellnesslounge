@@ -3,8 +3,28 @@ import { motion } from 'framer-motion';
 import { Plus, Minus, Image } from 'lucide-react';
 import FadeInSection from '../components/FadeInSection';
  
+const typography: { [key: string]: React.CSSProperties } = {
+  title: {
+    fontFamily: '"Playfair Display", serif',
+    fontWeight: 700,
+    fontSize: '2rem', // Default size, can be overridden by utility classes
+    color: '#ffffff', // Default color
+    textTransform: 'uppercase',
+  },
+  description: {
+    fontFamily: '"Cormorant Garamond", serif',
+    fontWeight: 500,
+    fontSize: '1.6rem', // Default size
+    color: '#000000ff', // Default color (text-gray-300)
+  },
+};
 
 const FAQ = () => {
+  const heroTitleStyle: React.CSSProperties = {
+    ...typography.title,
+    fontSize: '3.5rem',
+  };
+
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const faqs = [
@@ -38,15 +58,15 @@ const FAQ = () => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  const galleryPlaceholders = [
-    'Modern Fitness Equipment',
-    'Group Training Session',
-    'Physiotherapy Room',
-    'Nutrition Consultation Area',
-    'Wellness Studio',
-    'Recovery Lounge',
-    'Personal Training Zone',
-    'Meditation Space'
+  const galleryImages = [
+    { title: 'Modern Fitness Equipment', imageUrl: '/physio.jpg' },
+    { title: 'Group Training Session', imageUrl: '/pertrain.jpg' },
+    { title: 'Physiotherapy Room', imageUrl: '/sporehab.jpg' },
+    { title: 'Nutrition Consultation Area', imageUrl: '/nut.jpg' },
+    { title: 'Wellness Studio', imageUrl: '/strenght.jpg' },
+    { title: 'Recovery Lounge', imageUrl: '/genric.jpg' },
+    { title: 'Personal Training Zone', imageUrl: '/spotrain.jpg' },
+    { title: 'Meditation Space', imageUrl: '/metabolic.jpg' },
   ];
 
   return (
@@ -62,10 +82,10 @@ const FAQ = () => {
       <section className="min-h-screen flex items-center justify-center text-center section-padding">
         <div className="container">
           <FadeInSection>
-            <h1 className="text-5xl md:text-6xl font-bold gradient-text mb-8">
+            <h1 className="text-5xl md:text-6xl font-bold gradient-text mb-8" style={heroTitleStyle}>
               FAQ & Gallery
             </h1>
-            <p className="subtitle mb-12 max-w-4xl mx-auto leading-relaxed">
+            <p className="subtitle mb-12 max-w-4xl mx-auto leading-relaxed" style={typography.description}>
               Get answers to common questions and explore our state-of-the-art 
               wellness facility through our gallery.
             </p>
@@ -78,10 +98,10 @@ const FAQ = () => {
         <div className="container">
           <FadeInSection>
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6" style={typography.title}>
                 Frequently Asked Questions
               </h2>
-              <p className="subtitle max-w-3xl mx-auto">
+              <p className="subtitle max-w-3xl mx-auto" style={typography.description}>
                 Find answers to the most common questions about our services, 
                 programs, and approach to wellness.
               </p>
@@ -131,10 +151,10 @@ const FAQ = () => {
         <div className="container">
           <FadeInSection>
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6" style={typography.title}>
                 Facility Gallery
               </h2>
-              <p className="subtitle max-w-3xl mx-auto">
+              <p className="subtitle max-w-3xl mx-auto" style={typography.description}>
                 Take a virtual tour of our premium wellness facility featuring 
                 state-of-the-art equipment and serene spaces designed for your transformation.
               </p>
@@ -142,13 +162,12 @@ const FAQ = () => {
           </FadeInSection>
 
           <div className="gallery-grid">
-            {galleryPlaceholders.map((title, index) => (
+            {galleryImages.map((item, index) => (
               <FadeInSection key={index} delay={index * 100}>
                 <div className="gallery-item group">
-                  <div className="text-center">
-                    <Image size={48} className="mx-auto mb-4 text-gray-500 transition-colors" />
-                    <p className="font-medium">{title}</p>
-                    <p className="text-sm text-gray-500 mt-2">Coming Soon</p>
+                  <img src={item.imageUrl} alt={item.title} className="w-full h-full object-cover" />
+                  <div className="gallery-item-overlay">
+                    <p className="text-white text-lg font-bold">{item.title}</p>
                   </div>
                 </div>
               </FadeInSection>
@@ -163,10 +182,10 @@ const FAQ = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <FadeInSection>
               <div>
-                <h2 className="text-4xl font-bold gradient-text mb-6">
+                <h2 className="text-4xl font-bold gradient-text mb-6" style={typography.title}>
                   Still Have Questions?
                 </h2>
-                <p className="subtitle leading-relaxed mb-8">
+                <p className="subtitle leading-relaxed mb-8" style={typography.description}>
                   Our team is here to help you understand how our comprehensive 
                   wellness approach can benefit your unique situation. We believe 
                   in transparency and want you to feel completely informed about 
@@ -174,20 +193,20 @@ const FAQ = () => {
                 </p>
                 <div className="space-y-4 mb-8">
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-pink-400 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300">Complimentary consultation sessions available</p>
+                    {/* <div className="w-2 h-2 rounded-full bg-pink-400 mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-300">Complimentary consultation sessions available</p> */}
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-pink-400 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300">Personalized program recommendations</p>
+                    {/* <div className="w-2 h-2 rounded-full bg-pink-400 mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-300">Personalized program recommendations</p> */}
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-pink-400 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300">Facility tour and team introductions</p>
+                    {/* <div className="w-2 h-2 rounded-full bg-pink-400 mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-300">Facility tour and team introductions</p> */}
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-pink-400 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300">Flexible scheduling options</p>
+                    {/* <div className="w-2 h-2 rounded-full bg-pink-400 mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-300">Flexible scheduling options</p> */}
                   </div>
                 </div>
                 <motion.a
@@ -203,24 +222,24 @@ const FAQ = () => {
 
             <FadeInSection delay={300}>
               <div className="service-card">
-                <h3 className="text-2xl font-bold gradient-text mb-6 text-center">
+                <h3 className="text-2xl font-bold gradient-text mb-6 text-center" style={typography.title}>
                   Quick Contact Info
                 </h3>
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-white mb-2">Phone</h4>
-                    <p className="text-gray-300">(555) 123-4567</p>
+                    <h4 className="font-bold text-red mb-2">Phone</h4>
+                    <p className="text-gray-300">95000 59260</p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-white mb-2">Email</h4>
-                    <p className="text-gray-300">info@gradientwellness.com</p>
+                    <h4 className="font-bold text-red mb-2">Email</h4>
+                    <p className="text-gray-300">ceo@gradientlounge.com</p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-white mb-2">Address</h4>
-                    <p className="text-gray-300">123 Wellness Street<br />Health City, HC 12345</p>
+                    <h4 className="font-bold text-red mb-2">Address</h4>
+                    <p className="text-gray-300">12th cross street , MIG 229100 Feet Rd , New ASTC Hudco ,Hosur,Tamil Nadu 635109.</p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-white mb-2">Hours</h4>
+                    <h4 className="font-bold text-red mb-2">Hours</h4>
                     <p className="text-gray-300">Mon-Fri: 6:00 AM - 9:00 PM<br />Sat-Sun: 8:00 AM - 6:00 PM</p>
                   </div>
                 </div>

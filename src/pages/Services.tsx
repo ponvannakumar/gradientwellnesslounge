@@ -5,6 +5,21 @@ import './Services.css';
  
 
 const Services = () => {
+  const heroTypography: { [key: string]: React.CSSProperties } = {
+    title: {
+      fontFamily: '"Playfair Display", serif',
+      fontWeight: 700,
+      fontSize: '3.5rem',
+      color: '#ffffff',
+    },
+    description: {
+      fontFamily: '"Cormorant Garamond", serif',
+      fontWeight: 500,
+      fontSize: '1.6rem',
+      color: '#060707ff',
+    },
+  };
+
   const services = [
     {
       title: 'INTEGRATED PHYSIOTHERAPY',
@@ -139,10 +154,10 @@ const Services = () => {
       <section className="min-h-screen flex items-center justify-center text-center section-padding">
         <div className="container">
           <FadeInSection>
-            <h1 className="text-5xl md:text-6xl font-bold gradient-text mb-8 font-cormorant-garamond">
+            <h1 className="text-5xl md:text-6xl font-bold gradient-text mb-8" style={heroTypography.title}>
               THE GRADIENT SERVICES
             </h1>
-            <p className="subtitle mb-12 max-w-4xl mx-auto leading-relaxed font-playfair-display">
+            <p className="subtitle mb-12 max-w-4xl mx-auto leading-relaxed" style={heroTypography.description}>
               Every service in gradient is curated to eliminate guesswork and deliver integrated performance, bespoke results and vitality.
             </p>
           </FadeInSection>
