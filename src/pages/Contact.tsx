@@ -15,7 +15,7 @@ const typography: { [key: string]: React.CSSProperties } = {
   description: {
     fontFamily: '"Cormorant Garamond", serif',
     fontWeight: 500,
-    fontSize: '1.6rem', // Default size
+    fontSize: '1.5rem', // Default size
     color: '#000000ff', // Default color (text-gray-300)
   },
 };
@@ -83,7 +83,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: 'Location',
-      details: ['12th cross street , MIG 229100 Feet Rd , New ASTC Hudco , Hosur ,Tamil Nadu 635109'],
+      details: ['12th cross street , MIG 229100 Feet Rd , New ASTC Hudco , Hosur,Tamil Nadu 635109'],
       link: 'https://maps.app.goo.gl/sLv6S92xRnKwx69Z7'
     },
     {

@@ -120,7 +120,7 @@ Submitted at: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
 
       // 1. Send notification email to business
       await transporter.sendMail({
-        from: `"Gradient Wellness Lounge" <${process.env.EMAIL_USER}>`,
+        from: `"Gradient Holistic Wellness Lounge" <${process.env.EMAIL_USER}>`,
         to: process.env.EMAIL_TO || process.env.EMAIL_USER,
         subject: `New Contact Form Submission from ${name}`,
         html: `
@@ -158,7 +158,7 @@ Submitted at: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
               <p>Our team will review your inquiry and get back to you within 24 hours.</p>
               <p>If you have any urgent questions, please call us at <strong>+91 95000 59260</strong>.</p>
               <hr style="margin: 30px 0; border: none; border-top: 1px solid #ddd;">
-              <p style="color: #666;">Best regards,<br>The Gradient Wellness Team</p>
+              <p style="color: #666;">Best regards,<br>The Gradient Holistic Wellness Lounge Team</p>
             </div>
           `,
         });
