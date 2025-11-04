@@ -4,8 +4,7 @@
   publish = "dist"
 
 [build.environment]
-  # Install devDependencies
-  NPM_FLAGS = "--include=dev"
+  NPM_CONFIG_PRODUCTION = "false"
   
   # Functions directory
   functions = "netlify/functions"
