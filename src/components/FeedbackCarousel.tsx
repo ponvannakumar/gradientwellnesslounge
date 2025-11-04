@@ -140,7 +140,7 @@ const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ feedbacks, autoPlay
           className="feedback-card service-card text-center"
         >
           <div className="flex justify-center mb-6">
-            {currentFeedback.image ? (
+            {currentFeedback && currentFeedback.image ? (
               <img
                 src={currentFeedback.image}
                 alt={currentFeedback.name}

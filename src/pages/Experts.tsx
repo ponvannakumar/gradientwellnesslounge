@@ -8,7 +8,6 @@ import FeedbackCarousel from '../components/FeedbackCarousel';
 import './Experts.css';
 
 const Experts = () => {
-  const [isLoading, setIsLoading] = useState(false);
   const expertsData = [
     {
       name: 'Guru',
@@ -197,46 +196,12 @@ const Experts = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const handleNext = async () => {
-    setIsLoading(true);
-    try {
-      // Preload the next expert's images
-      const nextIndex = (currentIndex + 1) % expertsData.length;
-      const nextExpert = expertsData[nextIndex];
-      await Promise.all([
-        preloadImage(nextExpert.image),
-        preloadImage(nextExpert.mobImage)
-      ]);
-      setCurrentIndex(nextIndex);
-    } finally {
-      setIsLoading(false);
-    }
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % expertsData.length);
   };
 
-  const handlePrevious = async () => {
-    setIsLoading(true);
-    try {
-      // Preload the previous expert's images
-      const prevIndex = (currentIndex - 1 + expertsData.length) % expertsData.length;
-      const prevExpert = expertsData[prevIndex];
-      await Promise.all([
-        preloadImage(prevExpert.image),
-        preloadImage(prevExpert.mobImage)
-      ]);
-      setCurrentIndex(prevIndex);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  // Helper function to preload images
-  const preloadImage = (src: string): Promise<void> => {
-    return new Promise((resolve, reject) => {
-      const img = new Image();
-      img.onload = () => resolve();
-      img.onerror = reject;
-      img.src = src;
-    });
+  const handlePrevious = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + expertsData.length) % expertsData.length);
   };
 
   const currentExpert = expertsData[currentIndex];
@@ -253,11 +218,6 @@ const Experts = () => {
         <div className="container p-0 m-0 w-full h-full">
           <FadeInSection>
             <div className="relative">
-              {isLoading && (
-                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30">
-                  <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-white"></div>
-                </div>
-              )}
               <picture>
                 <source media="(min-width: 768px)" srcSet={currentExpert.image} />
                 <img
@@ -270,6 +230,21 @@ const Experts = () => {
           </FadeInSection>
         </div>
       </section>
+
+      {/* Expert Navigation */}
+      <div style={{ position: 'fixed', bottom: '20px', left: '20px', right: '20px', zIndex: 100 }}>
+        {currentExpert.name === 'Jamuna' && (
+          <button onClick={handlePrevious} className="expert-navigation-button" style={{ position: 'absolute', left: 0, bottom: 0 }}>
+            Previous 
+          </button>
+        )}
+        {currentExpert.name === 'Guru' && (
+          <button onClick={handleNext} className="expert-navigation-button" style={{ position: 'absolute', right: 0, bottom: 0 }}>
+            Next Person
+          </button>
+        )}
+      </div>
+
       {/* About Section */}
       <section className="pt-0 pb-6 -mt-2 md:mt-0 md:py-20" style={{ backgroundColor: '#f6e5cf' }}>
         <div className="container mx-auto px-4">
@@ -380,22 +355,6 @@ const Experts = () => {
           </motion.div>
 
           <FeedbackCarousel feedbacks={currentExpert.feedback || []} />
-        </div>
-      </section>
-
-      {/* Expert Navigation */}
-      <section className="bg-black bg-opacity-10">
-        <div className="container">
-          <FadeInSection>
-            <div className="expert-navigation-container">
-              <button onClick={handlePrevious} className="expert-navigation-button">
-                Previous Expert
-              </button>
-              <button onClick={handleNext} className="expert-navigation-button">
-                Next Expert
-              </button>
-            </div>
-          </FadeInSection>
         </div>
       </section>
 

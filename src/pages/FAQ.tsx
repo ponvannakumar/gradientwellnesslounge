@@ -67,6 +67,7 @@ const FAQ = () => {
     { title: 'Recovery Lounge', imageUrl: '/genric.jpg' },
     { title: 'Personal Training Zone', imageUrl: '/spotrain.jpg' },
     { title: 'Meditation Space', imageUrl: '/metabolic.jpg' },
+     { title: 'Meditation Space', imageUrl: '/metabolic.jpg' },
   ];
 
   return (
@@ -161,16 +162,11 @@ const FAQ = () => {
             </div>
           </FadeInSection>
 
-          <div className="gallery-grid">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {galleryImages.map((item, index) => (
-              <FadeInSection key={index} delay={index * 100}>
-                <div className="gallery-item group">
-                  <img src={item.imageUrl} alt={item.title} className="w-full h-full object-cover" />
-                  <div className="gallery-item-overlay">
-                    <p className="text-white text-lg font-bold">{item.title}</p>
-                  </div>
-                </div>
-              </FadeInSection>
+              <div key={index} className="aspect-square">
+                <img src={item.imageUrl} alt={item.title} className="w-full h-full object-cover" />
+              </div>
             ))}
           </div>
         </div>

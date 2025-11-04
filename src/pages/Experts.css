@@ -231,15 +231,6 @@
   }
 }
 
-/* Expert Navigation Buttons */
-.expert-navigation-container {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
-  padding-bottom: 2rem;
-}
-
 .expert-navigation-button {
   background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
   color: #ffffff;
@@ -267,11 +258,6 @@
 }
 
 @media (min-width: 768px) {
-  .expert-navigation-container {
-    margin-top: 3rem;
-    justify-content: space-between;
-  }
-
   .expert-navigation-button {
     font-size: 1.125rem;
     padding: 1rem 2rem;
@@ -280,7 +266,7 @@
 
 @media (max-width: 767px) {
   .expert-navigation-button {
-    padding: 12px 24px;
-    font-size: 14px;
+    padding: 8px 16px;
+    font-size: 12px;
   }
 }
