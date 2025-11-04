@@ -23,6 +23,9 @@ dist-ssr
 *.sln
 *.sw?
 .env
+.env.local
+.env.production
 
 # Local Netlify folder
 .netlify
+netlify/functions/node_modules
