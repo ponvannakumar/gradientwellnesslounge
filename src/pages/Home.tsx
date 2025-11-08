@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
-import { ArrowRight, User, Zap, Target, Coffee, Dumbbell, Activity } from 'lucide-react';
+import { ArrowRight, User, Zap, Target, Utensils, Dumbbell, Activity } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FadeInSection from '../components/FadeInSection';
 import AnimatedServicesGrid from '../components/AnimatedServicesGrid';
@@ -57,7 +57,7 @@ const Home = () => {
       link: '/services/nutrition',
     },
       {
-        icon: Coffee,
+        icon: Utensils,
         title: 'NO MUSCLE SACRIFICE',
 
         description: 'Fat-loss solutions that are Evidence based & Sustainable.',
