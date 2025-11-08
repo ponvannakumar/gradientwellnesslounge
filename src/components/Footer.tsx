@@ -1,12 +1,12 @@
 import React from 'react';
-import { Instagram, Facebook, Linkedin, MessageCircle, Activity } from 'lucide-react';
+import { Instagram, Youtube, Linkedin, MessageCircle } from 'lucide-react';
 
 const Footer = () => {
   const socialLinks = [
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: MessageCircle, href: '#', label: 'WhatsApp' },
+    { icon: Instagram, href: '#', label: 'Instagram', color: 'bg-gradient-to-r from-pink-500 to-purple-500' },
+    { icon: Youtube, href: '#', label: 'YouTube', color: 'bg-red-600 md:hover:bg-red-600' },
+    { icon: Linkedin, href: '#', label: 'LinkedIn', color: 'bg-blue-600 md:hover:bg-blue-600' },
+    { icon: MessageCircle, href: '#', label: 'WhatsApp', color: 'bg-green-600 md:hover:bg-green-600' },
   ];
 
   return (
@@ -59,7 +59,7 @@ const Footer = () => {
               <a
                 key={index}
                 href={social.href}
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-pink-500 hover:text-white transition-all duration-300"
+                className={`w-10 h-10 rounded-full flex items-center justify-center text-white md:bg-gray-800 md:text-gray-400 ${social.color} ${social.label === 'Instagram' ? 'instagram-hover' : 'md:hover:text-white'} transition-all duration-300`}
                 aria-label={social.label}
               >
                 <social.icon size={18} />

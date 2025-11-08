@@ -1,0 +1,14 @@
+.faq-answer p {
+  margin: 0;
+}
+
+.faq-answer .bullet-point {
+  text-indent: 1em;
+}
+
+@media (max-width: 768px) {
+  .faq-answer .bullet-point {
+    text-indent: -1em;
+    padding-left: 1.5em;
+  }
+}

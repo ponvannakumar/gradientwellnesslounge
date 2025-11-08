@@ -15,7 +15,7 @@ const typography: { [key: string]: React.CSSProperties } = {
   description: {
     fontFamily: '"Cormorant Garamond", serif',
     fontWeight: 500,
-    fontSize: '1.5rem', // Default size
+    fontSize: '1.4rem', // Default size
     color: '#000000ff', // Default color (text-gray-300)
   },
 };
@@ -232,7 +232,7 @@ const Contact = () => {
 
                    <div className="form-group">
                      <label htmlFor="phone" className="form-label">
-                       Phone Number
+                       Phone Number *
                      </label>
                      <input
                        type="tel"
@@ -240,6 +240,7 @@ const Contact = () => {
                        name="phone"
                        value={formData.phone}
                        onChange={handleChange}
+                       required
                        className="form-input"
                        placeholder="Enter your phone number"
                      />

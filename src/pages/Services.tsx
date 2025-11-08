@@ -107,7 +107,7 @@ const Services = () => {
       ],
       testimonial: '"I joined Gradient’s Strength and Conditioning program to build overall strength and endurance. Within a few weeks, I started lifting heavier, feeling more stable, and performing daily activities with ease without getting injured. It’s been a powerful transformation"',
       name: 'SELVI',
-      avatarUrl: '/physio.jpg'
+      avatarUrl: '/selvi.jpg'
     },
     {
       title: 'GERIATRIC FITNESS TRAINING',

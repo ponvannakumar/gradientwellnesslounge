@@ -1788,6 +1788,10 @@ html {
   .testimonial-card {
     min-width: 320px;
   }
+
+  .instagram-hover:hover {
+    color: white;
+  }
 }
 
 /* Responsive Grid Utilities for All Devices */
