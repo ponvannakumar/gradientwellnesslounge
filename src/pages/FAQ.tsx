@@ -247,7 +247,7 @@ const FAQ = () => {
                 <h3 className="text-2xl font-bold gradient-text mb-6 text-center" style={typography.title}>
                   Quick Contact Info
                 </h3>
-                <div className="space-y-4">
+                <div className="space-y-4 text-center md:text-left">
                   <div>
                     <h4 className="font-bold text-red mb-2">Phone</h4>
                     <p className="text-gray-300">95000 59260</p>
