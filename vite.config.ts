@@ -1,9 +1,30 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
+// Plugin to make CSS load asynchronously (non-blocking)
+const asyncCssPlugin = () => {
+  return {
+    name: 'async-css',
+    transformIndexHtml(html: string) {
+      // Make CSS links load asynchronously to prevent render blocking
+      return html.replace(
+        /<link([^>]*rel=["']stylesheet["'][^>]*)>/g,
+        (match, attrs) => {
+          // Skip if already has media or onload (like Google Fonts)
+          if (attrs.includes('media=') || attrs.includes('onload=')) {
+            return match;
+          }
+          // Make CSS non-blocking by loading it asynchronously
+          return `<link${attrs} media="print" onload="this.media='all'; this.onload=null;"><noscript>${match}</noscript>`;
+        }
+      );
+    },
+  };
+};
+
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), asyncCssPlugin()],
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
