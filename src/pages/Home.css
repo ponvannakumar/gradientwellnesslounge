@@ -5,7 +5,7 @@
 /* Desktop Styles (Default) */
 @media (min-width: 768px) {
   .responsive-bg {
-    background-image: url('/gradienthomeee.png');
+    background-image: url('/background.jpg');
     background-size: cover;
     background-position: center;
   }
