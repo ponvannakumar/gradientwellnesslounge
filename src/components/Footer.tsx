@@ -23,7 +23,7 @@ const Footer = () => {
              {/* Logo and Description */}
              <div>
                <div className="flex items-center gap-3 mb-4">
-                 <img src="/favicon.jpg" alt="Gradient Holistic Wellness Lounge" className="w-6 h-6 object-contain" />
+                 <img src="/favicon.png" alt="Gradient Holistic Wellness Lounge" className="w-6 h-6 object-contain" />
                  <span className="text-lg font-bold gradient-text">
                    Gradient Holistic Wellness Lounge
                  </span>
