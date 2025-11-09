@@ -38,6 +38,34 @@ body {
   animation: gradientShift 3s ease-in-out infinite alternate;
 }
 
+/* Ensure h1 hero titles use Playfair Display on all devices */
+h1.gradient-text,
+.min-h-screen h1.gradient-text,
+section h1.gradient-text,
+.container h1.gradient-text {
+  font-family: 'Playfair Display', serif !important;
+}
+
+/* Mobile specific override */
+@media (max-width: 767px) {
+  h1.gradient-text,
+  .min-h-screen h1.gradient-text,
+  section h1.gradient-text,
+  .container h1.gradient-text {
+    font-family: 'Playfair Display', serif !important;
+  }
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  h1.gradient-text,
+  .min-h-screen h1.gradient-text,
+  section h1.gradient-text,
+  .container h1.gradient-text {
+    font-family: 'Playfair Display', serif !important;
+  }
+}
+
 @keyframes gradientShift {
   0% { background-position: 0% 50%; }
   100% { background-position: 100% 50%; }
@@ -567,6 +595,11 @@ p {
     font-weight: 700;
   }
 
+  /* Override for gradient-text h1 to use Playfair Display */
+  .min-h-screen h1.gradient-text {
+    font-family: 'Playfair Display', serif !important;
+  }
+
   .min-h-screen .subtitle {
     font-size: 1.1rem;
     line-height: 1.4;
@@ -618,6 +651,11 @@ p {
     font-weight: 700 !important;
     word-spacing: 0.1em !important;
     letter-spacing: 0.02em !important;
+  }
+
+  /* Override for gradient-text h1 to use Playfair Display */
+  .min-h-screen h1.gradient-text {
+    font-family: 'Playfair Display', serif !important;
   }
 }
 
@@ -752,6 +790,11 @@ p {
     font-weight: 700 !important;
     word-spacing: 0.1em !important;
     letter-spacing: 0.02em !important;
+  }
+
+  /* Override for gradient-text h1 to use Playfair Display */
+  .min-h-screen h1.gradient-text {
+    font-family: 'Playfair Display', serif !important;
   }
 }
 

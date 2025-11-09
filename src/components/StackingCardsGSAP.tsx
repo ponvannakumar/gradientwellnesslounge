@@ -83,7 +83,7 @@ const StackingCardsGSAP: React.FC = () => {
         trigger: section,
         pin: true,
         start: "top top",
-        end: isMobile ? `+=${(items.length - 2) * 100}%` : `+=${(items.length - 1) * 100}%`,
+        end: isMobile ? `+=${(items.length - 1) * 100}%` : `+=${(items.length - 1) * 100}%`,
         scrub: 1,
         invalidateOnRefresh: true,
       },
@@ -91,7 +91,9 @@ const StackingCardsGSAP: React.FC = () => {
     });
 
     if (isMobile) {
-      items.forEach((item, index) => {
+      // Animate each card appearing (4 transitions: 0->1, 1->2, 2->3, 3->4)
+      // We have 5 items total, but only 4 transitions needed (title card is already visible)
+      items.forEach((_item, index) => {
         const nextItem = items[index + 1];
         if (nextItem) {
           timeline.to(nextItem, { yPercent: 0 });

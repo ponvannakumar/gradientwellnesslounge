@@ -88,3 +88,31 @@
     display: flex !important;
   }
 }
+
+/* Ensure h1 hero titles use Playfair Display on all devices */
+h1.gradient-text,
+.min-h-screen h1.gradient-text,
+section h1.gradient-text,
+.container h1.gradient-text {
+  font-family: 'Playfair Display', serif !important;
+}
+
+/* Mobile specific override */
+@media (max-width: 767px) {
+  h1.gradient-text,
+  .min-h-screen h1.gradient-text,
+  section h1.gradient-text,
+  .container h1.gradient-text {
+    font-family: 'Playfair Display', serif !important;
+  }
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  h1.gradient-text,
+  .min-h-screen h1.gradient-text,
+  section h1.gradient-text,
+  .container h1.gradient-text {
+    font-family: 'Playfair Display', serif !important;
+  }
+}

@@ -70,7 +70,7 @@ const About: React.FC = () => {
           <div className="max-w-4xl mx-auto text-center">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
               <div className="flex flex-col items-center mb-8">
-                <img src="/logo.png" alt="Gradient Holistic Wellness Lounge" className="w-20 h-30 object-contain mb-2" />
+                <img src="/logo1.png" alt="Gradient Holistic Wellness Lounge" className="w-20 h-30 object-contain mb-2" />
                 <h1
                   className="text-5xl md:text-6xl font-bold mb-2 about-title"
                   style={{
