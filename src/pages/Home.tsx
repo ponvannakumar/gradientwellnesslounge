@@ -202,7 +202,7 @@ const Home = () => {
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.8, delay: 0 }}
                   >
-                    <Link to="/contact" className="gradient-button btn-md w-auto">
+                    <Link to="/services" className="gradient-button btn-md w-auto">
                       Experience The Gradient Difference
                     </Link>
                   </motion.div>

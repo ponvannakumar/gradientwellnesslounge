@@ -198,10 +198,12 @@ const Experts = () => {
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % expertsData.length);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handlePrevious = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + expertsData.length) % expertsData.length);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const currentExpert = expertsData[currentIndex];
@@ -363,20 +365,20 @@ const Experts = () => {
         <div className="container">
           <FadeInSection>
             <div className="text-center">
-              <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
-                Start Your Transformation Today
+              <h2 className="text-2xl md:text-5xl font-bold gradient-text mb-6" style={{ fontFamily: "'Playfair Display', serif" , fontStyle: 'italic'}}>
+                Invite Us on Your Journey!
               </h2>
               <p className="subtitle mb-12 max-w-2xl mx-auto">
-                Ready to commit to your wellness journey? Contact us to discuss 
+                Ready to commit to your holistic wellness journey? Contact us to discuss 
                 which program is the perfect fit for your goals and lifestyle.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <Link to="/contact" className="gradient-button">
-                  Schedule Your Consultation
+                  Connect with Our Experts
                 </Link>
-                <Link to="/testimonials" className="gradient-button outline">
+                {/* <Link to="/testimonials" className="gradient-button outline">
                   Read Success Stories
-                </Link>
+                </Link> */}
               </div>
             </div>
           </FadeInSection>

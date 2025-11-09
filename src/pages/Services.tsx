@@ -254,7 +254,7 @@ const Services = () => {
         <div className="container">
           <FadeInSection>
             <div className="text-center">
-              <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
+              <h2 className="text-2xl md:text-5xl font-bold gradient-text mb-6" style={{ fontFamily: "'Playfair Display', serif" , fontStyle: 'italic'}}>
                 Ready to Start Your Wellness Journey?
               </h2>
               <p className="subtitle mb-12 max-w-2xl mx-auto">
