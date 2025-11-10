@@ -8,15 +8,15 @@ const typography: { [key: string]: React.CSSProperties } = {
   title: {
     fontFamily: '"Playfair Display", serif',
     fontWeight: 700,
-    fontSize: '2rem', // Default size, can be overridden by utility classes
-    color: '#ffffff', // Default color
+    fontSize: '2rem',
+    color: '#ffffff',
     textTransform: 'uppercase',
   },
   description: {
     fontFamily: '"Cormorant Garamond", serif',
     fontWeight: 500,
-    fontSize: '1.4rem', // Default size
-    color: '#000000ff', // Default color (text-gray-300)
+    fontSize: '1.4rem',
+    color: '#000000ff',
   },
 };
 
@@ -47,9 +47,10 @@ const Contact = () => {
     e.preventDefault();
     setIsLoading(true);
     setSubmitError('');
-    
+
     try {
-      const response = await fetch(API_ENDPOINTS.CONTACT, {
+      // 1. Prepare both fetch requests simultaneously
+      const originalApiRequest = fetch(API_ENDPOINTS.CONTACT, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -62,14 +63,50 @@ const Contact = () => {
         })
       });
 
-      const result = await response.json();
+      const emailJsRequest = fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          service_id: 'service_bvjdjit', // Replace with your EmailJS service ID
+          template_id: 'template_pdowcnf', // Replace with your EmailJS template ID
+          user_id: 'V8WNmg3ZJiJXJdxjS', // Replace with your EmailJS public key
+          template_params: {
+            from_name: formData.name,
+            from_email: formData.email,
+            phone: formData.phone,
+            message: formData.message,
+            to_email: 'gradientholisticwellnesslounge@gmail.com'
+          }
+        })
+      });
 
-      if (response.ok) {
+      // 2. Await both requests to finish
+      const [response, emailJsResponse] = await Promise.all([originalApiRequest, emailJsRequest]);
+
+      // 3. Handle responses
+      // We attempt to parse the original API JSON as before
+      let result;
+      try {
+          result = await response.json();
+      } catch (err) {
+          // Fallback if response isn't JSON
+          result = {};
+      }
+
+      // Check if both succeeded (or at least the primary one, depending on your needs. 
+      // currently checks both to ensure you know if EmailJS credentials are missing)
+      if (response.ok && emailJsResponse.ok) {
         setIsSubmitted(true);
         setFormData({ name: '', email: '', phone: '', message: '' });
         setTimeout(() => setIsSubmitted(false), 5000);
       } else {
-        setSubmitError(result.message || 'Failed to send message. Please try again.');
+        // Determine appropriate error message
+        const errorMessage = !response.ok 
+            ? (result.message || 'Failed to send message to server.') 
+            : 'Failed to send email notification (check EmailJS configuration).';
+        setSubmitError(errorMessage);
       }
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -113,8 +150,6 @@ const Contact = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      
-      
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center text-center section-padding">
         <div className="container">
@@ -331,35 +366,6 @@ const Contact = () => {
                     </div>
                   </div>
                 </a>
-
-                {/* Additional Information */}
-                {/* <div className="service-card">
-                  <h3 className="text-2xl font-bold gradient-text mb-6">
-                    What to Expect
-                  </h3>
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-pink-400 mt-2 flex-shrink-0"></div>
-                      <p className="text-gray-300">Complimentary 30-minute consultation</p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-pink-400 mt-2 flex-shrink-0"></div>
-                      <p className="text-gray-300">Comprehensive fitness and wellness assessment</p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-pink-400 mt-2 flex-shrink-0"></div>
-                      <p className="text-gray-300">Personalized program recommendations</p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-pink-400 mt-2 flex-shrink-0"></div>
-                      <p className="text-gray-300">Tour of our state-of-the-art facilities</p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-pink-400 mt-2 flex-shrink-0"></div>
-                      <p className="text-gray-300">Meet our expert wellness team</p>
-                    </div>
-                  </div>
-                </div> */}
               </div>
             </FadeInSection>
           </div>
