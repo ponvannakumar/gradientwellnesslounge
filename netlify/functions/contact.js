@@ -94,59 +94,69 @@ Submitted at: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
       });
     }
 
-    // Initialize Nodemailer transporter
-    const transporter = nodemailer.createTransport({
-      host: process.env.EMAIL_HOST || "smtp.zoho.com",
-      port: parseInt(process.env.EMAIL_PORT) || 465,
-      secure: process.env.EMAIL_SECURE !== "false", // true for SSL
+    // Initialize Nodemailer transporter with Zoho-friendly defaults
+    const smtpHost = process.env.EMAIL_HOST || 'smtp.zoho.com';
+    const smtpPort = parseInt(process.env.EMAIL_PORT || '465', 10);
+    const useSecure = process.env.EMAIL_SECURE
+      ? process.env.EMAIL_SECURE !== 'false'
+      : smtpPort === 465;
+
+    const transporterConfig = {
+      host: smtpHost,
+      port: smtpPort,
+      secure: useSecure,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
-    });
+    };
 
-    // Verify SMTP connection
-    try {
-      await transporter.verify();
-      console.log("✅ SMTP connection verified!");
-    } catch (err) {
-      console.error("❌ SMTP verification failed:", err.message);
+    if (!useSecure || smtpPort === 587) {
+      transporterConfig.requireTLS = true;
     }
 
-    // Send emails
-    let emailSuccess = false;
+    if (process.env.EMAIL_IGNORE_TLS === 'true') {
+      transporterConfig.tls = { rejectUnauthorized: false };
+    }
+
+    const transporter = nodemailer.createTransport(transporterConfig);
+
     try {
-      console.log("📧 Sending email...");
+      await transporter.verify();
+      console.log('✅ SMTP connection verified!');
+    } catch (verifyError) {
+      console.error('❌ SMTP verification failed:', verifyError.message);
+      throw new Error(
+        `SMTP verification failed. Check EMAIL_HOST/PORT/USER/PASS. ${verifyError.message}`
+      );
+    }
 
-      // 1. Send notification email to business
-      await transporter.sendMail({
-        from: `"Gradient Holistic Wellness Lounge" <${process.env.EMAIL_USER}>`,
-        to: process.env.EMAIL_TO || process.env.EMAIL_USER,
-        subject: `New Contact Form Submission from ${name}`,
-        html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <h2 style="color: #8b0000;">New Contact Form Submission</h2>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Phone:</strong> ${phone}</p>
-            ${email ? `<p><strong>Email:</strong> ${email}</p>` : ""}
-            <p><strong>Message:</strong></p>
-            <div style="background: #f5f5f5; padding: 15px; border-left: 4px solid #8b0000; margin: 20px 0;">
-              <p>${message.replace(/\n/g, "<br>")}</p>
-            </div>
-            <p><em>Submitted at: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</em></p>
+    const adminEmail = process.env.EMAIL_TO || process.env.EMAIL_USER;
+    const adminMail = {
+      from: `"Gradient Holistic Wellness Lounge" <${process.env.EMAIL_USER}>`,
+      to: adminEmail,
+      replyTo: email || undefined,
+      subject: `New Contact Form Submission from ${name}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #8b0000;">New Contact Form Submission</h2>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Phone:</strong> ${phone}</p>
+          ${email ? `<p><strong>Email:</strong> ${email}</p>` : ''}
+          <p><strong>Message:</strong></p>
+          <div style="background: #f5f5f5; padding: 15px; border-left: 4px solid #8b0000; margin: 20px 0;">
+            <p>${message.replace(/\n/g, '<br>')}</p>
           </div>
-        `,
-      });
+          <p><em>Submitted at: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</em></p>
+        </div>
+      `,
+    };
 
-      console.log("✅ Business notification email sent!");
-
-      // 2. Send auto-reply to user (if email provided)
-      if (email) {
-        console.log(`📧 Sending auto-reply email to user: ${email}`);
-        await transporter.sendMail({
+    const autoReplyMail = email
+      ? {
           from: `"Gradient Holistic Wellness Lounge" <${process.env.EMAIL_USER}>`,
           to: email,
-          subject: "Thank you for contacting Gradient Wellness Lounge!",
+          subject: 'Thank you for contacting Gradient Wellness Lounge!',
           html: `
             <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
               <h2 style="color: #8b0000;">Thank you for contacting Gradient Wellness Lounge!</h2>
@@ -161,16 +171,27 @@ Submitted at: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
               <p style="color: #666;">Best regards,<br>The Gradient Holistic Wellness Lounge Team</p>
             </div>
           `,
-        });
-        console.log(`✅ Auto-reply email sent to user: ${email}`);
+        }
+      : null;
+
+    let emailSuccess = false;
+    try {
+      console.log('📧 Sending email...');
+      const sendTasks = [transporter.sendMail(adminMail)];
+
+      if (autoReplyMail) {
+        console.log(`📧 Sending auto-reply email to user: ${email}`);
+        sendTasks.push(transporter.sendMail(autoReplyMail));
       }
 
+      await Promise.all(sendTasks);
       emailSuccess = true;
-      console.log("✅ All emails sent successfully!");
+      console.log('✅ All emails sent successfully!');
     } catch (emailError) {
-      console.error("❌ Email error:", {
+      console.error('❌ Email error:', {
         message: emailError.message,
-        code: emailError.code
+        code: emailError.code,
+        response: emailError.response,
       });
     }
 
@@ -186,41 +207,29 @@ Submitted at: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
         })
       };
     } else if (whatsappSuccess || emailSuccess) {
-      console.log(`⚠️ Partial success: ${whatsappSuccess ? 'WhatsApp' : 'Email'} sent`);
+      const method = whatsappSuccess ? 'WhatsApp' : 'email';
+      console.log(`✅ Only ${method} sent successfully`);
       return {
         statusCode: 200,
         headers,
         body: JSON.stringify({
           success: true,
-          message: `Your message has been sent via ${whatsappSuccess ? 'WhatsApp' : 'email'}. ${whatsappSuccess ? 'Email' : 'WhatsApp'} delivery may be delayed.`
-        })
-      };
-    } else {
-      console.log('❌ Both WhatsApp and email failed');
-      return {
-        statusCode: 500,
-        headers,
-        body: JSON.stringify({
-          success: false,
-          message: 'Failed to send message. Please try again later or contact us directly.'
+          message: `Your message has been sent successfully via ${method}!`
         })
       };
     }
-
   } catch (error) {
-    console.error('🚨 Contact form error:', {
+    console.error('❌ Unhandled error:', {
       message: error.message,
       stack: error.stack,
-      timestamp: new Date().toISOString()
     });
-    
     return {
       statusCode: 500,
       headers,
       body: JSON.stringify({
         success: false,
-        message: 'An unexpected error occurred. Please try again later.'
-      })
+        message: 'An unexpected error occurred. Please try again later.',
+      }),
     };
   }
 };
