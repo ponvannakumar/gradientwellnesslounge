@@ -192,7 +192,7 @@ Submitted at: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
 
               ${email ? `
               <div style="margin-top: 40px; text-align: center;">
-                <a href="mailto:${email}?subject=Re: Your inquiry to Gradient Wellness Lounge" style="background-color: #8a1111; color: #ffffff; display: inline-block; padding: 14px 30px; text-decoration: none; border-radius: 50px; font-weight: bold; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                <a href="mailto:${email}?subject=Re: Your inquiry to Gradient Wellness Lounge" style="background-color: #8a1111; color: #ffffff; display: inline-block; padding: 12px 25px; text-decoration: none; border-radius: 50px; font-weight: bold; text-transform: uppercase; font-size: 14px; letter-spacing: 0.5px; white-space: nowrap; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
                   Reply to ${name}
                 </a>
               </div>
@@ -212,7 +212,7 @@ Submitted at: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
       ? {
           from: `"Gradient Holistic Wellness Lounge" <${process.env.EMAIL_USER}>`,
           to: email,
-          subject: 'We received your message! - Gradient Wellness Lounge',
+          subject: 'We received your message! - Gradient Holictic Wellness Lounge',
           html: `
             <div style="background-color: #f8f5ee; padding: 30px 15px; font-family: 'Cormorant Garamond', serif, Arial, sans-serif; line-height: 1.6; color: #333333;">
               <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
@@ -258,7 +258,7 @@ Submitted at: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
 
                   <div style="margin-top: 40px; text-align: center;">
                     <p style="font-size:16px; color:#555;">For urgent inquiries, please reach us directly:</p>
-                    <a href="tel:+919500059260" style="background-color: #8a1111; color: #ffffff; display: inline-block; padding: 14px 30px; text-decoration: none; border-radius: 50px; font-weight: bold; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                    <a href="tel:+919500059260" style="background-color: #8a1111; color: #ffffff; display: inline-block; padding: 12px 25px; text-decoration: none; border-radius: 50px; font-weight: bold; text-transform: uppercase; font-size: 14px; letter-spacing: 0.5px; white-space: nowrap; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
                       Call +91 95000 59260
                     </a>
                   </div>
