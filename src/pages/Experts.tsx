@@ -47,13 +47,13 @@ const Experts = () => {
           icon: Trophy,
           title: 'ACHEIVEMENTS',
           features: [
-            {
-              name: '🏋🏽‍♂️ WEIGHTLIFTING',
-              description: 'Silver medalist at Junior Nationals; Bronze medalist at Interuniversity Championships.'
+             {
+              name: '🏅 ASIAN MASTER’S ATHLETIC CHAMPIONSHIPS (2025)',
+              description: 'Silver medalist in 400m (55.16s); Bronze medalist in 200m (23.88s)'
             },
             {
-              name: '🏅 ASIAN MASTER’S ATHLETIC CHAMPIONSHIPS',
-              description: 'Silver medalist in 400m (55.16s); Bronze medalist in 200m (23.88s)'
+              name: '🏋🏽‍♂️ WEIGHTLIFTING (2014)',
+              description: 'Silver medalist at Junior Nationals; Bronze medalist at Interuniversity Championships.'
             },
           ]
         }
