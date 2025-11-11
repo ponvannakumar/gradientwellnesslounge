@@ -250,7 +250,7 @@ const Contact = () => {
 
               Ready to start your wellness journey? Contact our expert team today
 
-              for a complimentary consultation and discover how we can help you
+              for a trial consultation and discover how we can help you
 
               achieve your health goals.
 
