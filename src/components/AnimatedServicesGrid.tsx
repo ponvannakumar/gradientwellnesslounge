@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface Service {
-  icon: React.ElementType;
+  avatar: string;
   title: string;
   description: string;
   link: string;
@@ -22,9 +22,7 @@ const AnimatedServicesGrid: React.FC<AnimatedServicesGridProps> = ({ services })
           style={{ minHeight: 320 }}
         >
           <div className="flex justify-center mb-6">
-            <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(90deg, #b91c1c 0%, #8a1111 88%, #111111 100%)' }}>
-              {React.createElement(service.icon, { size: 32, className: 'text-white' })}
-            </div>
+            <img src={service.avatar} alt={service.title} className="w-16 h-16 rounded-full object-cover" />
           </div>
           <h3 className="service-card-title gradient-text mb-4" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, color: '#b91c1c', whiteSpace: 'nowrap' }}>
             {service.title}

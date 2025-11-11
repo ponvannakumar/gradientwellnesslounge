@@ -38,39 +38,37 @@ const Home = () => {
 
   const services = [
     {
-      icon: Target,
+      avatar: '/serv1.jpg',
       title: 'NOT A USUAL GYM. NOT A CLINIC',
-      description: 'A Precision driven ecosystem for pain management and fitness.',
+      description: 'A Precision driven ecosystem for pain management and fitness.',
       link: '/services/personal-training',
     },
     {
-      icon: User,
+      avatar: '/pertrain.jpg',
       title: 'NO NOISES. NO CROWDS',
-
       description: 'One-One session with undivided attention in a peaceful ambience.',
       link: '/services/stress-management',
     },
     {
-      icon: Zap,
+      avatar: '/flash.jpg',
       title: 'NO FLASHY MODALITY',
       description: 'Exercise-only solution to restore strength and eliminate pain.',
       link: '/services/nutrition',
     },
-      {
-        icon: Utensils,
-        title: 'NO MUSCLE SACRIFICE',
-
-        description: 'Fat-loss solutions that are Evidence based & Sustainable.',
-        link: '/services/physiotherapy',
-      },
     {
-      icon: Dumbbell,
+      avatar: '/strenght.jpg',
+      title: 'NO MUSCLE SACRIFICE',
+      description: 'Fat-loss solutions that are Evidence based & Sustainable.',
+      link: '/services/physiotherapy',
+    },
+    {
+      avatar: '/plan.jpg',
       title: 'NO RANDOM OR GUESSWORK.',
       description: 'Every program is curated, based on assessment & clients goal.',
       link: '/services/stress-management',
     },
     {
-      icon: Activity,
+      avatar: '/metabolic.jpg',
       title: 'NO STACK OF PILLS',
       description: 'Science based protocols to reclaim control on Diabetes, Thyroid, PCOD, etc.',
       link: '/services/holistic-healing',
