@@ -150,7 +150,7 @@ const Home = () => {
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.8, delay: 0 }}
                   >
-                    <Link to="/contact" className="gradient-button btn-md w-full max-w-[15rem]" style={{ padding: '0.375rem 0.75rem', fontSize: '0.75rem', height: '2rem', lineHeight: 1 }}>
+                    <Link to="/services" className="gradient-button btn-md w-full max-w-[15rem]" style={{ padding: '0.375rem 0.75rem', fontSize: '0.75rem', height: '2rem', lineHeight: 1 }}>
                       Experience The Gradient Difference
                     </Link>
                   </motion.div>
